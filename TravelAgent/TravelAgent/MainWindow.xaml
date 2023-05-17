@@ -9,6 +9,6 @@
         xmlns:controls="clr-namespace:TravelAgent.view"
 >
     <Grid>
-        <controls:Login />
+        <controls:Registration />
     </Grid>
 </Window>
