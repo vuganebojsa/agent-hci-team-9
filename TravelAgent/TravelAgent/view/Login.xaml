@@ -41,7 +41,7 @@
                 <StackPanel Grid.Column="0">
                     
                     <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="30 30 50 10" FontSize="28" FontWeight="Bold">Ulogujte se</TextBlock>
-                    <TextBlock Name="ErrorHandler" TextWrapping="Wrap" Margin="20 2 20 6" FontSize="14px" Padding="10 10 30 10" Visibility="Hidden" Foreground="#FF105A87" Background="#FECFC5" Text="Molimo Vas popunite oba polja kako bi mogli da se prijavite"></TextBlock>
+                    <local:ErrorControl Margin="20 0 20 10" Visibility="Hidden"></local:ErrorControl>
 
                     <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu u polje ispod" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
                     <TextBox Name="emailTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>

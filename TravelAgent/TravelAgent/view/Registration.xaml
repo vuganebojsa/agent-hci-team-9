@@ -30,8 +30,7 @@
 
                 <StackPanel Grid.Row="0">
                     <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="28" FontWeight="Bold">Registrujte se</TextBlock>
-                    <TextBlock Name="ErrorHandler" TextWrapping="Wrap" Margin="20 0 20 0" FontSize="14px" Padding="10 10 30 10" Visibility="Visible" Foreground="#FF105A87" Background="#FECFC5" Text="Molimo Vas unesite email adresu u ispravnom formatu.
-Primer: perica@gmail.com"></TextBlock>
+                    <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden"></local:ErrorControl>
 
                 </StackPanel>
                 <Grid x:Name="mainGrid" Grid.Row="1">
