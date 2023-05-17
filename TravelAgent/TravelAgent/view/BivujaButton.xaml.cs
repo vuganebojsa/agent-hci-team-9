@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace TravelAgent
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BivujaButton.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BivujaButton : UserControl
     {
-        public MainWindow()
+        public BivujaButton()
         {
             InitializeComponent();
-            
         }
     }
 }
