@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TravelAgent"
              xmlns:other="clr-namespace:TravelAgent.view"
-             StartupUri="MainWindow.xaml">
+             >
+    <Application.MainWindow>
+        <other:Login Visibility="Visible" />
+    </Application.MainWindow>
     <Application.Resources>
          
     </Application.Resources>

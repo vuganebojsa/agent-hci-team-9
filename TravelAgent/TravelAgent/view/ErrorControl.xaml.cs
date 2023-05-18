@@ -24,5 +24,17 @@ namespace TravelAgent.view
         {
             InitializeComponent();
         }
+
+        private string errorText;
+
+        public string ErrorText
+        {
+            get { return errorText; }
+            set
+            {
+                errorText = value;
+                ErrorHandler.Text = errorText;
+            }
+        }
     }
 }

@@ -12,17 +12,36 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace TravelAgent.view
 {
     /// <summary>
     /// Interaction logic for Registration.xaml
     /// </summary>
-    public partial class Registration : UserControl
+    public partial class Registration : Window
     {
         public Registration()
         {
             InitializeComponent();
+        }
+        private string errorMessage;
+
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set
+            {
+                errorMessage = value;
+                
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow = new Login();
+
+            Application.Current.MainWindow.Show();
+            this.Close();
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TravelAgent.view.Registration"
+﻿<Window x:Class="TravelAgent.view.Registration"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TravelAgent.view"
              xmlns:travel="clr-namespace:TravelAgent"
              mc:Ignorable="d" 
-             d:DesignHeight="500" Background="White" d:DesignWidth="800">
+            Background="White" Width="800" Height="550">
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Top">
@@ -29,7 +29,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0">
-                    <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="28" FontWeight="Bold">Registrujte se</TextBlock>
+                    <TextBlock x:Name="tbRegistration" Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="28" FontWeight="Bold">Registrujte se</TextBlock>
                     <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden"></local:ErrorControl>
 
                 </StackPanel>
@@ -70,14 +70,24 @@
                 </Grid>
                 <Grid Grid.Row="2">
                     <WrapPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                        <travel:BivujaButton Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Potvrda"/>
+                        <Grid>
+                            <Button x:Name="btnAccept" Foreground="White" Background="#105A87" FontSize="16" Margin="10 16 10 0"  Width="150" Height="50">
+                                <TextBlock x:Name="tbAccept" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Prihvati"></TextBlock>
 
-                        <travel:BivujaButton Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Nazad"/>
+                            </Button>
+                        </Grid>
+                        <Grid>
+                            <Button x:Name="btnBack" Foreground="White" Background="#105A87" FontSize="16" Margin="10 16 10 0"  Width="150" Height="50" Click="btnBack_Click">
+                                <TextBlock x:Name="tbBack" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Nazad"></TextBlock>
 
+                            </Button>
+                        </Grid>
+                        
+                        
                     </WrapPanel>
                 </Grid>
             </Grid>
             
         </DockPanel>
     </Grid>
-</UserControl>
+</Window>

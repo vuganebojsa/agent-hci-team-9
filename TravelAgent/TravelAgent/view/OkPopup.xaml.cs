@@ -16,23 +16,17 @@ using System.Windows.Shapes;
 namespace TravelAgent.view
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for OkPopup.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class OkPopup : UserControl
     {
-        public Login()
+        public OkPopup()
         {
             InitializeComponent();
         }
 
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        private void BivujaButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
-            Application.Current.MainWindow = new Registration();
-
-            Application.Current.MainWindow.Show();
-            this.Close();
-
 
         }
     }

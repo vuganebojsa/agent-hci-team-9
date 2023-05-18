@@ -37,5 +37,22 @@ namespace TravelAgent
 
             }
         }
+        public static readonly RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent(
+        "Click",
+        RoutingStrategy.Bubble,
+        typeof(RoutedEventHandler),
+        typeof(BivujaButton));
+
+        public event RoutedEventHandler Click
+        {
+            add { AddHandler(ClickEvent, value); }
+            remove { RemoveHandler(ClickEvent, value); }
+        }
+        protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonUp(e);
+
+            RaiseEvent(new RoutedEventArgs(ClickEvent));
+        }
     }
 }

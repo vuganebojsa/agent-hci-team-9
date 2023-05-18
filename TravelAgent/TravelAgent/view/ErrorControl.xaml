@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
             >
     <Grid>
-        <TextBlock Name="ErrorHandler" TextWrapping="Wrap" FontSize="14px" Padding="10 10 30 10" Foreground="#FF105A87" Background="#FECFC5" Text="Molimo Vas unesite email adresu u ispravnom formatu.
-Primer: perica@gmail.com"></TextBlock>
+        <TextBlock Name="ErrorHandler" TextWrapping="Wrap" FontSize="14px" Padding="10 10 30 10" Foreground="#FF105A87" Background="#FECFC5" Text="{Binding ErrorText}"></TextBlock>
     </Grid>
 </UserControl>
