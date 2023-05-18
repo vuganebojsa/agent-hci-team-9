@@ -44,17 +44,17 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="0" Grid.Column="0">
                         <Label Name="nameLabel" FontSize="14px" Content="Unesite Vase ime" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <TextBox Name="nameTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <TextBox Name="emailTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1">
                         <Label Name="lastNameLabel" FontSize="14px" Content="Unesite Vase prezime" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <TextBox Name="lastNameTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1">
@@ -63,7 +63,8 @@
                                 
                             </TextBlock>
                         </Label>
-                        <PasswordBox Name="passwordTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></PasswordBox>
+                        <local:ClearablePasswordBox Margin="20 0 20 0 "/>
+
 
                     </StackPanel>
                 </Grid>

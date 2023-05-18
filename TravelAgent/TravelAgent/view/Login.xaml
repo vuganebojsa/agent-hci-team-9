@@ -33,7 +33,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="2">
                     <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="30 30 50 10" FontSize="20" FontWeight="DemiBold">Ukoliko nemate profil, pritisnite dugme ispod za registraciju</TextBlock>
-                    <travel:BivujaButton Width="auto" Height="50" Margin="50 20 50 0"/>
+                    <travel:BivujaButton Width="auto" Height="50" Margin="50 20 50 0" ButtonContent="Registracija"/>
                 </StackPanel>
                 <DockPanel Grid.Column="1">
                     <Label Background="#FF105A87" Margin="0 10 0 10"/>
@@ -44,11 +44,12 @@
                     <local:ErrorControl Margin="20 0 20 10" Visibility="Hidden"></local:ErrorControl>
 
                     <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu u polje ispod" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <TextBox Name="emailTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com"/>
+                    <!--<TextBox Name="emailTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>-->
                     <Label Name="passwordLabel" FontSize="14px" Content="Unesite Vasu lozinku u polje ispod" Margin="20 10 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <PasswordBox x:Name="passwordTextBox"  Margin="20 0 20 0" Foreground="Gray" Background="#E2F0FA" Padding="6" FontSize="14" PasswordChar="*"></PasswordBox>
-                    
-                    <travel:BivujaButton Margin="10 20 20 10" HorizontalAlignment="Right" Width="150" Height="50"/>
+                    <!--<PasswordBox x:Name="passwordTextBox"  Margin="20 0 20 0" Foreground="Gray" Background="#E2F0FA" Padding="6" FontSize="14" PasswordChar="*"></PasswordBox>-->
+                    <local:ClearablePasswordBox Margin="20 0 20 0"/>
+                    <travel:BivujaButton Margin="10 20 20 10" HorizontalAlignment="Right" Width="150" Height="50" ButtonContent="Potvrda"/>
 
                 </StackPanel>
             </Grid>
