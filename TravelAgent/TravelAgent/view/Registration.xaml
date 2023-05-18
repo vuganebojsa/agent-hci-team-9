@@ -70,8 +70,10 @@
                 </Grid>
                 <Grid Grid.Row="2">
                     <WrapPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                        <travel:BivujaButton Margin="10 16 10 0" Height="50" Width="150"/>
-                        <travel:BivujaButton  Margin="10 16 10 0" Height="50" Width="150"/>
+                        <travel:BivujaButton Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Potvrda"/>
+
+                        <travel:BivujaButton Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Nazad"/>
+
                     </WrapPanel>
                 </Grid>
             </Grid>

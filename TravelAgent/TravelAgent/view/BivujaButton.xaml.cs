@@ -12,25 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel;
 
 namespace TravelAgent
 {
     /// <summary>
     /// Interaction logic for BivujaButton.xaml
     /// </summary>
-    public partial class BivujaButton : UserControl, INotifyPropertyChanged
+    public partial class BivujaButton : UserControl
     {
         public BivujaButton()
         {
             InitializeComponent();
         }
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         private string buttonContent;
 
         public string ButtonContent
@@ -39,7 +33,7 @@ namespace TravelAgent
             set
             {
                 buttonContent = value;
-                OnPropertyChanged(nameof(ButtonContent));
+                tbBivuja.Text = buttonContent;
 
             }
         }
