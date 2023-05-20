@@ -32,6 +32,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1">
                     <travel:BivujaButton ButtonClicked="Register_ButtonClicked" Width="350" Height="50" Margin="10 45 10 0" ButtonContent="Registrujte se"/>
+                    
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <travel:BivujaButton ButtonClicked="Putovanja_ButtonClicked" Width="350" Height="50" Margin="10 30 10 0" ButtonContent="Ponuda putovanja"/>
