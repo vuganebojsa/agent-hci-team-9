@@ -22,6 +22,7 @@ namespace TravelAgent.view
     {
         public ClearablePasswordBox()
         {
+
             InitializeComponent();
         }
         private string placeholder;
@@ -35,6 +36,7 @@ namespace TravelAgent.view
                 tbPlaceholder.Text = placeholder;
             }
         }
+        
 
 
         private void btnClear_Click(object sender, RoutedEventArgs e)

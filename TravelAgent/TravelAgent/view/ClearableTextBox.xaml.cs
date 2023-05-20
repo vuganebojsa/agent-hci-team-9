@@ -34,6 +34,11 @@ namespace TravelAgent.view
                 tbPlaceholder.Text = placeholder;
             }
         }
+        public string Text
+        {
+            get { return txtInput.Text; }
+            set { txtInput.Text = value; }
+        }
 
 
         private void btnClear_Click(object sender, RoutedEventArgs e)

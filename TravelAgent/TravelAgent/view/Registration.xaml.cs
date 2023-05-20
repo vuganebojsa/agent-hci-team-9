@@ -36,13 +36,14 @@ namespace TravelAgent.view
         }
         private void Pocetna_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new StartWindow();
-
-            Application.Current.MainWindow.Show();
-            this.Close();
+            string textBoxName = ime.Text;
+            prezime.Text = textBoxName;
+            
+            
         }
         private void Prihvati_ButtonClicked(object sender, EventArgs e)
         {
+
             Application.Current.MainWindow = new Login();
 
             Application.Current.MainWindow.Show();

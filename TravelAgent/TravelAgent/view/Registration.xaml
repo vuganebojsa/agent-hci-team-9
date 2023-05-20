@@ -44,12 +44,12 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="0" Grid.Column="0">
                         <Label Name="nameLabel" FontSize="14px" Content="Unesite Vase ime" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera" x:Name="ime"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="prezime"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1">
