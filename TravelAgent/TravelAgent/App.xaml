@@ -5,7 +5,7 @@
              xmlns:other="clr-namespace:TravelAgent.view"
              >
     <Application.MainWindow>
-        <other:Login Visibility="Visible" />
+        <other:StartWindow Visibility="Visible" />
     </Application.MainWindow>
     <Application.Resources>
          
