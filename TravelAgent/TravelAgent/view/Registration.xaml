@@ -76,7 +76,7 @@
                             
                         </Grid>
                         <Grid>
-                            <travel:BivujaButton ButtonClicked="Nazad_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Nazad"/>
+                            <travel:BivujaButton ButtonClicked="Pocetna_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Pocetna"/>
                         </Grid>
                         
                         

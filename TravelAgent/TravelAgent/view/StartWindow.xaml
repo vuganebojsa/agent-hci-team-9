@@ -27,13 +27,11 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                
-                    <Grid>
-                        <travel:BivujaButton ButtonClicked="Login_ButtonClicked" Width="350" Height="50"  ButtonContent="Ulogujte se"/>
-                    </Grid>
+                <StackPanel Grid.Row="0">
+                    <travel:BivujaButton ButtonClicked="Login_ButtonClicked" Width="350" Height="50" Margin="10 60 10 20" ButtonContent="Ulogujte se"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1">
-                    <travel:BivujaButton ButtonClicked="Register_ButtonClicked" Width="350" Height="50" Margin="10 50 10 0" ButtonContent="Registrujte se"/>
+                    <travel:BivujaButton ButtonClicked="Register_ButtonClicked" Width="350" Height="50" Margin="10 45 10 0" ButtonContent="Registrujte se"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <travel:BivujaButton ButtonClicked="Putovanja_ButtonClicked" Width="350" Height="50" Margin="10 30 10 0" ButtonContent="Ponuda putovanja"/>

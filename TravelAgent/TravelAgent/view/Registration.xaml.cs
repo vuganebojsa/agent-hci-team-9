@@ -34,9 +34,9 @@ namespace TravelAgent.view
                 
             }
         }
-        private void Nazad_ButtonClicked(object sender, EventArgs e)
+        private void Pocetna_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new Login();
+            Application.Current.MainWindow = new StartWindow();
 
             Application.Current.MainWindow.Show();
             this.Close();

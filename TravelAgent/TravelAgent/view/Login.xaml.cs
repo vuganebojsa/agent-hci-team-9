@@ -32,15 +32,14 @@ namespace TravelAgent.view
             this.Close();
         }
 
-            private void btnRegister_Click(object sender, RoutedEventArgs e)
+        private void Pocetna_ButtonClicked(object sender, EventArgs e)
         {
-
-            Application.Current.MainWindow = new Registration();
+            Application.Current.MainWindow = new StartWindow();
 
             Application.Current.MainWindow.Show();
             this.Close();
-
-
         }
+
+
     }
 }

@@ -55,10 +55,16 @@
                     <local:ClearablePasswordBox Margin="20 0 20 0"/>
 
                     <Grid>
-                        <Button HorizontalAlignment="Right" x:Name="btnLogin" Foreground="White" Background="#105A87" FontSize="16" Margin="10 20 20 10"  Width="150" Height="50">
-                            <TextBlock x:Name="tbBivuja" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Potvrda"></TextBlock>
-
-                        </Button>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                        <travel:BivujaButton HorizontalAlignment="left" ButtonClicked="Pocetna_ButtonClicked" Width="150" Height="50" Margin="20 30 10 20" ButtonContent="Pocetna"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <travel:BivujaButton HorizontalAlignment="Right" Width="150" Height="50" Margin="0 30 20 20" ButtonContent="Potvrda"/>
+                        </StackPanel>
                     </Grid>
 
 
