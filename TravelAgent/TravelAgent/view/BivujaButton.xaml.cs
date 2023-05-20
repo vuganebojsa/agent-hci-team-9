@@ -15,11 +15,13 @@ using System.Windows.Shapes;
 
 namespace TravelAgent
 {
+
     /// <summary>
     /// Interaction logic for BivujaButton.xaml
     /// </summary>
     public partial class BivujaButton : UserControl
     {
+        public event EventHandler ButtonClicked;
         public BivujaButton()
         {
             InitializeComponent();
@@ -37,22 +39,9 @@ namespace TravelAgent
 
             }
         }
-        public static readonly RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent(
-        "Click",
-        RoutingStrategy.Bubble,
-        typeof(RoutedEventHandler),
-        typeof(BivujaButton));
-
-        public event RoutedEventHandler Click
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            add { AddHandler(ClickEvent, value); }
-            remove { RemoveHandler(ClickEvent, value); }
-        }
-        protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonUp(e);
-
-            RaiseEvent(new RoutedEventArgs(ClickEvent));
+            ButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -24,8 +24,15 @@ namespace TravelAgent.view
         {
             InitializeComponent();
         }
+        private void Registracija_ButtonClicked(object sender, EventArgs e)
+        {
+            Application.Current.MainWindow = new Registration();
 
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
+            Application.Current.MainWindow.Show();
+            this.Close();
+        }
+
+            private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
 
             Application.Current.MainWindow = new Registration();

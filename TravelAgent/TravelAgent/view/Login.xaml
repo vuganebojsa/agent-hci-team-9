@@ -34,10 +34,9 @@
                 <StackPanel Grid.Row="0" Grid.Column="2">
                     <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="30 30 50 10" FontSize="20" FontWeight="DemiBold">Ukoliko nemate profil, pritisnite dugme ispod za registraciju</TextBlock>
                     <Grid>
-                        <Button x:Name="btnRegister" Foreground="White" Background="#105A87" FontSize="16" Margin="10 20 20 10"  Width="150" Height="50" Click="btnRegister_Click">
-                            <TextBlock x:Name="tbRegister" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Registracija"></TextBlock>
+                        <travel:BivujaButton ButtonClicked="Registracija_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Registracija"/>
 
-                        </Button>
+                        
                     </Grid>
                 </StackPanel>
                 <DockPanel Grid.Column="1">

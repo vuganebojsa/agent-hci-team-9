@@ -34,14 +34,21 @@ namespace TravelAgent.view
                 
             }
         }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void Nazad_ButtonClicked(object sender, EventArgs e)
         {
             Application.Current.MainWindow = new Login();
 
             Application.Current.MainWindow.Show();
             this.Close();
-
         }
+        private void Prihvati_ButtonClicked(object sender, EventArgs e)
+        {
+            Application.Current.MainWindow = new Login();
+
+            Application.Current.MainWindow.Show();
+            this.Close();
+        }
+
+        
     }
 }

@@ -71,16 +71,12 @@
                 <Grid Grid.Row="2">
                     <WrapPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                         <Grid>
-                            <Button x:Name="btnAccept" Foreground="White" Background="#105A87" FontSize="16" Margin="10 16 10 0"  Width="150" Height="50">
-                                <TextBlock x:Name="tbAccept" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Prihvati"></TextBlock>
+                            <travel:BivujaButton ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati"/>
 
-                            </Button>
+                            
                         </Grid>
                         <Grid>
-                            <Button x:Name="btnBack" Foreground="White" Background="#105A87" FontSize="16" Margin="10 16 10 0"  Width="150" Height="50" Click="btnBack_Click">
-                                <TextBlock x:Name="tbBack" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Nazad"></TextBlock>
-
-                            </Button>
+                            <travel:BivujaButton ButtonClicked="Nazad_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Nazad"/>
                         </Grid>
                         
                         
