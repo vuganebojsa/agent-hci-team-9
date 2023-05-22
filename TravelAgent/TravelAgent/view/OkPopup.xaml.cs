@@ -22,9 +22,20 @@ namespace TravelAgent.view
     {
         public OkPopup()
         {
+         
             InitializeComponent();
         }
+        private string okText;
 
+        public string OkText
+        {
+            get { return okText; }
+            set
+            {
+                okText = value;
+                poruka.Text = okText;
+            }
+        }
         private void BivujaButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 

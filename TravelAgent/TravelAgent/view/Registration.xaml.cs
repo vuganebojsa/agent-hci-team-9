@@ -36,8 +36,11 @@ namespace TravelAgent.view
         }
         private void Pocetna_ButtonClicked(object sender, EventArgs e)
         {
-            string textBoxName = ime.Text;
-            prezime.Text = textBoxName;
+
+            Application.Current.MainWindow = new StartWindow();
+
+            Application.Current.MainWindow.Show();
+            this.Close();
             
             
         }

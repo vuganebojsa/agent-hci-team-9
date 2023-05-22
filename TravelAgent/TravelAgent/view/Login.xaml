@@ -45,14 +45,14 @@
                 <StackPanel Grid.Column="0">
                     
                     <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="30 30 50 10" FontSize="28" FontWeight="Bold">Ulogujte se</TextBlock>
-                    <local:ErrorControl Margin="20 0 20 10" Visibility="Hidden"></local:ErrorControl>
+                    <local:ErrorControl Margin="20 0 20 10" Visibility="Hidden" x:Name="errorControl"></local:ErrorControl>
 
                     <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu u polje ispod" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com"/>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="tbEmail"/>
                     <!--<TextBox Name="emailTextBox"  Margin="20 0 20 0" Foreground="Gray" Padding="6" Background="#E2F0FA" FontSize="14"></TextBox>-->
                     <Label Name="passwordLabel" FontSize="14px" Content="Unesite Vasu lozinku u polje ispod" Margin="20 10 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
                     <!--<PasswordBox x:Name="passwordTextBox"  Margin="20 0 20 0" Foreground="Gray" Background="#E2F0FA" Padding="6" FontSize="14" PasswordChar="*"></PasswordBox>-->
-                    <local:ClearablePasswordBox Margin="20 0 20 0"/>
+                    <local:ClearablePasswordBox Margin="20 0 20 0" x:Name="lozinka"/>
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -63,7 +63,7 @@
                         <travel:BivujaButton HorizontalAlignment="left" ButtonClicked="Pocetna_ButtonClicked" Width="150" Height="50" Margin="20 30 10 20" ButtonContent="Pocetna"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <travel:BivujaButton HorizontalAlignment="Right" Width="150" Height="50" Margin="0 30 20 20" ButtonContent="Potvrda"/>
+                            <travel:BivujaButton HorizontalAlignment="Right" Width="150" Height="50" Margin="0 30 20 20" ButtonContent="Potvrda" ButtonClicked="BivujaButton_ButtonClicked"/>
                         </StackPanel>
                     </Grid>
 

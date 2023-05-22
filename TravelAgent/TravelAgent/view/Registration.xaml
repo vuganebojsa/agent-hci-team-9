@@ -49,12 +49,12 @@
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="prezime"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="email"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1">
                         <Label Name="lastNameLabel" FontSize="14px" Content="Unesite Vase prezime" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric" x:Name="prezime"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1">
@@ -63,7 +63,7 @@
                                 
                             </TextBlock>
                         </Label>
-                        <local:ClearablePasswordBox Margin="20 0 20 0 "/>
+                        <local:ClearablePasswordBox Margin="20 0 20 0 " x:Name="lozinka"/>
 
 
                     </StackPanel>

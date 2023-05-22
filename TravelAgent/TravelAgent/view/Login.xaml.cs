@@ -40,6 +40,24 @@ namespace TravelAgent.view
             this.Close();
         }
 
+        private void BivujaButton_ButtonClicked(object sender, EventArgs e)
+        {
 
+            String email = tbEmail.Text;
+            String password = lozinka.Text;
+            //errorControl.ErrorText = "Uneti email ili lozinka nisu ispravni. Molimo Vas pokusajte ponovo.";
+
+            if (email.Trim() == "" || password.Trim() == "")
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorText = "Molimo Vas popunite oba polja kako bi mogli da se prijavite.";
+            }
+            else
+            {
+                errorControl.Visibility = Visibility.Hidden;
+
+            }
+
+        }
     }
 }

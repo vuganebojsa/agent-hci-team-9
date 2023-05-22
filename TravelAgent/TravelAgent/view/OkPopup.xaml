@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="400">
     <Grid Background="#4889B1">
         <StackPanel>
-            <TextBlock Foreground="White" Text="Uspesno ste se registrovali." VerticalAlignment="Center" HorizontalAlignment="Center"
+            <TextBlock x:Name="poruka" Foreground="White" Text="{Binding OkText}" VerticalAlignment="Center" HorizontalAlignment="Center"
                        Margin="10 90 10 60" FontSize="32" TextWrapping="Wrap"/>
             <travel:BivujaButton ButtonContent="Ok" Width="150" Height="50" MouseLeftButtonDown="BivujaButton_MouseLeftButtonDown"/>
 

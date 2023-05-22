@@ -16,9 +16,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Content="BIVUJA AGENT ZA PUTOVANJE" DockPanel.Dock="Top" MinHeight="100px"
+                <Label  DockPanel.Dock="Top" MinHeight="100px" 
                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                   Padding="0 20px 0  20px" Background="#FF105A87" Foreground="White" FontSize="28" FontWeight="Bold" FontStretch="Normal"/>
+                   Padding="0 20px 0  20px" Background="#FF105A87" Foreground="White" FontSize="28" FontWeight="Bold" FontStretch="Normal">
+                    <TextBlock TextWrapping="Wrap" Text="BIVUJA AGENT ZA PUTOVANJE">
+                        
+                    </TextBlock>
+                </Label>
             </Grid>
             <Grid>
                 <Grid.RowDefinitions>
