@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelAgent.Model;
 using TravelAgent.services;
 
 namespace TravelAgent.view
@@ -48,13 +49,13 @@ namespace TravelAgent.view
             String email = tbEmail.Text;
             String password = lozinka.Text;
             // errorControl.ErrorText = "Uneti email ili lozinka nisu ispravni. Molimo Vas pokusajte ponovo.";
-
+            User user = FileService.getUserByEmailAndPassword(email, password);
             if (email.Trim() == "" || password.Trim() == "")
             {
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorText = "Molimo Vas popunite oba polja kako bi mogli da se prijavite.";
             }
-            else if(FileService.getUserByEmailAndPassword(email, password) == null)
+            else if(user == null)
             {
                 errorControl.Visibility = Visibility.Visible;
 

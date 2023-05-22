@@ -1,0 +1,24 @@
+﻿<Window x:Class="TravelAgent.view.UserPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelAgent.view"
+        mc:Ignorable="d"
+        Title="UserPage" Height="550" Width="800">
+    <Grid Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <local:SideNavigation Grid.Column="0"/>
+            <DockPanel Grid.Column="1">
+                <local:TopNavigation x:Name="topNav" DockPanel.Dock="Top" MaxHeight="200" ButtonClicked="topNav_ButtonClicked" HeaderText="Pregled svih putovanja"/>
+                <Button Content="Blatruc"/>
+            </DockPanel>
+            
+        </Grid>
+        
+    </Grid>
+</Window>
