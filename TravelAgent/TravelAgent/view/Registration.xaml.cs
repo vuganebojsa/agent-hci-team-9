@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelAgent.services;
+using System.Text.RegularExpressions;
+
 namespace TravelAgent.view
 {
     /// <summary>
@@ -46,11 +49,39 @@ namespace TravelAgent.view
         }
         private void Prihvati_ButtonClicked(object sender, EventArgs e)
         {
+            String name = ime.Text;
+            String surname = prezime.Text;
+            String email = tbEmail.Text;
+            String password = lozinka.Text;
+            string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+            
 
-            Application.Current.MainWindow = new Login();
+            if (name.Trim() == "" || surname.Trim() == "" || email.Trim() == "" || password.Trim() == "")
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorText = "Molimo Vas popunite sva polja. Da bismo Vas uspesno registrovali morate uneti sve podatke.";
+            }
 
-            Application.Current.MainWindow.Show();
-            this.Close();
+            else if (!Regex.IsMatch(email, pattern))
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorText = "Molimo Vas unesite email adresu u ispravnom formatu. Primer: perica@gmail.com";
+            }else if(password.Length < 6)
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorText = "Molimo Vas unesite lozinku od minimalno 6 karaktera. Primer: Perica123";
+            }
+            else
+            {
+                FileService.registerUser(name, surname, email, password);
+                Application.Current.MainWindow = new Login();
+
+                Application.Current.MainWindow.Show();
+                this.Close();
+
+            }
+
+            
         }
 
         

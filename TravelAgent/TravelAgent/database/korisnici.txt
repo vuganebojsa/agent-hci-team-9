@@ -1,0 +1,5 @@
+id;ime;prezime;email;lozinka;uloga
+1;Petar;Pavlovic;pera@gmail.com;Perica123;USER
+2;Mirko;Cemes;mirko@gmail.com;Mirko123;AGENT
+3;Marko;Markovic;marko@gmail.com;Marko123;USER
+4;Nemanja;Janic;nemanja@gmail.com;Nemanja123;USER

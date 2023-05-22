@@ -30,7 +30,7 @@
 
                 <StackPanel Grid.Row="0">
                     <TextBlock x:Name="tbRegistration" Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="28" FontWeight="Bold">Registrujte se</TextBlock>
-                    <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden"></local:ErrorControl>
+                    <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden" x:Name="errorControl"></local:ErrorControl>
 
                 </StackPanel>
                 <Grid x:Name="mainGrid" Grid.Row="1">
@@ -49,7 +49,7 @@
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="email"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="tbEmail"/>
 
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1">
