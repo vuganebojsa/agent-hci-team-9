@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TravelAgent.view"
              xmlns:travel="clr-namespace:TravelAgent"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="400">
+             d:DesignHeight="300" d:DesignWidth="350" WindowStyle="None"  Title="BIVUJA" MinWidth="350" MinHeight="300" MaxWidth="350" MaxHeight="350">
     <Grid Background="#4889B1">
         <Grid>
             <Grid.RowDefinitions>
@@ -14,8 +14,8 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" x:Name="poruka" Foreground="White" Text="{Binding OkText}" VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Margin="10 90 10 60" FontSize="24" TextWrapping="Wrap"/>
-            <travel:BivujaButton Grid.Row="1" ButtonContent="Ok" Width="150" Height="50" MouseLeftButtonDown="BivujaButton_MouseLeftButtonDown"/>
+                       Margin="10 40 10 10" FontSize="24" TextWrapping="Wrap"/>
+            <travel:BivujaButton Grid.Row="1" ButtonContent="Ok" Width="150" Height="50" ButtonClicked="BivujaButton_ButtonClicked"/>
 
         </Grid>
     </Grid>

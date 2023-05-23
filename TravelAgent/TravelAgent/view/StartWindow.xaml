@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TravelAgent.view"
         xmlns:travel="clr-namespace:TravelAgent"
         mc:Ignorable="d"
-        Background="White" Width="800" Height="550"  MinWidth="500" MinHeight="550">
+        Background="White" Width="800" Height="550"  MinWidth="500" MinHeight="550"
+        Closing="Window_Closing">
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Top">
