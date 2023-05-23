@@ -70,7 +70,9 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked(object sender, EventArgs e)
         {
-
+            UserControl control = new TripsManagment();
+            MainContent.Content = null;
+            MainContent.Content = control;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)
