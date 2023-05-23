@@ -27,5 +27,20 @@ namespace TravelAgent.view
             btnQuestion.btnSideNav.HorizontalContentAlignment = HorizontalAlignment.Center;
 
         }
+
+        public event EventHandler ButtonRezervisaniClicked;
+
+        private void NavigationButton_ButtonClicked(object sender, EventArgs e)
+        {
+            ButtonRezervisaniClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler ButtonPregledClicked;
+
+        private void btnPregled_ButtonClicked(object sender, EventArgs e)
+        {
+            ButtonPregledClicked?.Invoke(this, EventArgs.Empty);
+
+        }
     }
 }

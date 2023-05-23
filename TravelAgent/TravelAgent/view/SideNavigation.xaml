@@ -10,8 +10,8 @@
         <StackPanel>
             <TextBlock Text="BIVUJA AGENT ZA PUTOVANJE" TextWrapping="Wrap" FontWeight="DemiBold" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="10 4 30 20"/>
 
-            <local:NavigationButton ButtonContent="Pregled svih putovanja" Margin="2 2 2 2"/>
-            <local:NavigationButton ButtonContent="Pregled rezervisanih putovanja" Margin="2 2 2 2"/>
+            <local:NavigationButton x:Name="btnPregled" ButtonContent="Pregled svih putovanja" Margin="2 2 2 2" ButtonClicked="btnPregled_ButtonClicked"/>
+            <local:NavigationButton x:Name="btnRezervisani" ButtonContent="Pregled rezervisanih putovanja" Margin="2 2 2 2" ButtonClicked="NavigationButton_ButtonClicked"/>
             
         </StackPanel>
         <local:NavigationButton x:Name="btnQuestion" ButtonContent="?" Margin="15 15 15 15" VerticalAlignment="Bottom"/>

@@ -53,6 +53,16 @@ namespace TravelAgent.view
             Application.Current.MainWindow.Show();
             this.Close();
         }
+
+        private void SideNavigation_ButtonPregledClicked(object sender, EventArgs e)
+        {
+            topNav_ButtonClicked(sender, e);
+        }
+
+        private void SideNavigation_ButtonRezervisaniClicked(object sender, EventArgs e)
+        {
+
+        }
     }
   
 

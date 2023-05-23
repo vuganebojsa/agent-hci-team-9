@@ -15,7 +15,7 @@
             <local:SideNavigationAgent Grid.Column="0"/>
             <DockPanel Grid.Column="1">
                 <local:TopNavigation x:Name="topNav" DockPanel.Dock="Top" MaxHeight="200" ButtonClicked="topNav_ButtonClicked" HeaderText="Pregled svih putovanja"/>
-                <Button Content="Blatruc"/>
+                <ContentControl x:Name="MainContent"/>
             </DockPanel>
 
         </Grid>
