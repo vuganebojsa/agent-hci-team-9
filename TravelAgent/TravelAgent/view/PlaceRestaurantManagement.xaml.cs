@@ -124,5 +124,23 @@ namespace TravelAgent.view
                  CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
             }
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String text = tbSearch.Text.ToLower().Trim();
+            if (text == "")
+            {
+                this.placesRestaurants = FileService.getPlacesAndRestaurants();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.placesRestaurants;
+                return;
+            }
+            var newVals = SearchService.getPlaceRestaurantsByKeyword(text, this.placesRestaurants);
+            this.placesRestaurants = newVals;
+            TableDataGrid.ItemsSource = null;
+            TableDataGrid.ItemsSource = this.placesRestaurants;
+
+
+        }
     }
 }
