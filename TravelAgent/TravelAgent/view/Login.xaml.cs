@@ -27,6 +27,7 @@ namespace TravelAgent.view
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             InitializeComponent();
+            tbEmail.txtInput.Focus();
         }
         private void Registracija_ButtonClicked(object sender, EventArgs e)
         {
@@ -79,7 +80,32 @@ namespace TravelAgent.view
             {
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorText = "Success";
-                // do rest logic
+
+                double left = Left;
+                double top = Top;
+
+                if(user.role == Role.AGENT)
+                {
+                    AdminPage sw = new AdminPage();
+
+                    sw.Left = left;
+                    sw.Top = top;
+
+                    Application.Current.MainWindow = sw;
+                    Application.Current.MainWindow.Show();
+                }
+                else
+                {
+                    UserPage sw = new UserPage();
+
+                    sw.Left = left;
+                    sw.Top = top;
+
+                    Application.Current.MainWindow = sw;
+                    Application.Current.MainWindow.Show();
+                }
+               
+                this.Close();
 
             }
             

@@ -23,6 +23,8 @@ namespace TravelAgent.view
         public SideNavigationAgent()
         {
             InitializeComponent();
+            question.btnSideNav.HorizontalContentAlignment = HorizontalAlignment.Center;
+
         }
     }
 }

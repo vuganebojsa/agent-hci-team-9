@@ -14,7 +14,7 @@
             <local:NavigationButton ButtonContent="Pregled rezervisanih putovanja" Margin="2 2 2 2"/>
             
         </StackPanel>
-        <local:NavigationButton ButtonContent="?" Margin="15 15 15 15" VerticalAlignment="Bottom"/>
+        <local:NavigationButton x:Name="btnQuestion" ButtonContent="?" Margin="15 15 15 15" VerticalAlignment="Bottom"/>
 
     </Grid>
 </UserControl>

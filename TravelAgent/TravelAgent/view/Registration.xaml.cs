@@ -25,6 +25,8 @@ namespace TravelAgent.view
         public Registration()
         {
             InitializeComponent();
+            ime.txtInput.Focus();
+
         }
         private string errorMessage;
 

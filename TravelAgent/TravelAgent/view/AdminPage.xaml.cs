@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace TravelAgent.view
 {
     /// <summary>
-    /// Interaction logic for UserPage.xaml
+    /// Interaction logic for AdminPage.xaml
     /// </summary>
-    public partial class UserPage : Window
+    public partial class AdminPage : Window
     {
-        public UserPage()
+        public AdminPage()
         {
 
+           
             InitializeComponent();
             SelectedText = "Pregled svih putovanja";
-
         }
 
         private string selectedText;
@@ -44,6 +44,4 @@ namespace TravelAgent.view
 
         }
     }
-  
-
 }

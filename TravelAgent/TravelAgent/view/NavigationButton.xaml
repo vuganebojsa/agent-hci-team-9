@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="250">
     <Grid>
-        <Button x:Name="btnSideNav" Click="btnSideNav_Click" Background="Transparent"  BorderBrush="White" BorderThickness="2" Padding="10 15 10 15">
+        <Button x:Name="btnSideNav" Click="btnSideNav_Click" Background="Transparent"  BorderBrush="White" BorderThickness="2" Padding="10 10 10 10" HorizontalContentAlignment="Left">
             <TextBlock x:Name="tbBtnNav" Text="{Binding ButtonContent}" TextWrapping="Wrap" FontSize="16" Foreground="White" FontWeight="Medium"/>
         </Button>
         
