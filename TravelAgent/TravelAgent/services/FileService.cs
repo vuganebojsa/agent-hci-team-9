@@ -12,7 +12,8 @@ namespace TravelAgent.services
     {
 
         private static string filePathUsers = "../../../database/korisnici.txt";
-        private static string filePathBookedTrips = "../../../database/putovanja.txt";
+        private static string filePathAllTrips = "../../../database/putovanja.txt";
+        private static string filePathBookedTrips = "../../../database/rezervisana_putovanja.txt";
 
 
         public static User getUserByEmailAndPassword(String email, String password)
@@ -75,7 +76,7 @@ namespace TravelAgent.services
         public static List<Trip> getAllTrips()
         {
             List<Trip> trips = new List<Trip>();
-            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
             {
                 string line;
                 //id;ime;prezime;email;lozinka;uloga
@@ -85,7 +86,7 @@ namespace TravelAgent.services
                     String[] info = line.Split(";");
                     DateTime dateTime = DateTime.Parse(info[3]);
                     DateTime startDateOnly = dateTime.Date;
-                    dateTime = DateTime.Parse(info[3]);
+                    dateTime = DateTime.Parse(info[4]);
                     DateTime endDateOnly = dateTime.Date;
                     Console.WriteLine(endDateOnly);
 
@@ -97,6 +98,48 @@ namespace TravelAgent.services
             }
             return trips;
         }
+        public static List<Trip> getAllTripsByUserId(long userId)
+        {
+            List<Trip> trips = new List<Trip>();
+            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    if (long.Parse(info[1])==userId)
+                    {
+                        using (StreamReader sr2 = new StreamReader(filePathAllTrips))
+                        {
+                            string lineOfTrips;
+                            lineOfTrips = sr2.ReadLine();
+                            while ((lineOfTrips = sr2.ReadLine()) != null)
+                            {
+                                String[] infoTrips = lineOfTrips.Split(";");
+                                if (long.Parse(info[0]) == long.Parse(infoTrips[0])){
+                                    DateTime dateTime = DateTime.Parse(infoTrips[3]);
+                                    DateTime startDateOnly = dateTime.Date;
+                                    dateTime = DateTime.Parse(infoTrips[4]);
+                                    DateTime endDateOnly = dateTime.Date;
+                                    trips.Add(
+                        new Trip(
+                            long.Parse(infoTrips[0]), infoTrips[1], double.Parse(infoTrips[2]), startDateOnly, endDateOnly));
+                                }
+                            }
+                            }
+                        }
+
+                    }
+                  
+                }
+            return trips;
+        }
+            
+        }
+
+
 
     }
-}
+
