@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Height="70" Width="100" Background="#105A87">
 
-    <Button Click="Button_Click" x:Name="btnBivuja" Foreground="White" Background="#105A87" FontSize="16">
+    <Button Click="Button_Click" x:Name="btnBivuja" Foreground="White" Background="#105A87" FontSize="16" BorderBrush="White" BorderThickness="1"> 
         <TextBlock x:Name="tbBivuja" Text="{Binding ButtonContent}"></TextBlock>
 
     </Button>

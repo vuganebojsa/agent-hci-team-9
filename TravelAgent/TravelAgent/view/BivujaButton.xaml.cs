@@ -21,7 +21,7 @@ namespace TravelAgent
     /// </summary>
     public partial class BivujaButton : UserControl
     {
-        public event EventHandler ButtonClicked;
+        
         public BivujaButton()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace TravelAgent
 
             }
         }
+        public event EventHandler ButtonClicked;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ButtonClicked?.Invoke(this, EventArgs.Empty);
