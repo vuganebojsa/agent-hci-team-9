@@ -74,11 +74,13 @@ namespace TravelAgent.view
             double top = Window.GetWindow(this).Top;
             AddPlaceRestaurantPopup ap = new AddPlaceRestaurantPopup();
             ap.Left = left + width / 2 - 100;
-            ap.Top = top + height / 2 - 100;
+            ap.Top = top + height / 2 - 150;
 
             if(ap.ShowDialog() == true)
             {
+                
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
+                
                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
             }
         }

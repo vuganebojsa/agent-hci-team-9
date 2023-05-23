@@ -66,11 +66,26 @@ namespace TravelAgent.view
 
         private void btnSave_ButtonClicked(object sender, EventArgs e)
         {
-
+            if(cbType.Text.Trim() == "")
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
+                
+                return;
+            }
             Vrsta type = (Vrsta)Enum.Parse(typeof(Vrsta), cbType.Text);
             String name = tbNaziv.Text.Trim();
             String mesto = tbMesto.Text.Trim();
 
+            if(name == "" || mesto == "")
+            {
+
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
+                return;
+            }
+
+            errorControl.Visibility = Visibility.Hidden;
 
             PlaceRestaurant pr = new PlaceRestaurant();
             pr.Naziv = name;
@@ -98,6 +113,7 @@ namespace TravelAgent.view
                         p.vrsta = type;
                         p.Naziv = name;
                         p.Adresa = mesto;
+                        PlaceRestaurant = p;
                         break;
                     }
                 }

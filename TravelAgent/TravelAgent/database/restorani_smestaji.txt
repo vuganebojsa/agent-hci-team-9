@@ -4,3 +4,4 @@ id;naziv;mesto;tip
 3;Mesni Narezak;Rokovica 13, Novi Sad;Restoran
 4;Robosavic;Juric 15, Novi Sad;Smestaj
 5;Nesto;Nesto123;Smestaj
+6;Blatruc;Blatrucina;Smestaj
