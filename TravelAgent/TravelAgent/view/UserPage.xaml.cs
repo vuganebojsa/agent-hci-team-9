@@ -41,17 +41,25 @@ namespace TravelAgent.view
 
         private void topNav_ButtonClicked(object sender, EventArgs e)
         {
-            Login login = new Login();
 
-            double left = Left;
-            double top = Top;
+            YesNoPopup yn = new YesNoPopup("Da li ste sigurni da zelite da se izlogujete? Ovom akcijom cete biti prebaceni na ekran za logovanje.");
+            yn.Left = Left + this.Width / 2 - 100;
+            yn.Top = Top + this.Height / 2 - 100;
+            if (yn.ShowDialog() == true)
+            {
+                Login login = new Login();
 
-            login.Left = left;
-            login.Top = top;
+                double left = Left;
+                double top = Top;
 
-            Application.Current.MainWindow = login;
-            Application.Current.MainWindow.Show();
-            this.Close();
+                login.Left = left;
+                login.Top = top;
+
+                Application.Current.MainWindow = login;
+                Application.Current.MainWindow.Show();
+                this.Close();
+            }
+           
         }
 
         private void SideNavigation_ButtonPregledClicked(object sender, EventArgs e)

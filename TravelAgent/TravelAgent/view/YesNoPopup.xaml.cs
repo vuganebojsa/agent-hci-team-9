@@ -50,12 +50,14 @@ namespace TravelAgent.view
 
         private void btnNo_ButtonClicked(object sender, EventArgs e)
         {
+            this.DialogResult = false;
             ButtonNoClicked?.Invoke(this, EventArgs.Empty);
 
         }
 
         private void btnYes_ButtonClicked(object sender, EventArgs e)
         {
+            this.DialogResult = true;
             ButtonYesClicked?.Invoke(this, EventArgs.Empty);
 
         }

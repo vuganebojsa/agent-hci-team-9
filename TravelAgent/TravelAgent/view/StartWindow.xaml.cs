@@ -59,5 +59,17 @@ namespace TravelAgent.view
             Application.Current.MainWindow.Show();
             this.Close();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+           /* YesNoPopup yn = new YesNoPopup("Izlaz?\nKlikom na dugme Da izlazite iz aplikacije, dok na dugme Ne ostajete u njoj.");
+            yn.Left = Left + this.Width / 2 - 100;
+            yn.Top = Top + this.Height / 2 - 100;
+            if (yn.ShowDialog() != true)
+            {
+                e.Cancel = true;
+            }*/
+
+        }
     }
 }

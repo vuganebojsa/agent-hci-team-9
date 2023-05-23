@@ -85,17 +85,26 @@ namespace TravelAgent.view
             else
             {
                 FileService.registerUser(name, surname, email, password);
-                Login login = new Login();
 
                 double left = Left;
                 double top = Top;
 
-                login.Left = left;
-                login.Top = top;
+                OkPopup ok = new OkPopup("Uspesno ste se registrovali.");
+                ok.Left = left + this.Width/2 - 100;
+                ok.Top = top + this.Height/2 - 100;
+                if(ok.ShowDialog() == true)
+                {
+                    Login login = new Login();
 
-                Application.Current.MainWindow = login;
-                Application.Current.MainWindow.Show();
-                this.Close();
+                   
+                    login.Left = left;
+                    login.Top = top;
+
+                    Application.Current.MainWindow = login;
+                    Application.Current.MainWindow.Show();
+                    this.Close();
+                }
+               
 
             }
 

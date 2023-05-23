@@ -41,9 +41,10 @@ namespace TravelAgent.view
                 poruka.Text = okText;
             }
         }
-        private void BivujaButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
 
+        private void BivujaButton_ButtonClicked(object sender, EventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }
