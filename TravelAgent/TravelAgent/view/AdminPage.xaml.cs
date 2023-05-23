@@ -45,6 +45,7 @@ namespace TravelAgent.view
             YesNoPopup yn = new YesNoPopup("Da li ste sigurni da zelite da se izlogujete? Ovom akcijom cete biti prebaceni na ekran za logovanje.");
             yn.Left = Left + this.Width / 2 - 100;
             yn.Top = Top + this.Height / 2 - 100;
+            
             if (yn.ShowDialog() == true)
             {
                 Login login = new Login();
@@ -75,7 +76,11 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)
         {
-
+            UserControl control = new PlaceRestaurantManagement();
+            MainContent.Content = null;
+            topNav.HeaderText = "Upravljanje Smestajem i restoranima";
+            // Set the newly created user control as the content of the container
+            MainContent.Content = control;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeTuristickimAtrakcijama(object sender, EventArgs e)

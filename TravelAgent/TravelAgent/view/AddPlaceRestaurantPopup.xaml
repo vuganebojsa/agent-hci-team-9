@@ -1,0 +1,68 @@
+﻿<Window x:Class="TravelAgent.view.AddPlaceRestaurantPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgent.view"
+             xmlns:travel="clr-namespace:TravelAgent"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="450" WindowStyle="None" MaxWidth="450" MaxHeight="600">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock x:Name="tbRegistration" Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="32" FontWeight="Bold">Dodajte Smestaj ili Restoran</TextBlock>
+            <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden" x:Name="errorControl"></local:ErrorControl>
+        </StackPanel>
+        <Grid x:Name="mainGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" >
+                <Label Name="typeLabel" FontSize="14px" Content="Izaberite tip" Margin="20 0 20 0" Foreground="#FF105A87" FontWeight="DemiBold"/>
+                <ComboBox Margin="20 0 20 0 " x:Name="cbType" Padding="10">
+                    <ComboBoxItem Content="" IsSelected="True"></ComboBoxItem>
+                    <ComboBoxItem Content="Smestaj" IsSelected="False"></ComboBoxItem>
+                    <ComboBoxItem Content="Restoran" IsSelected="False"></ComboBoxItem>
+                   
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Label Name="nameLabel" FontSize="14px" Content="Unesite naziv" Margin="20 0 20 0" Foreground="#FF105A87" FontWeight="DemiBold"/>
+                <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Bakina kantina" x:Name="tbNaziv"/>
+
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <Label Name="emailLabel" FontSize="14px" Content="Unesite mesto" Margin="20 0 20 0" Foreground="#FF105A87" FontWeight="DemiBold"/>
+                <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Smederevo" x:Name="tbMesto"/>
+
+
+
+            </StackPanel>
+        </Grid>
+
+        <StackPanel VerticalAlignment="Bottom" Grid.Row="2">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <travel:BivujaButton  x:Name="btnCancel" HorizontalAlignment="left" Width="150" Height="50" Margin="20 30 10 20" ButtonContent="Otkazite" ButtonClicked="btnCancel_ButtonClicked"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <travel:BivujaButton x:Name="btnSave"  HorizontalAlignment="Right" Width="150" Height="50" Margin="0 30 20 20" ButtonContent="Sacuvajte" ButtonClicked="btnSave_ButtonClicked"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>
