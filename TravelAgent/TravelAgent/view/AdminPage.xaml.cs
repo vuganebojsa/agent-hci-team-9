@@ -75,7 +75,11 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)
         {
-
+            UserControl control = new PlaceRestaurantManagement();
+            MainContent.Content = null;
+            topNav.HeaderText = "Upravljanje Smestajem i restoranima";
+            // Set the newly created user control as the content of the container
+            MainContent.Content = control;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeTuristickimAtrakcijama(object sender, EventArgs e)
