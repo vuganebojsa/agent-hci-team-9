@@ -18,11 +18,15 @@ namespace TravelAgent.view
     /// <summary>
     /// Interaction logic for OkPopup.xaml
     /// </summary>
-    public partial class OkPopup : UserControl
+    public partial class OkPopup : Window
     {
         public OkPopup()
         {
-         
+            InitializeComponent();
+        }
+        public OkPopup(String text)
+        {
+            this.OkText = text;
             InitializeComponent();
         }
         private string okText;

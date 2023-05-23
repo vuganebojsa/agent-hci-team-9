@@ -40,7 +40,16 @@ namespace TravelAgent.view
         private void Pocetna_ButtonClicked(object sender, EventArgs e)
         {
 
-            Application.Current.MainWindow = new StartWindow();
+
+            StartWindow sw = new StartWindow();
+
+            double left = Left;
+            double top = Top;
+
+            sw.Left = left;
+            sw.Top = top;
+
+            Application.Current.MainWindow = sw;
 
             Application.Current.MainWindow.Show();
             this.Close();
@@ -74,8 +83,15 @@ namespace TravelAgent.view
             else
             {
                 FileService.registerUser(name, surname, email, password);
-                Application.Current.MainWindow = new Login();
+                Login login = new Login();
 
+                double left = Left;
+                double top = Top;
+
+                login.Left = left;
+                login.Top = top;
+
+                Application.Current.MainWindow = login;
                 Application.Current.MainWindow.Show();
                 this.Close();
 

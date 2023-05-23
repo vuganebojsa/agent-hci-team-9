@@ -23,6 +23,7 @@ namespace TravelAgent.view
         {
 
             SelectedText = "Pregled svih putovanja";
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             InitializeComponent();
         }
 

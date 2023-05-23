@@ -24,21 +24,35 @@ namespace TravelAgent.view
     {
         public Login()
         {
-            
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
             InitializeComponent();
         }
         private void Registracija_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new Registration();
+            Registration registration = new Registration();
+            double left = Left;
+            double top = Top;
 
+            registration.Left = left;
+            registration.Top = top;
+
+            Application.Current.MainWindow = registration;
             Application.Current.MainWindow.Show();
             this.Close();
         }
 
         private void Pocetna_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new StartWindow();
+            StartWindow sw = new StartWindow();
 
+            double left = Left;
+            double top = Top;
+
+            sw.Left = left;
+            sw.Top = top;
+
+            Application.Current.MainWindow = sw;
             Application.Current.MainWindow.Show();
             this.Close();
         }

@@ -18,10 +18,17 @@ namespace TravelAgent.view
     /// <summary>
     /// Interaction logic for YesNoPopup.xaml
     /// </summary>
-    public partial class YesNoPopup : UserControl
+    public partial class YesNoPopup : Window
     {
         public YesNoPopup()
         {
+            InitializeComponent();
+        }
+
+        public YesNoPopup(String text)
+        {
+            OkText = text;
+
             InitializeComponent();
         }
 

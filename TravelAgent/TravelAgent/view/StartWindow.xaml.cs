@@ -26,15 +26,28 @@ namespace TravelAgent.view
 
         private void Login_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new Login();
+            Login login = new Login();
 
+            double left = Left;
+            double top = Top;
+
+            login.Left = left;
+            login.Top = top;
+
+            Application.Current.MainWindow = login;
             Application.Current.MainWindow.Show();
             this.Close();
         }
         private void Register_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new Registration();
+            Registration registration = new Registration();
+            double left = Left;
+            double top = Top;
 
+            registration.Left = left;
+            registration.Top = top;
+            
+            Application.Current.MainWindow = registration;
             Application.Current.MainWindow.Show();
             this.Close();
         }
