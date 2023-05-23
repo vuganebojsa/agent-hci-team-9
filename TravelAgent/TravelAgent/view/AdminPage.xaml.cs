@@ -41,7 +41,17 @@ namespace TravelAgent.view
 
         private void topNav_ButtonClicked(object sender, EventArgs e)
         {
+            Login login = new Login();
 
+            double left = Left;
+            double top = Top;
+
+            login.Left = left;
+            login.Top = top;
+
+            Application.Current.MainWindow = login;
+            Application.Current.MainWindow.Show();
+            this.Close();
         }
     }
 }

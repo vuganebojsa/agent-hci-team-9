@@ -17,7 +17,8 @@
 
             <Button x:Name="btnLogout" Content="Izlogujte se" Foreground="White" 
                     Grid.Column="1" FontSize="16" VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right" Background="Transparent" Padding="15 10 15 10" Margin="10 10 10 10" BorderBrush="White" BorderThickness="2" FontWeight="DemiBold" Click="Button_Click"> 
+                    HorizontalAlignment="Right" Background="Transparent" Padding="15 10 15 10"
+                    Margin="10 10 10 10" BorderBrush="White" BorderThickness="2" FontWeight="DemiBold" Click="Button_Click"> 
                
             </Button>
         </Grid>
