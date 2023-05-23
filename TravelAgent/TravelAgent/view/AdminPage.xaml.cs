@@ -71,7 +71,10 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked(object sender, EventArgs e)
         {
-
+            SelectedTrip st = new SelectedTrip();
+            MainContent.Content = null;
+            // Set the newly created user control as the content of the container
+            MainContent.Content = st;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)

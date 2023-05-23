@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TravelAgent.view"
              xmlns:travel="clr-namespace:TravelAgent"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="450">
     <Grid Background="White">
@@ -115,10 +117,11 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Column="1">
-                
-                
-            </StackPanel>
+            <Grid Grid.Column="1" Margin="5 5 5 5">
+                <m:Map CredentialsProvider="Ijvu2SMwlr7DxdnfTKKG~kJisNvX_vlWR5egGU2rIww~AmHWNbRje2l-vERM1_qq5tn-t3ZiEAY8C5KumLNp01RXxFPkFKOBHOpieJsW9C1T" />
+
+
+            </Grid>
             
 
 
