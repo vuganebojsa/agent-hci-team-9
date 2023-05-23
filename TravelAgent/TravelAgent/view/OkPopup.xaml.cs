@@ -26,8 +26,9 @@ namespace TravelAgent.view
         }
         public OkPopup(String text)
         {
-            this.OkText = text;
             InitializeComponent();
+            OkText = text;
+
         }
         private string okText;
 

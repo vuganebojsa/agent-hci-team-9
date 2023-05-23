@@ -27,9 +27,10 @@ namespace TravelAgent.view
 
         public YesNoPopup(String text)
         {
-            OkText = text;
 
             InitializeComponent();
+            OkText = text;
+
         }
 
         private string okText;
