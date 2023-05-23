@@ -45,6 +45,7 @@ namespace TravelAgent.view
             YesNoPopup yn = new YesNoPopup("Da li ste sigurni da zelite da se izlogujete? Ovom akcijom cete biti prebaceni na ekran za logovanje.");
             yn.Left = Left + this.Width / 2 - 100;
             yn.Top = Top + this.Height / 2 - 100;
+            
             if (yn.ShowDialog() == true)
             {
                 Login login = new Login();

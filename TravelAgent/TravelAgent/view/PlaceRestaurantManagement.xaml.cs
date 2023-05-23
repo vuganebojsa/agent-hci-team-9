@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelAgent.Model;
+using TravelAgent.services;
 
 namespace TravelAgent.view
 {
@@ -20,9 +22,48 @@ namespace TravelAgent.view
     /// </summary>
     public partial class PlaceRestaurantManagement : UserControl
     {
+        public List<PlaceRestaurant> placesRestaurants { get; set; }
         public PlaceRestaurantManagement()
         {
+            placesRestaurants = FileService.getPlacesAndRestaurants();
+
             InitializeComponent();
+
+            TableDataGrid.ItemsSource = placesRestaurants;
+        }
+
+        private void btnDelete_ButtonClicked(object sender, EventArgs e)
+        {
+            double width = Window.GetWindow(this).Width;
+            double height = Window.GetWindow(this).Height;
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+            var selectedItem = (PlaceRestaurant)TableDataGrid.SelectedItem;
+            if(selectedItem == null)
+            {
+                OkPopup ok = new OkPopup("Molimo Vas prvo izaberite red iz tabele kako biste izvrsili promene.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+
+                    return;
+                }
+                return;
+                
+            }
+            YesNoPopup yn = new YesNoPopup($"Da li ste sigurni da zelite da obrisete {selectedItem.Naziv} objekat?");
+           
+            yn.Left = left + width/2 - 100;
+            yn.Top = top + height/2 - 100;
+            if (yn.ShowDialog() == true)
+            {
+                this.placesRestaurants.Remove(selectedItem);
+                CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
+                FileService.writePlacesRestaurants(placesRestaurants);
+            }
+            
+            
         }
     }
 }

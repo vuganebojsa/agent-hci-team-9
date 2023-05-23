@@ -12,6 +12,7 @@ namespace TravelAgent.services
     {
 
         private static string filePathUsers = "../../../database/korisnici.txt";
+        private static string filePathRestaurants = "../../../database/restorani_smestaji.txt";
 
 
         public static User getUserByEmailAndPassword(String email, String password)
@@ -65,6 +66,49 @@ namespace TravelAgent.services
             {
                 String role = Role.USER.ToString();
                 sw.WriteLine($"{id};{name};{surname};{email};{password};{role}");
+            }
+
+
+            return true;
+        }
+
+        public static List<PlaceRestaurant> getPlacesAndRestaurants()
+        {
+            List<PlaceRestaurant> restaurants = new List<PlaceRestaurant>();
+            using (StreamReader sr = new StreamReader(filePathRestaurants))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+
+                    restaurants.Add(
+                        new PlaceRestaurant(
+                            long.Parse(info[0]), info[1], info[2], (Vrsta)Enum.Parse(typeof(Vrsta), info[3])));
+
+                        
+                    
+                }
+            }
+
+
+            return restaurants;
+        }
+        public static bool writePlacesRestaurants(List<PlaceRestaurant> placeRestaurants)
+        {
+
+            File.WriteAllText(filePathRestaurants, string.Empty);
+
+            using (StreamWriter sw = File.AppendText(filePathRestaurants))
+            {
+                sw.WriteLine("id;naziv;mesto;tip");
+                foreach(PlaceRestaurant pr in placeRestaurants)
+                {
+                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()}");
+
+                }
             }
 
 
