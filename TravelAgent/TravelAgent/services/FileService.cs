@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TravelAgent.Model;
 
 namespace TravelAgent.services
@@ -29,7 +30,10 @@ namespace TravelAgent.services
                     String[] info = line.Split(";");
                     if (info[3] == email && info[4] == password)
                     {
+                    
                         return new User(long.Parse(info[0]), info[1], info[2], info[3], info[4], (Role) Enum.Parse(typeof(Role), info[5]));
+                        
+                        
                     }
                 }
             }

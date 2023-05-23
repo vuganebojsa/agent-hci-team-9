@@ -25,7 +25,8 @@ namespace TravelAgent.view
         public List<Trip> trips { get; set; }
         public BookedTripsOverview()
         {
-            trips = FileService.getAllTripsByUserId(1);
+            long userId = CurrentlyloggedInUser.user.Id;
+            trips = FileService.getAllTripsByUserId(CurrentlyloggedInUser.user.Id);
 
             InitializeComponent();
 
