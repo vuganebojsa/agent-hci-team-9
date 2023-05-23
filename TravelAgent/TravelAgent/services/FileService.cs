@@ -140,6 +140,59 @@ namespace TravelAgent.services
                 }
             return trips;
         }
+        private static Trip getTripById(long id)
+        {
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
+            {
+                string line;
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    
+                    if (long.Parse(info[0]) == id)
+                    {
+                        DateTime dateTime = DateTime.Parse(info[3]);
+                        DateTime startDateOnly = dateTime.Date;
+                        dateTime = DateTime.Parse(info[4]);
+                        DateTime endDateOnly = dateTime.Date;
+
+                        return new Trip(
+                           long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly);
+
+
+                    }
+                }
+            }
+
+
+            return null;
+        }
+        public static List<Trip> getAllSoldTrips()
+        {
+            List<Trip> trips = new List<Trip>();
+            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            {
+                string line;
+                //idPutovanja;idPutnika
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    Trip trip = getTripById(long.Parse(info[0]));
+                    if (isTripOver(trip))
+                    {
+                        trips.Add(trip);
+                    }                                
+                }
+            }
+            return trips;
+        }
+
+        private static bool isTripOver(Trip trip)
+        {
+            return trip.DatumPocetka < DateTime.Now;
+        }
             
         }
 
