@@ -72,6 +72,7 @@ namespace TravelAgent.view
             double height = Window.GetWindow(this).Height;
             double left = Window.GetWindow(this).Left;
             double top = Window.GetWindow(this).Top;
+
             AddPlaceRestaurantPopup ap = new AddPlaceRestaurantPopup();
             ap.Left = left + width / 2 - 100;
             ap.Top = top + height / 2 - 150;
@@ -80,7 +81,41 @@ namespace TravelAgent.view
             {
                 
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
-                
+                TableDataGrid.Items.Refresh();
+
+                CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
+            }
+        }
+
+        private void btnEdit_ButtonClicked(object sender, EventArgs e)
+        {
+            double width = Window.GetWindow(this).Width;
+            double height = Window.GetWindow(this).Height;
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+            var selectedItem = (PlaceRestaurant)TableDataGrid.SelectedItem;
+            if (selectedItem == null)
+            {
+                OkPopup ok = new OkPopup("Molimo Vas prvo izaberite red iz tabele kako biste izvrsili promene.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+
+                    return;
+                }
+                return;
+
+            }
+            AddPlaceRestaurantPopup ap = new AddPlaceRestaurantPopup(selectedItem);
+            ap.Left = left + width / 2 - 100;
+            ap.Top = top + height / 2 - 150;
+
+            if (ap.ShowDialog() == true)
+            {
+
+                this.placesRestaurants = FileService.getPlacesAndRestaurants();
+                TableDataGrid.Items.Refresh();
                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
             }
         }

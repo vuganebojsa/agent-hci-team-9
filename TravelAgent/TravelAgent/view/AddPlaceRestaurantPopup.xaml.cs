@@ -31,19 +31,22 @@ namespace TravelAgent.view
         public AddPlaceRestaurantPopup(PlaceRestaurant placeRestaurant)
         {
             this.PlaceRestaurant = placeRestaurant;
-            if(this.PlaceRestaurant != null)
+            InitializeComponent();
+            if (this.PlaceRestaurant != null)
             {
                 tbRegistration.Text = "Izmenite smestaj ili restoran";
                 FillFields();
             }
-            InitializeComponent();
+            
         }
 
           
         private void FillFields()
         {
             //    ComboBox1.Items.RemoveAt(ComboBox1.Items.IndexOf(ComboBox1.SelectedItem));  
-
+            cbType.Text = PlaceRestaurant.vrsta.ToString();
+            tbNaziv.Text = PlaceRestaurant.Naziv;
+            tbMesto.Text = PlaceRestaurant.Adresa;
         }
 
  
@@ -60,7 +63,7 @@ namespace TravelAgent.view
 
             if (yn.ShowDialog() == true)
             {
-                this.DialogResult = true;
+                this.DialogResult = false;
             }
         }
 
@@ -98,7 +101,19 @@ namespace TravelAgent.view
                 FileService.addPlaceRestaurant(pr);
 
                 // da bi mogli znati da li je sacuvano da se refreshuje tabela
-                this.DialogResult = true;
+                double width = Window.GetWindow(this).Width;
+                double height = Window.GetWindow(this).Height;
+                double left = Window.GetWindow(this).Left;
+                double top = Window.GetWindow(this).Top;
+                OkPopup ok = new OkPopup($"Uspesno ste dodali objekat {pr.Naziv}.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+                    // da bi mogli znati da li je sacuvano da se refreshuje tabela
+
+                    this.DialogResult = true;
+                }
 
             }
             else
@@ -120,8 +135,21 @@ namespace TravelAgent.view
                 // upisi ponovo sve u fajl sa izmenama
                 FileService.writePlacesRestaurants(placeRestaurants);
                 
-                // da bi mogli znati da li je sacuvano da se refreshuje tabela
-                this.DialogResult = true;
+                
+                double width = Window.GetWindow(this).Width;
+                double height = Window.GetWindow(this).Height;
+                double left = Window.GetWindow(this).Left;
+                double top = Window.GetWindow(this).Top;
+                OkPopup ok = new OkPopup("Uspesno ste izmenili objekat.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+                    // da bi mogli znati da li je sacuvano da se refreshuje tabela
+
+                    this.DialogResult = true;
+                }
+                
             }
 
 
