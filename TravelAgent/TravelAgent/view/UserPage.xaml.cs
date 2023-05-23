@@ -56,7 +56,11 @@ namespace TravelAgent.view
 
         private void SideNavigation_ButtonPregledClicked(object sender, EventArgs e)
         {
-            topNav_ButtonClicked(sender, e);
+            UserControl control = new SkeletonUpravljanje();
+            MainContent.Content = null;
+
+            // Set the newly created user control as the content of the container
+            MainContent.Content = control;
         }
 
         private void SideNavigation_ButtonRezervisaniClicked(object sender, EventArgs e)
