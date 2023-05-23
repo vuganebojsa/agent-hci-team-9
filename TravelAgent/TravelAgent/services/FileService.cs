@@ -72,7 +72,7 @@ namespace TravelAgent.services
             return true;
         }
 
-        public static List<Trip> getBookedTrips()
+        public static List<Trip> getAllTrips()
         {
             List<Trip> trips = new List<Trip>();
             using (StreamReader sr = new StreamReader(filePathBookedTrips))
