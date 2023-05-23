@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TravelAgent.Model;
+using TravelAgent.services;
 
 namespace TravelAgent.view
 {
@@ -70,7 +71,37 @@ namespace TravelAgent.view
             String mesto = tbMesto.Text.Trim();
 
 
+            PlaceRestaurant pr = new PlaceRestaurant();
+            pr.Naziv = name;
+            pr.Adresa = mesto;
+            pr.vrsta = type;
+            
+            // ovo je add
+            if(this.PlaceRestaurant == null)
+            {
+                FileService.addPlaceRestaurant(pr);
+                this.Close();
 
+            }
+            else
+            {
+                // ovo je edit
+
+                List<PlaceRestaurant> placeRestaurants = FileService.getPlacesAndRestaurants();
+                foreach(PlaceRestaurant p in placeRestaurants)
+                {
+                    if(p.Id == this.PlaceRestaurant.Id)
+                    {
+                        p.vrsta = type;
+                        p.Naziv = name;
+                        p.Adresa = mesto;
+                        break;
+                    }
+                }
+                // upisi ponovo sve u fajl sa izmenama
+                FileService.writePlacesRestaurants(placeRestaurants);
+
+            }
 
 
             // da bi mogli znati da li je sacuvano da se refreshuje tabela
