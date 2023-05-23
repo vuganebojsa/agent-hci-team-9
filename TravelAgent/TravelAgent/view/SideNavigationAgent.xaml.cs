@@ -26,5 +26,38 @@ namespace TravelAgent.view
             question.btnSideNav.HorizontalContentAlignment = HorizontalAlignment.Center;
 
         }
+
+        public event EventHandler ButtonUpravljanjePutovanjimaClicked;
+
+        private void btnUpravljanjePutovanjimaClicked(object sender, EventArgs e)
+        {
+            ButtonUpravljanjePutovanjimaClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+
+        public event EventHandler ButtonUpravljanjeTuristickimAtrakcijama;
+
+        private void btnUpravljanjeTuristickimAtrakcijama(object sender, EventArgs e)
+        {
+            ButtonUpravljanjeTuristickimAtrakcijama?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler ButtonUpravljanjeSmestajemIRestoranima;
+
+        private void btnUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)
+        {
+            ButtonUpravljanjeSmestajemIRestoranima?.Invoke(this, EventArgs.Empty);
+        }
+
+
+        public event EventHandler ButtonPregledProdatihPutovanja;
+
+        private void btnPregledProdatihPutovanja(object sender, EventArgs e)
+        {
+            ButtonPregledProdatihPutovanja?.Invoke(this, EventArgs.Empty);
+        }
+
+
+
     }
 }

@@ -10,10 +10,10 @@
         <StackPanel>
             <TextBlock Text="BIVUJA AGENT ZA PUTOVANJE" TextWrapping="Wrap" FontWeight="DemiBold" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="10 4 30 20"/>
 
-            <local:NavigationButton ButtonContent="Upravljanje putovanjima" Margin="2 2 2 2"/>
-            <local:NavigationButton ButtonContent="Upravljanje turistickim atrakcijama" Margin="2 2 2 2"/>
-            <local:NavigationButton ButtonContent="Upravljanje smestajem i restoranima" Margin="2 2 2 2"/>
-            <local:NavigationButton ButtonContent="Pregled prodatih putovanja" Margin="2 2 2 2"/>
+            <local:NavigationButton ButtonContent="Upravljanje putovanjima" Margin="2 2 2 2" ButtonClicked="btnUpravljanjePutovanjimaClicked"/>
+            <local:NavigationButton ButtonContent="Upravljanje turistickim atrakcijama" Margin="2 2 2 2" ButtonClicked="btnUpravljanjeTuristickimAtrakcijama"/>
+            <local:NavigationButton ButtonContent="Upravljanje smestajem i restoranima" Margin="2 2 2 2" ButtonClicked="btnUpravljanjeSmestajemIRestoranima"/>
+            <local:NavigationButton ButtonContent="Pregled prodatih putovanja" Margin="2 2 2 2" ButtonClicked="btnPregledProdatihPutovanja"/>
 
         </StackPanel>
         <local:NavigationButton x:Name="question" ButtonContent="?" Margin="15 15 15 15" VerticalAlignment="Bottom"/>

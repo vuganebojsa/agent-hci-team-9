@@ -53,5 +53,25 @@ namespace TravelAgent.view
             Application.Current.MainWindow.Show();
             this.Close();
         }
+
+        private void SideNavigationAgent_ButtonPregledProdatihPutovanja(object sender, EventArgs e)
+        {
+            topNav_ButtonClicked(sender, e);
+        }
+
+        private void SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SideNavigationAgent_ButtonUpravljanjeTuristickimAtrakcijama(object sender, EventArgs e)
+        {
+
+        }
     }
 }
