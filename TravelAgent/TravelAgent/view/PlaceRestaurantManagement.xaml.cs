@@ -80,7 +80,7 @@ namespace TravelAgent.view
 
             if(ap.ShowDialog() == true)
             {
-                
+                tbSearch.Text = "";
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.placesRestaurants;
@@ -117,6 +117,7 @@ namespace TravelAgent.view
             if (ap.ShowDialog() == true)
             {
 
+                tbSearch.Text = "";
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.placesRestaurants;
