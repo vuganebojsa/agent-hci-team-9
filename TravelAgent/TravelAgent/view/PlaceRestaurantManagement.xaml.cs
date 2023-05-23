@@ -59,6 +59,7 @@ namespace TravelAgent.view
             if (yn.ShowDialog() == true)
             {
                 this.placesRestaurants.Remove(selectedItem);
+                
                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
                 FileService.writePlacesRestaurants(placesRestaurants);
             }
@@ -81,9 +82,11 @@ namespace TravelAgent.view
             {
                 
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
-                TableDataGrid.Items.Refresh();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.placesRestaurants;
+                /* TableDataGrid.Items.Refresh();
 
-                CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
+                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
             }
         }
 
@@ -115,8 +118,10 @@ namespace TravelAgent.view
             {
 
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
-                TableDataGrid.Items.Refresh();
-                CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.placesRestaurants;
+                /* TableDataGrid.Items.Refresh();
+                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
             }
         }
     }
