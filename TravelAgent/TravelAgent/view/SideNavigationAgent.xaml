@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="TravelAgent.view.SideNavigationAgent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgent.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="600 " d:DesignWidth="300">
+    <Grid Background="#105A87">
+        <StackPanel>
+            <TextBlock Text="BIVUJA AGENT ZA PUTOVANJE" TextWrapping="Wrap" FontWeight="DemiBold" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="10 4 30 20"/>
+
+            <local:NavigationButton ButtonContent="Upravljanje putovanjima" Margin="2 2 2 2"/>
+            <local:NavigationButton ButtonContent="Upravljanje turistickim atrakcijama" Margin="2 2 2 2"/>
+            <local:NavigationButton ButtonContent="Upravljanje smestajem i restoranima" Margin="2 2 2 2"/>
+            <local:NavigationButton ButtonContent="Pregled prodatih putovanja" Margin="2 2 2 2"/>
+
+        </StackPanel>
+        <local:NavigationButton ButtonContent="?" Margin="15 15 15 15" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</UserControl>
