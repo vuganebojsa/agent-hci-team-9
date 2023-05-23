@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TravelAgent.view"
              xmlns:travel="clr-namespace:TravelAgent"
              mc:Ignorable="d" 
-             Width="800" Height="550"
+             Width="800" Height="550" MinWidth="500" MinHeight="550"
              Background="White">
     <Grid>
         <DockPanel>

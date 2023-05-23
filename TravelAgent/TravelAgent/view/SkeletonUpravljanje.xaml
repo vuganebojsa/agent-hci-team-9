@@ -24,10 +24,14 @@
                 <TextBlock Text="Turisticke atrakcije" VerticalAlignment="Center" Margin="10 5 5 5"
                            Foreground="#073E66" FontSize="16"/>
 
-                <WrapPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <WrapPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock Text="Pretrazite:" VerticalAlignment="Center"
                            Foreground="#073E66" FontSize="16"/>
-                    <TextBox x:Name="tbSearch" Margin="10" MinWidth="150" MinHeight="30" Background="#EFEFEF"/>
+                   
+                        <TextBox x:Name="tbSearch" Margin="10" MinWidth="150"
+                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0"/>
+
+                    
                 </WrapPanel>
             </Grid>
 
@@ -35,10 +39,29 @@
             <Grid Margin="5 5 5 5" Grid.Row="1">
 
                 <DataGrid x:Name="TableDataGrid" AutoGenerateColumns="True" SelectionMode="Single" 
-                          VerticalGridLinesBrush="Transparent" FontSize="14"
+                          VerticalGridLinesBrush="Transparent" FontSize="14" ColumnWidth="*" IsReadOnly="True"
                           >
-                    
-      
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Foreground" Value="#073E66"/>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Foreground" Value="#073E66"/>
+                        </Style>
+                        
+                        
+                       
+                        <Style TargetType="DataGridRow">
+
+                            <Setter Property="Height" Value="30" />
+                                                        <Setter Property="VerticalContentAlignment"  Value="Bottom"/>
+
+                            <!-- Additional triggers for different row heights -->
+
+                        </Style>
+                    </DataGrid.Resources>
+
                 </DataGrid>
 
             </Grid>

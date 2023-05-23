@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,12 @@ namespace TravelAgent.view
     /// </summary>
     public partial class SkeletonUpravljanje : UserControl
     {
+
+       public  ObservableCollection<TouristAttraction> atractions { get; set; }
         public SkeletonUpravljanje()
         {
-            InitializeComponent();
 
-            List<TouristAttraction> atractions = new List<TouristAttraction>
+            atractions = new ObservableCollection<TouristAttraction>
             {
                 new TouristAttraction(1, "Beograd", "Masarikova 12, Beograd"),
                 new TouristAttraction(2, "Novi Sad", "Masarikova 12, Beograd"),
@@ -36,8 +38,9 @@ namespace TravelAgent.view
                 new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd"),
                 new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd")
             };
-
+            InitializeComponent();
             TableDataGrid.ItemsSource = atractions;
+
         }
     }
 }
