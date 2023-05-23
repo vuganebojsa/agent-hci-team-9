@@ -21,14 +21,22 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Pregled rezervisanih putovanja" VerticalAlignment="Center" Margin="10 5 5 5"
-                           Foreground="#073E66" FontSize="16"/>
+                
 
                 <WrapPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock Text="Pretrazite:" VerticalAlignment="Center"
                            Foreground="#073E66" FontSize="16"/>
 
                     <TextBox x:Name="tbSearch" Margin="10" MinWidth="150"
+                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0"/>
+
+
+                </WrapPanel>
+                <WrapPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="Izaberite datum:" VerticalAlignment="Center"
+                           Foreground="#073E66" FontSize="16"/>
+
+                    <TextBox x:Name="tbDate" Margin="10" MinWidth="150"
                                     MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0"/>
 
 

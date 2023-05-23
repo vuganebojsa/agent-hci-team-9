@@ -106,9 +106,16 @@ namespace TravelAgent.view
                 return;
 
             }
-            else
+            YesNoPopup yn = new YesNoPopup($"Da li ste sigurni da zelite da obrisete {selectedItem.Naziv} putovanje?");
+
+            yn.Left = left + width / 2 - 100;
+            yn.Top = top + height / 2 - 100;
+            if (yn.ShowDialog() == true)
             {
-                //TO DO
+                this.trips.Remove(selectedItem);
+
+                CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
+                FileService.writeTrips(trips);
             }
 
         }

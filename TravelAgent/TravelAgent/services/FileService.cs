@@ -159,12 +159,9 @@ namespace TravelAgent.services
 
                         return new Trip(
                            long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly);
-
-
                     }
                 }
             }
-
 
             return null;
         }
@@ -180,7 +177,7 @@ namespace TravelAgent.services
                 {
                     String[] info = line.Split(";");
                     Trip trip = getTripById(long.Parse(info[0]));
-                    if (isTripOver(trip))
+                    if (trip != null && isTripOver(trip))
                     {
                         trips.Add(trip);
                     }                                
@@ -193,8 +190,27 @@ namespace TravelAgent.services
         {
             return trip.DatumPocetka < DateTime.Now;
         }
-            
+        public static bool writeTrips(List<Trip> trips)
+        {
+
+            File.WriteAllText(filePathAllTrips, string.Empty);
+
+            using (StreamWriter sw = File.AppendText(filePathAllTrips))
+            {
+                sw.WriteLine("id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani");
+                foreach (Trip tr in trips)
+                {
+                    sw.WriteLine($"{tr.Id.ToString()};{tr.Naziv};{tr.Cena};{tr.DatumPocetka.ToString()};{tr.DatumKraja};{tr.Atrakcije};{tr.SmestajRestorani}");
+
+                }
+            }
+
+
+            return true;
         }
+
+    }
+
 
 
 
