@@ -12,6 +12,7 @@ namespace TravelAgent.services
     {
 
         private static string filePathUsers = "../../../database/korisnici.txt";
+        private static string filePathBookedTrips = "../../../database/putovanja.txt";
 
 
         public static User getUserByEmailAndPassword(String email, String password)
@@ -69,6 +70,32 @@ namespace TravelAgent.services
 
 
             return true;
+        }
+
+        public static List<Trip> getBookedTrips()
+        {
+            List<Trip> trips = new List<Trip>();
+            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    DateTime dateTime = DateTime.Parse(info[3]);
+                    DateTime startDateOnly = dateTime.Date;
+                    dateTime = DateTime.Parse(info[3]);
+                    DateTime endDateOnly = dateTime.Date;
+                    Console.WriteLine(endDateOnly);
+
+
+                    trips.Add(
+                        new Trip(
+                            long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly));
+                }
+            }
+            return trips;
         }
 
     }

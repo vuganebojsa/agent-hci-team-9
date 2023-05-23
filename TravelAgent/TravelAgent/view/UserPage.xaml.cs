@@ -73,7 +73,9 @@ namespace TravelAgent.view
 
         private void SideNavigation_ButtonRezervisaniClicked(object sender, EventArgs e)
         {
-
+            UserControl control = new BookedTripsOverview();
+            MainContent.Content = null;
+            MainContent.Content = control;
         }
     }
   

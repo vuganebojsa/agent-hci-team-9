@@ -27,8 +27,9 @@ namespace TravelAgent.Model
             Atrakcije = atrakcije;
             SmestajRestorani = smestajRestorani;
         }
-        public Trip(string naziv, double cena, DateTime datumPocetka, DateTime datumKraja)
+        public Trip(long id, string naziv, double cena, DateTime datumPocetka, DateTime datumKraja)
         {
+            Id = id;
             Naziv = naziv;
             Cena = cena;
             DatumPocetka = datumPocetka;
