@@ -56,17 +56,18 @@ namespace TravelAgent.view
             double left = Window.GetWindow(this).Left;
             double top = Window.GetWindow(this).Top;
             yn.Left = left + width / 2 - 100;
-            yn.Top = top + height / 2 - 100;
+            yn.Top = top + height / 2 - 200;
 
             if (yn.ShowDialog() == true)
             {
-                this.Close();
+                this.DialogResult = true;
             }
         }
 
         private void btnSave_ButtonClicked(object sender, EventArgs e)
         {
-            Vrsta type = (Vrsta)cbType.SelectedItem;
+
+            Vrsta type = (Vrsta)Enum.Parse(typeof(Vrsta), cbType.Text);
             String name = tbNaziv.Text.Trim();
             String mesto = tbMesto.Text.Trim();
 
@@ -80,7 +81,9 @@ namespace TravelAgent.view
             if(this.PlaceRestaurant == null)
             {
                 FileService.addPlaceRestaurant(pr);
-                this.Close();
+
+                // da bi mogli znati da li je sacuvano da se refreshuje tabela
+                this.DialogResult = true;
 
             }
             else
@@ -100,12 +103,12 @@ namespace TravelAgent.view
                 }
                 // upisi ponovo sve u fajl sa izmenama
                 FileService.writePlacesRestaurants(placeRestaurants);
-
+                
+                // da bi mogli znati da li je sacuvano da se refreshuje tabela
+                this.DialogResult = true;
             }
 
 
-            // da bi mogli znati da li je sacuvano da se refreshuje tabela
-            this.DialogResult = true;
 
 
 

@@ -69,7 +69,7 @@
             <WrapPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="10 10 10 2">
                 <travel:BivujaButton ButtonContent="Obrisite" Height="40" Margin="0 0 5 0 " x:Name="btnDelete" ButtonClicked="btnDelete_ButtonClicked"/>
                 <travel:BivujaButton ButtonContent="Izmenite" Height="40" Margin="5 0 5 0 "/>
-                <travel:BivujaButton ButtonContent="Dodajte" Height="40" Margin="5 0 5 0 "/>
+                <travel:BivujaButton ButtonContent="Dodajte" Height="40" Margin="5 0 5 0 " x:Name="btnAdd" ButtonClicked="btnAdd_ButtonClicked"/>
             </WrapPanel>
 
         </Grid>

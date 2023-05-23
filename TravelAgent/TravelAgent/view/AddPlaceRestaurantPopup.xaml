@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TravelAgent.view"
              xmlns:travel="clr-namespace:TravelAgent"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="450" WindowStyle="None">
+             d:DesignHeight="600" d:DesignWidth="450" WindowStyle="None" MaxWidth="450" MaxHeight="600">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
