@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TravelAgent.view"
              xmlns:travel="clr-namespace:TravelAgent"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="350" WindowStyle="None"  Title="BIVUJA" MinWidth="350" MinHeight="300" MaxWidth="350" MaxHeight="350">
+             d:DesignHeight="300" d:DesignWidth="350"  Title="BIVUJA" MinWidth="350" MinHeight="300" MaxWidth="350" MaxHeight="350">
     <Grid Background="#4889B1">
         <Grid>
             <Grid.RowDefinitions>
