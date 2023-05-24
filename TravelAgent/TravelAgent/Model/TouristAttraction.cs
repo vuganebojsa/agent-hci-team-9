@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace TravelAgent.Model
 {
-    public class TouristAttraction
+    public class TouristAttraction: IBivuja
     {
         public long Id { get; set; }
         public String Naziv { get; set; }
-        public String Adresa { get; set; }
-
+        public Location Adresa { get; set; }
+        public String JeObrisan { get; set; }
         public TouristAttraction()
         {
 
         }
-        public TouristAttraction(long id, string name, string address)
+        public TouristAttraction(long id, string name, Location address, String jeObrisan)
         {
             Id = id;
             Naziv = name;
             this.Adresa = address;
+            this.JeObrisan = jeObrisan;
         }
     }
 }

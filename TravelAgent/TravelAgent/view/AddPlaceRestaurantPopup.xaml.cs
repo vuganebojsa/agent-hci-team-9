@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace TravelAgent.view
     public partial class AddPlaceRestaurantPopup : Window
     {
         public PlaceRestaurant PlaceRestaurant { get; set; }
+        public Model.Location SelectedLocation { get; set; }
+        public Boolean isMapClicked { get; set; }
         public AddPlaceRestaurantPopup()
         {
             InitializeComponent();
@@ -31,9 +34,11 @@ namespace TravelAgent.view
         public AddPlaceRestaurantPopup(PlaceRestaurant placeRestaurant)
         {
             this.PlaceRestaurant = placeRestaurant;
+            isMapClicked = false;
             InitializeComponent();
             if (this.PlaceRestaurant != null)
             {
+                SelectedLocation = PlaceRestaurant.Adresa;
                 tbRegistration.Text = "Izmenite smestaj ili restoran";
                 FillFields();
             }
@@ -46,7 +51,15 @@ namespace TravelAgent.view
             //    ComboBox1.Items.RemoveAt(ComboBox1.Items.IndexOf(ComboBox1.SelectedItem));  
             cbType.Text = PlaceRestaurant.vrsta.ToString();
             tbNaziv.Text = PlaceRestaurant.Naziv;
-            tbMesto.Text = PlaceRestaurant.Adresa;
+            tbMesto.Text = PlaceRestaurant.Adresa.Naziv;
+
+            int zoomLevel = 12; // Adjust the zoom level as desired
+
+            bingMap.Center = new Microsoft.Maps.MapControl.WPF.Location(SelectedLocation.Latitude, SelectedLocation.Longitude);
+            Pushpin pin = new Pushpin();
+            pin.Location = new Microsoft.Maps.MapControl.WPF.Location(SelectedLocation.Latitude, SelectedLocation.Longitude);
+            bingMap.Children.Add(pin);
+            bingMap.ZoomLevel = zoomLevel;
         }
 
  
@@ -87,17 +100,23 @@ namespace TravelAgent.view
                 errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
                 return;
             }
-
+            SelectedLocation.Naziv = mesto;
             errorControl.Visibility = Visibility.Hidden;
 
             PlaceRestaurant pr = new PlaceRestaurant();
             pr.Naziv = name;
-            pr.Adresa = mesto;
+            pr.Adresa = SelectedLocation;
             pr.vrsta = type;
-            
+            pr.JeObrisan = "0";
             // ovo je add
             if(this.PlaceRestaurant == null)
             {
+                if (!isMapClicked)
+                {
+                    errorControl.Visibility = Visibility.Visible;
+                    errorControl.ErrorHandler.Text = "Molimo Vas selektujte lokaciju na mapi.";
+                    return;
+                }
                 FileService.addPlaceRestaurant(pr);
 
                 // da bi mogli znati da li je sacuvano da se refreshuje tabela
@@ -127,12 +146,14 @@ namespace TravelAgent.view
                     {
                         p.vrsta = type;
                         p.Naziv = name;
-                        p.Adresa = mesto;
+                        p.Adresa = SelectedLocation;
+                        p.JeObrisan = "0"; 
                         PlaceRestaurant = p;
                         break;
                     }
                 }
                 // upisi ponovo sve u fajl sa izmenama
+                FileService.editLocation(SelectedLocation);
                 FileService.writePlacesRestaurants(placeRestaurants);
                 
                 
@@ -155,6 +176,43 @@ namespace TravelAgent.view
 
 
 
+
+        }
+
+        private async void bubgNao_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            bingMap.Children.Clear();
+            e.Handled = true;
+
+            Point mousePosition = e.GetPosition(bingMap);
+            Microsoft.Maps.MapControl.WPF.Location clickedLocation = bingMap.ViewportPointToLocation(mousePosition);
+
+            Pushpin pin = new Pushpin();
+            pin.Location = clickedLocation;
+            double latitude = clickedLocation.Latitude;
+            double longitude = clickedLocation.Longitude;
+            bingMap.Children.Add(pin);
+            string locationName = "";
+            // Do something with the latitude and longitude values
+            try
+            {
+                locationName = await MapService.ReverseGeocodeAsync(latitude, longitude);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            if(PlaceRestaurant != null)
+            {
+                SelectedLocation.Naziv = locationName;
+                SelectedLocation.Longitude = longitude;
+                SelectedLocation.Latitude = latitude;
+
+            }
+            else 
+                SelectedLocation = new Model.Location(locationName, longitude, latitude);
+            tbMesto.Text = locationName;
+            isMapClicked = true;
 
         }
     }

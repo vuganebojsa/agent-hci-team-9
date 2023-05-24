@@ -18,10 +18,11 @@ namespace TravelAgent.services
             {
                 if (restaurant.Id.ToString().Contains(keyword) ||
                     restaurant.Naziv.ToLower().Contains(keyword) ||
-                    restaurant.Adresa.ToLower().Contains(keyword) ||
+                    restaurant.Adresa.Naziv.ToLower().Contains(keyword) ||
                     restaurant.vrsta.ToString().ToLower().Contains(keyword))
                 {
-                    prs.Add(restaurant);
+                   
+                        prs.Add(restaurant);
                 }
             }
             return prs;
