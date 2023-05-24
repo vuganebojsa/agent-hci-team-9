@@ -1,0 +1,1 @@
+id;naziv;cena;datumPocetka;datumKraja;objekti(id-a/id-r/id-r);jeObrisan

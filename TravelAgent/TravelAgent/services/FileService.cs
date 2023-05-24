@@ -12,6 +12,7 @@ namespace TravelAgent.services
     {
 
         private static string filePathUsers = "../../../database/korisnici.txt";
+        private static string filePathLocations = "../../../database/lokacije.txt";
         private static string filePathRestaurants = "../../../database/restorani_smestaji.txt";
 
 
@@ -81,14 +82,14 @@ namespace TravelAgent.services
         {
             File.WriteAllText(filePathRestaurants, string.Empty);
 
-            selectedItem.isDeleted = "1";
+            selectedItem.JeObrisan = "1";
             using (StreamWriter sw = File.AppendText(filePathRestaurants))
             {
                 sw.WriteLine("id;naziv;mesto;tip;obrisan");
                 foreach (PlaceRestaurant pr in placesRestaurants)
                 {
                     
-                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.isDeleted}");
+                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.JeObrisan}");
                     
                 }
             }
@@ -123,12 +124,12 @@ namespace TravelAgent.services
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] info = line.Split(";");
-                    
+                    String locationId = info[2];
+                    Location location = getLocationFromFileById(locationId);
+
                     restaurants.Add(
                         new PlaceRestaurant(
-                            long.Parse(info[0]), info[1], info[2], (Vrsta)Enum.Parse(typeof(Vrsta), info[3]), info[4]));
-
-                        
+                            long.Parse(info[0]), info[1], location, (Vrsta)Enum.Parse(typeof(Vrsta), info[3]), info[4]));  
                     
                 }
             }
@@ -136,6 +137,31 @@ namespace TravelAgent.services
 
             return restaurants;
         }
+
+        private static Location getLocationFromFileById(string locationId)
+        {
+            Location location = null;
+            using (StreamReader sr = new StreamReader(filePathLocations))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    if (info[0] == locationId) {
+                        location = new Location(long.Parse(info[0]), info[1], Double.Parse(info[2]), Double.Parse(info[3]));
+                        break;
+                        }
+                    
+
+
+
+                }
+            }
+            return location;
+        }
+
         public static bool writePlacesRestaurants(List<PlaceRestaurant> placeRestaurants)
         {
 
@@ -146,7 +172,7 @@ namespace TravelAgent.services
                 sw.WriteLine("id;naziv;mesto;tip;fleg");
                 foreach(PlaceRestaurant pr in placeRestaurants)
                 {
-                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.isDeleted}");
+                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.JeObrisan}");
 
                 }
             }
@@ -163,7 +189,7 @@ namespace TravelAgent.services
             using (StreamWriter sw = File.AppendText(filePathRestaurants))
             {
                 
-                sw.WriteLine($"{id};{placeRestaurant.Naziv};{placeRestaurant.Adresa};{placeRestaurant.vrsta.ToString()};{placeRestaurant.isDeleted}");
+                sw.WriteLine($"{id};{placeRestaurant.Naziv};{placeRestaurant.Adresa};{placeRestaurant.vrsta.ToString()};{placeRestaurant.JeObrisan}");
             }
 
 

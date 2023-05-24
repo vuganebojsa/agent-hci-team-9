@@ -27,17 +27,7 @@ namespace TravelAgent.view
         public SkeletonUpravljanje()
         {
 
-            atractions = new ObservableCollection<TouristAttraction>
-            {
-                new TouristAttraction(1, "Beograd", "Masarikova 12, Beograd"),
-                new TouristAttraction(2, "Novi Sad", "Masarikova 12, Beograd"),
-                new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd"),
-                new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd"),
-                new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd"),
-                new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd"),
-                new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd"),
-                new TouristAttraction(3, "Radsdasda", "Masarikova 12, Beograd")
-            };
+            atractions = null;
             InitializeComponent();
             TableDataGrid.ItemsSource = atractions;
 

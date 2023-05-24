@@ -39,7 +39,7 @@ namespace TravelAgent.view
             var newPlaces = new List<PlaceRestaurant>();
             foreach(PlaceRestaurant pl in placesRestaurants)
             {
-                if (pl.isDeleted == "0") newPlaces.Add(pl);
+                if (pl.JeObrisan == "0") newPlaces.Add(pl);
             }
             placesRestaurantsWithFlag = newPlaces;
         }
@@ -76,7 +76,7 @@ namespace TravelAgent.view
                 {
                     if(pr.Id == selectedItem.Id)
                     {
-                        pr.isDeleted = "1";
+                        pr.JeObrisan = "1";
                         break;
                     }
                 }

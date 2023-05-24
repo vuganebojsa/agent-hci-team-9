@@ -1,0 +1,9 @@
+id;naziv;longitude;latitude
+1;Beograd;23;23
+2;Novi Sad;25;25
+3;Jarjevo;45;45
+4;Milanovac;43;43
+5;Kurunda;43;41
+6;Jaslice;41;43
+7;Kotorov Zbog;42;42
+8;Milicevo;39;36
