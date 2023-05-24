@@ -38,7 +38,7 @@ namespace TravelAgent.view
             InitializeComponent();
             if (this.PlaceRestaurant != null)
             {
-
+                SelectedLocation = PlaceRestaurant.Adresa;
                 tbRegistration.Text = "Izmenite smestaj ili restoran";
                 FillFields();
             }
@@ -145,6 +145,7 @@ namespace TravelAgent.view
                     }
                 }
                 // upisi ponovo sve u fajl sa izmenama
+                FileService.editLocation(SelectedLocation);
                 FileService.writePlacesRestaurants(placeRestaurants);
                 
                 
@@ -193,7 +194,15 @@ namespace TravelAgent.view
             {
 
             }
-            SelectedLocation = new Model.Location(locationName, longitude, latitude);
+            if(PlaceRestaurant != null)
+            {
+                SelectedLocation.Naziv = locationName;
+                SelectedLocation.Longitude = longitude;
+                SelectedLocation.Latitude = latitude;
+
+            }
+            else 
+                SelectedLocation = new Model.Location(locationName, longitude, latitude);
             tbMesto.Text = locationName;
             isMapClicked = true;
 

@@ -89,7 +89,7 @@ namespace TravelAgent.services
                 foreach (PlaceRestaurant pr in placesRestaurants)
                 {
                     
-                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.JeObrisan}");
+                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa.Id};{pr.vrsta.ToString()};{pr.JeObrisan}");
                     
                 }
             }
@@ -160,6 +160,52 @@ namespace TravelAgent.services
                 }
             }
             return location;
+        }
+        public static List<Location> GetAllLocations()
+        {
+            List<Location> locations = new List<Location>();
+            using (StreamReader sr = new StreamReader(filePathLocations))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    String locationId = info[2];
+                    Location location = getLocationFromFileById(locationId);
+
+                    locations.Add(
+                        new Location(
+                            long.Parse(info[0]), info[1], Double.Parse(info[2]), Double.Parse(info[3])));
+
+                }
+            }
+
+
+            return locations;
+        }
+        public static bool editLocation(Location location)
+        {
+            List<Location> locations = GetAllLocations();
+
+            File.WriteAllText(filePathLocations, string.Empty);
+
+            using (StreamWriter sw = File.AppendText(filePathLocations))
+            {
+                sw.WriteLine("id;naziv;longitude;latitude");
+                foreach (Location loc in locations)
+                {
+                    if(loc.Id ==  location.Id)
+                        sw.WriteLine($"{location.Id};{location.Naziv};{location.Longitude};{location.Latitude}");
+                    else
+                        sw.WriteLine($"{loc.Id};{loc.Naziv};{loc.Longitude};{loc.Latitude}");
+
+                }
+            }
+
+
+            return true;
         }
 
         public static bool writePlacesRestaurants(List<PlaceRestaurant> placeRestaurants)

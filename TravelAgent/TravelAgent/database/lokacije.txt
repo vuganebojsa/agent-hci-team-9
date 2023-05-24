@@ -1,11 +1,12 @@
 id;naziv;longitude;latitude
-1;Beograd;23;23
+1;Budapest 22. Kerület, Harangjáték utca 11, 1223, Hungary;19.009375980702323;47.41738109052737
 2;Novi Sad;25;25
 3;Jarjevo;45;45
 4;Milanovac;43;43
 5;Kurunda;43;41
 6;Jaslice;41;43
 7;Kotorov Zbog;42;42
-8;Milicevo;39;369;
+8;Milicevo;39;369
 9;Kisii County;34.93418612529982;-0.86948767609546
 10;Al Malha;24.609375;15.96808914535167
+11;Ulica Zmaj Jovina 47, 22223 Kuzmin, Serbia;19.404305456291723;45.02261380600949
