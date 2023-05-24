@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelAgent.Model;
 
 namespace TravelAgent.view
 {
@@ -20,8 +21,16 @@ namespace TravelAgent.view
     /// </summary>
     public partial class SelectedTrip : UserControl
     {
+        public Trip trip { get; set; }
         public SelectedTrip()
         {
+            InitializeComponent();
+        }
+
+
+        public SelectedTrip(Trip trip)
+        {
+            this.trip = trip;
             InitializeComponent();
         }
     }

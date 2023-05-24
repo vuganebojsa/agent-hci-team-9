@@ -26,7 +26,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Osnovni podaci" FontSize="24" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-            <travel:BivujaButton x:Name="btnNazad" ButtonContent="Nazad" Grid.Column="1" VerticalAlignment="Center" Height="40"/>
+            <travel:BivujaButton x:Name="btnNazad" ButtonContent="Nazad" Grid.Column="1" VerticalAlignment="Center" Height="40" HorizontalAlignment="Right" Margin="0 0 5 0"/>
         </Grid>
         <Grid Grid.Row="1"> 
             <Grid.RowDefinitions>
@@ -41,23 +41,23 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center">
                 <TextBlock  Text="Naziv:" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                <TextBlock  Text="Naziv Putovanja" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock  x:Name="tbNaziv"  Text="Naziv Putovanja"  TextWrapping="Wrap" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock  Text="Cena:" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Text="10000 RSD" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock  x:Name="tbCena" Text="10000 RSD" FontSize="16" TextWrapping="Wrap"  FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
                 <TextBlock  Text="Datum Pocetka:" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                <TextBlock  Text="23.10.2022" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock  x:Name="tbDatumPocetka"  Text="23.10.2022" FontSize="16" TextWrapping="Wrap"  FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock  Text="Datum Kraja:" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                <TextBlock Text="26.10.2022 RSD" FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock   x:Name="tbDatumKraja" Text="26.10.2022" TextWrapping="Wrap"  FontSize="16" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
                 
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
@@ -71,7 +71,7 @@
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
 
@@ -96,19 +96,19 @@
 
 
                     <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0 5 0 5">
-                        <TextBlock  Text="Naziv:" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock  Text="Naziv" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  Text="Naziv:" TextWrapping="Wrap" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="tbDetaljiNaziv"  Text="Naziv" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
                     </StackPanel>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0 5 0 5">
-                        <TextBlock  Text="Tip:" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock  Text="Tip" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  Text="Tip:" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  x:Name="tbDetaljiTip"  Text="Tip" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0 5 0 5">
-                        <TextBlock  Text="Mesto:" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock  Text="Mesto" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  Text="Mesto:" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="tbDetaljiMesto"  Text="Mesto" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
                     </StackPanel>
                     
