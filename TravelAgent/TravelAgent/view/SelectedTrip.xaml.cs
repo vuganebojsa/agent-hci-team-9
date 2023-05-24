@@ -43,25 +43,38 @@ namespace TravelAgent.view
 
         private void SetPins()
         {
-            int zoomLevel = 12; // Adjust the zoom level as desired
+            List<Microsoft.Maps.MapControl.WPF.Location> locations = new List<Microsoft.Maps.MapControl.WPF.Location>();
 
-            foreach(IBivuja bivuja in trip.Objekti){
+            foreach (IBivuja bivuja in trip.Objekti){
                 Pushpin pin = new Pushpin();
                 pin.Location = new Microsoft.Maps.MapControl.WPF.Location(bivuja.Adresa.Latitude, bivuja.Adresa.Longitude);
+                locations.Add(pin.Location);
                 bingMap.Children.Add(pin);
             }
             if (trip.Objekti.Count > 0)
             {
-                double averageLatitude = trip.Objekti.Average(val => val.Adresa.Latitude);
-                double averageLongitude = trip.Objekti.Average(val => val.Adresa.Longitude);
+                var w = new Pushpin().Width;
+                var h = new Pushpin().Height;
+                var margin = new Thickness(w / 2, h, w / 2, 0);
 
-                bingMap.Center = new Microsoft.Maps.MapControl.WPF.Location(averageLatitude, averageLongitude);
+                //Set view
+                bingMap.Loaded += (s, e) =>
+                {
+                    bingMap.SetView(locations, new Thickness(30), 0);
+
+                };
+               /* double averageLatitude = trip.Objekti.Average(val => val.Adresa.Latitude);
+                double averageLongitude = trip.Objekti.Average(val => val.Adresa.Longitude);*/
+
+                /*bingMap.Center = new Microsoft.Maps.MapControl.WPF.Location(averageLatitude, averageLongitude);*/
             }
+
         }
 
         private void FillDestinationItems()
         {
             lbDestinations.ItemsSource = this.trip.Objekti;
+           
         }
 
         private void FillFields()

@@ -77,7 +77,12 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Plan Putovanja" FontSize="20" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
-                <ListBox x:Name="lbDestinations" Height="150" Background="#F1F1F1" Margin="10 5 10 0"></ListBox>
+                <ListBox x:Name="lbDestinations" 
+                         Height="150" Background="#F1F1F1" Margin="10 5 10 0"
+                         DisplayMemberPath="Naziv"
+                         FontSize="14"
+                         Foreground="#073E66"
+                         FontWeight="DemiBold"></ListBox>
                 <travel:BivujaButton x:Name="btnPrikaziDetalje" ButtonContent="Prikazi Detalje" Height="40" Width="140" HorizontalAlignment="Right" Margin="0 5 10 5" ButtonClicked="btnPrikaziDetalje_ButtonClicked"/>
 
                 <TextBlock Text="Detalji" FontSize="14" FontWeight="Medium" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
@@ -96,19 +101,19 @@
 
 
                     <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0 5 0 5">
-                        <TextBlock  Text="Naziv:" TextWrapping="Wrap" FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock x:Name="tbDetaljiNaziv"  Text="Naziv" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  Text="Naziv:" TextWrapping="Wrap" FontSize="14" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="tbDetaljiNaziv"  Text="Naziv" TextWrapping="Wrap"  FontSize="14" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
                     </StackPanel>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0 5 0 5">
-                        <TextBlock  Text="Tip:" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock  x:Name="tbDetaljiTip"  Text="Tip" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  Text="Tip:" TextWrapping="Wrap"  FontSize="14" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  x:Name="tbDetaljiTip"  Text="Tip" TextWrapping="Wrap"  FontSize="14" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0 5 0 5">
-                        <TextBlock  Text="Mesto:" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock x:Name="tbDetaljiMesto"  Text="Mesto" TextWrapping="Wrap"  FontSize="12" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock  Text="Mesto:" TextWrapping="Wrap"  FontSize="14" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="tbDetaljiMesto"  Text="Mesto" TextWrapping="Wrap"  FontSize="14" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
 
                     </StackPanel>
                     

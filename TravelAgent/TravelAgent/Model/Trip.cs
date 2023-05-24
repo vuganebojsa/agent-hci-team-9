@@ -26,8 +26,15 @@ namespace TravelAgent.Model
         {
             this.Objekti.Remove(obj);
         }
-
-
-
+        public Trip(long id, string naziv, double cena, DateTime datumPocetka, DateTime datumKraja, List<IBivuja> objekti, string jeObrisan)
+        {
+            Id = id;
+            Naziv = naziv;
+            Cena = cena;
+            DatumPocetka = datumPocetka;
+            DatumKraja = datumKraja;
+            Objekti = objekti;
+            JeObrisan = jeObrisan;
+        }
     }
 }
