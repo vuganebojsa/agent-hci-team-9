@@ -71,7 +71,7 @@ namespace TravelAgent.view
             double height = Window.GetWindow(this).Height;
             double left = Window.GetWindow(this).Left;
             double top = Window.GetWindow(this).Top;
-            var selectedItem = (Trip)TableDataGrid.SelectedItem;
+            var selectedItem = (SoldTrip)TableDataGrid.SelectedItem;
             if (selectedItem == null)
             {
                 OkPopup ok = new OkPopup("Molimo Vas prvo izaberite red iz tabele kako biste videli detalje.");

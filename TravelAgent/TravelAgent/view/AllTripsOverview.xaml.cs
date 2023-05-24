@@ -64,6 +64,7 @@ namespace TravelAgent.view
         }
         private void Prikazi_ButtonClicked(object sender, EventArgs e)
         {
+
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
             double left = Window.GetWindow(this).Left;
@@ -84,7 +85,13 @@ namespace TravelAgent.view
             }
             else
             {
-                //TO DO
+                
+                SelectedTrip st = new SelectedTrip(selectedItem);
+                UserPage parentWindow = (UserPage)Application.Current.MainWindow;
+                
+                parentWindow.MainContent.Content = null;
+                // Set the newly created user control as the content of the container
+                parentWindow.MainContent.Content = st;
             }
 
         }

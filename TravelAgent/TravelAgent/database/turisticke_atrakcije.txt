@@ -1,0 +1,2 @@
+id;naziv;mesto;fleg
+1;Lepo nesto;11;0

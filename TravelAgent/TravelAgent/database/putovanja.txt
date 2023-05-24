@@ -1,1 +1,2 @@
-id;naziv;cena;datumPocetka;datumKraja;objekti(id-a/id-r/id-r);jeObrisan
+id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani;obrisan
+1;Beograd;2300;10/10/2020 12:00:00 AM;10/11/2020 12:00:00 AM;1-s/1-t;0

@@ -64,6 +64,7 @@ namespace TravelAgent.view
 
         private void SideNavigation_ButtonPregledClicked(object sender, EventArgs e)
         {
+
             SelectedText = "Pregled svih putovanja";
             UserControl control = new AllTripsOverview();
             MainContent.Content = null;

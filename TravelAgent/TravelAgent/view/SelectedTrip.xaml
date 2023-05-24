@@ -9,7 +9,9 @@
 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="450">
+    <ScrollViewer>
     <Grid Background="White">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="140"></RowDefinition>
@@ -134,4 +136,5 @@
 
         
     </Grid>
+    </ScrollViewer>
 </UserControl>

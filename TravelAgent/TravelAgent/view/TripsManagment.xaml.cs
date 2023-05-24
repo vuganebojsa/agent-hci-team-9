@@ -117,16 +117,17 @@ namespace TravelAgent.view
             if (yn.ShowDialog() == true)
             {
                 
-                FileService.deleteTrip(trips, selectedItem);
+                
 
                 foreach (Trip pr in trips)
                 {
                     if (pr.Id == selectedItem.Id)
                     {
-                        pr.Obrisan = "1";
+                        pr.JeObrisan = "1";
                         break;
                     }
                 }
+                FileService.deleteTrip(trips, selectedItem);
                 filterTrips();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.tripsWithFlag;
@@ -140,7 +141,7 @@ namespace TravelAgent.view
             var newTrips = new List<Trip>();
             foreach (Trip tr in trips)
             {
-                if (tr.Obrisan == "0") newTrips.Add(tr);
+                if (tr.JeObrisan == "0") newTrips.Add(tr);
             }
             tripsWithFlag = newTrips;
         }
