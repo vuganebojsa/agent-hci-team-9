@@ -50,7 +50,7 @@
                             <Setter Property="Foreground" Value="#073E66"/>
                         </Style>
 
-
+                        
 
                         <Style TargetType="DataGridRow">
 

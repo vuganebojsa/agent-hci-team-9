@@ -13,17 +13,18 @@ namespace TravelAgent.Model
         public String Naziv { get; set; }
         public String Adresa { get; set; }
         public Vrsta vrsta { get; set; }
-
+        public String isDeleted;
         public PlaceRestaurant()
         {
 
         }
-        public PlaceRestaurant(long id, string name, string address, Vrsta vrsta)
+        public PlaceRestaurant(long id, string name, string address, Vrsta vrsta, string isDeleted)
         {
             Id = id;
             Naziv = name;
             this.Adresa = address;
-            this.vrsta = vrsta; 
+            this.vrsta = vrsta;
+            this.isDeleted = isDeleted; 
         }
     }
 

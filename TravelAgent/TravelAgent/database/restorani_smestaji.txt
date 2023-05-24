@@ -1,7 +1,8 @@
-id;naziv;mesto;tip
-1;Bogorodica SLevlja;Slavija 3, Novi Sad;Restoran
-2;Outlook1;Juric 15, Novi Sad;Smestaj
-3;Mesni Narezak;Rokovica 13, Novi Sad;Restoran
-4;Robosavic1;Juric 15, Novi Sad;Restoran
-5;Nesto123;Nesto123;Restoran
-6;fsafasaaaaaaa;fsafas;Restoran
+id;naziv;mesto;tip;obrisan
+1;Bogorodica SLevlja;Slavija 3, Novi Sad;Restoran;0
+2;Outlook1;Juric 15, Novi Sad;Smestaj;0
+3;Mesni Narezak;Rokovica 13, Novi Sad;Restoran;0
+4;Robosavic;Juric 15, Novi Sad;Restoran;0
+5;fasfas;fsafsa;Restoran;1
+6;qwrwqr;qwrqwr;Restoran;1
+7;asfsaf;fasfsa;Restoran;1

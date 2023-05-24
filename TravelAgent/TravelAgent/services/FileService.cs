@@ -77,6 +77,26 @@ namespace TravelAgent.services
             return long.Parse(id);
         }
 
+        public static void deletePlacesRestaurants(PlaceRestaurant selectedItem, List<PlaceRestaurant> placesRestaurants)
+        {
+            File.WriteAllText(filePathRestaurants, string.Empty);
+
+            selectedItem.isDeleted = "1";
+            using (StreamWriter sw = File.AppendText(filePathRestaurants))
+            {
+                sw.WriteLine("id;naziv;mesto;tip;obrisan");
+                foreach (PlaceRestaurant pr in placesRestaurants)
+                {
+                    
+                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.isDeleted}");
+                    
+                }
+            }
+
+
+            
+        }
+
         public static bool registerUser(String name, String surname, String email, String password)
         {
 
@@ -103,10 +123,10 @@ namespace TravelAgent.services
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] info = line.Split(";");
-
+                    
                     restaurants.Add(
                         new PlaceRestaurant(
-                            long.Parse(info[0]), info[1], info[2], (Vrsta)Enum.Parse(typeof(Vrsta), info[3])));
+                            long.Parse(info[0]), info[1], info[2], (Vrsta)Enum.Parse(typeof(Vrsta), info[3]), info[4]));
 
                         
                     
@@ -123,10 +143,10 @@ namespace TravelAgent.services
 
             using (StreamWriter sw = File.AppendText(filePathRestaurants))
             {
-                sw.WriteLine("id;naziv;mesto;tip");
+                sw.WriteLine("id;naziv;mesto;tip;fleg");
                 foreach(PlaceRestaurant pr in placeRestaurants)
                 {
-                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()}");
+                    sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa};{pr.vrsta.ToString()};{pr.isDeleted}");
 
                 }
             }
@@ -143,7 +163,7 @@ namespace TravelAgent.services
             using (StreamWriter sw = File.AppendText(filePathRestaurants))
             {
                 
-                sw.WriteLine($"{id};{placeRestaurant.Naziv};{placeRestaurant.Adresa};{placeRestaurant.vrsta.ToString()}");
+                sw.WriteLine($"{id};{placeRestaurant.Naziv};{placeRestaurant.Adresa};{placeRestaurant.vrsta.ToString()};{placeRestaurant.isDeleted}");
             }
 
 

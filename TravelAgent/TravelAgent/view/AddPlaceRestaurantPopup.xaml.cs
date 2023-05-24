@@ -94,7 +94,7 @@ namespace TravelAgent.view
             pr.Naziv = name;
             pr.Adresa = mesto;
             pr.vrsta = type;
-            
+            pr.isDeleted = "0";
             // ovo je add
             if(this.PlaceRestaurant == null)
             {
@@ -128,6 +128,7 @@ namespace TravelAgent.view
                         p.vrsta = type;
                         p.Naziv = name;
                         p.Adresa = mesto;
+                        p.isDeleted = "0"; 
                         PlaceRestaurant = p;
                         break;
                     }

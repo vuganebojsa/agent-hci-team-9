@@ -23,13 +23,25 @@ namespace TravelAgent.view
     public partial class PlaceRestaurantManagement : UserControl
     {
         public List<PlaceRestaurant> placesRestaurants { get; set; }
+        public List<PlaceRestaurant> placesRestaurantsWithFlag { get; set; }
         public PlaceRestaurantManagement()
         {
             placesRestaurants = FileService.getPlacesAndRestaurants();
+            filterPlacesRestaurants();
 
             InitializeComponent();
 
-            TableDataGrid.ItemsSource = placesRestaurants;
+            TableDataGrid.ItemsSource = placesRestaurantsWithFlag;
+        }
+
+        private void filterPlacesRestaurants()
+        {
+            var newPlaces = new List<PlaceRestaurant>();
+            foreach(PlaceRestaurant pl in placesRestaurants)
+            {
+                if (pl.isDeleted == "0") newPlaces.Add(pl);
+            }
+            placesRestaurantsWithFlag = newPlaces;
         }
 
         private void btnDelete_ButtonClicked(object sender, EventArgs e)
@@ -58,10 +70,21 @@ namespace TravelAgent.view
             yn.Top = top + height/2 - 100;
             if (yn.ShowDialog() == true)
             {
-                this.placesRestaurants.Remove(selectedItem);
-                
+                FileService.deletePlacesRestaurants(selectedItem, placesRestaurants);
+
+                foreach(PlaceRestaurant pr in placesRestaurants)
+                {
+                    if(pr.Id == selectedItem.Id)
+                    {
+                        pr.isDeleted = "1";
+                        break;
+                    }
+                }
+                filterPlacesRestaurants();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.placesRestaurantsWithFlag;
                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
-                FileService.writePlacesRestaurants(placesRestaurants);
+                //FileService.writePlacesRestaurants(placesRestaurants);
             }
             
             
@@ -82,8 +105,9 @@ namespace TravelAgent.view
             {
                 tbSearch.Text = "";
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
+                filterPlacesRestaurants();
                 TableDataGrid.ItemsSource = null;
-                TableDataGrid.ItemsSource = this.placesRestaurants;
+                TableDataGrid.ItemsSource = this.placesRestaurantsWithFlag;
                 /* TableDataGrid.Items.Refresh();
 
                  CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
@@ -119,8 +143,9 @@ namespace TravelAgent.view
 
                 tbSearch.Text = "";
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
+                filterPlacesRestaurants();
                 TableDataGrid.ItemsSource = null;
-                TableDataGrid.ItemsSource = this.placesRestaurants;
+                TableDataGrid.ItemsSource = this.placesRestaurantsWithFlag;
                 /* TableDataGrid.Items.Refresh();
                  CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
             }
@@ -132,14 +157,16 @@ namespace TravelAgent.view
             if (text == "")
             {
                 this.placesRestaurants = FileService.getPlacesAndRestaurants();
+                filterPlacesRestaurants();
                 TableDataGrid.ItemsSource = null;
-                TableDataGrid.ItemsSource = this.placesRestaurants;
+                TableDataGrid.ItemsSource = this.placesRestaurantsWithFlag;
                 return;
             }
             var newVals = SearchService.getPlaceRestaurantsByKeyword(text, this.placesRestaurants);
             this.placesRestaurants = newVals;
+            filterPlacesRestaurants();
             TableDataGrid.ItemsSource = null;
-            TableDataGrid.ItemsSource = this.placesRestaurants;
+            TableDataGrid.ItemsSource = this.placesRestaurantsWithFlag;
 
 
         }

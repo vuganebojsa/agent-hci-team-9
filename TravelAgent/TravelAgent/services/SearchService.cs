@@ -21,7 +21,8 @@ namespace TravelAgent.services
                     restaurant.Adresa.ToLower().Contains(keyword) ||
                     restaurant.vrsta.ToString().ToLower().Contains(keyword))
                 {
-                    prs.Add(restaurant);
+                   
+                        prs.Add(restaurant);
                 }
             }
             return prs;
