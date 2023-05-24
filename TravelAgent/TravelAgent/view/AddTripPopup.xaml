@@ -10,7 +10,7 @@
     <Grid>
         <DockPanel>
             <TextBlock x:Name="tbRegistration" Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="24" FontWeight="Bold" DockPanel.Dock="Top">Dodajte putovanje</TextBlock>
-
+            <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden" x:Name="errorControl" DockPanel.Dock="Top"></local:ErrorControl >
             <Grid x:Name="mainGrid" DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -22,19 +22,19 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="0">
                     <Label Name="nazivLabel" FontSize="14px" Content="Unesite naziv" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera" x:Name="ime"/>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera" x:Name="tbNaziv"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="0">
                     <Label Name="datumPocetkaLabel" FontSize="14px" Content="Unesite datum pocetka" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="tbEmail"/>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="tbDatumPocetka"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="1">
                     <Label Name="cenaLabel" FontSize="14px" Content="Unesite cenu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric" x:Name="prezime"/>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric" x:Name="tbCena"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="1">
                     <Label Name="datumKrajaLabel" FontSize="14px" Content="Unesite datum kraja" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <local:ClearablePasswordBox Margin="20 0 20 0 " x:Name="lozinka"/>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="10/10/2023" x:Name="tbDatumKraja"/>
                 </StackPanel>
             </Grid>
 

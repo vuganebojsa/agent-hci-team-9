@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 using TravelAgent.Model;
 
 namespace TravelAgent.services
@@ -169,6 +170,27 @@ namespace TravelAgent.services
                     long lid = long.Parse(info[0]);
                     lid = lid + 1;
                     id = lid.ToString();
+                }
+            }
+            if (id == "#") return 1;
+            return long.Parse(id);
+        }
+
+        public static long getLastIdFromTrips()
+        {
+            String id = "#";
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
+            {
+                string line;
+                // 
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    long lid = long.Parse(info[0]);
+                    lid = lid + 1;
+                    id = lid.ToString();
+                    
                 }
             }
             if (id == "#") return 1;
@@ -390,6 +412,41 @@ namespace TravelAgent.services
             {
 
                 sw.WriteLine($"{id};{placeRestaurant.Naziv};{locationId};{placeRestaurant.vrsta.ToString()};{placeRestaurant.JeObrisan}");
+            }
+
+
+            return true;
+        }
+
+        public static bool addTrips(Trip trip)
+        {
+
+            long id = getLastIdFromTrips();           
+            using (StreamWriter sw = File.AppendText(filePathAllTrips))
+            {
+               
+                    String str = "";
+                    foreach (IBivuja ibj in trip.Objekti)
+                    {
+                        if (ibj.GetType() == typeof(PlaceRestaurant))
+                        {
+                            str += ibj.Id + "-s/";
+
+                        }
+                        else
+                        {
+                            str += ibj.Id + "-t/";
+
+                        }
+
+                    }
+                    str = str.Remove(str.Length - 1);
+
+                    sw.WriteLine($"{trip.Id.ToString()};{trip.Naziv};{trip.Cena};{trip.DatumPocetka};{trip.DatumKraja};{str};{trip.JeObrisan}");
+
+                
+
+                // sw.WriteLine($"{id};{placeRestaurant.Naziv};{locationId};{placeRestaurant.vrsta.ToString()};{placeRestaurant.JeObrisan}");
             }
 
 

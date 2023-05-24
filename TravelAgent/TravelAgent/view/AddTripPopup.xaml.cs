@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using TravelAgent.Model;
 using TravelAgent.services;
 
@@ -47,29 +50,207 @@ namespace TravelAgent.view
             get;
             set;
         }
-
+        public Trip Trip { get; set; }
 
         public AddTripPopup()
         {
             InitializeComponent();
             this.DataContext = this;
-            
+
             List<TouristAttraction> atractions = FileService.getAtractions();
-            atrakcije = new ObservableCollection<TouristAttraction>(atractions);
+            var newAtractions = new List<TouristAttraction>();
+            foreach (TouristAttraction pl in atractions)
+            {
+                if (pl.JeObrisan == "0") newAtractions.Add(pl);
+            }
+
+            atrakcije = new ObservableCollection<TouristAttraction>(newAtractions);
             atrakcije2 = new ObservableCollection<TouristAttraction>();
 
             List<PlaceRestaurant> places = FileService.getPlacesAndRestaurants();
-            smestaji = new ObservableCollection<PlaceRestaurant>(places);
+            var newPlaces = new List<PlaceRestaurant>();
+            foreach (PlaceRestaurant pl in places)
+            {
+                if (pl.JeObrisan == "0") newPlaces.Add(pl);
+            }
+
+            smestaji = new ObservableCollection<PlaceRestaurant>(newPlaces);
+            smestaji2 = new ObservableCollection<PlaceRestaurant>();
+        }
+        public AddTripPopup(Trip trip)
+        {
+            this.Trip = trip;
+            InitializeComponent();
+            if (this.Trip != null)
+            {
+                
+                tbRegistration.Text = "Izmenite putovanje";
+                FillFields();
+            }
+            this.DataContext = this;
+            
+            List<TouristAttraction> atractions = FileService.getAtractions();
+            var newAtractions = new List<TouristAttraction>();
+            foreach (TouristAttraction pl in atractions)
+            {
+                if (pl.JeObrisan == "0") newAtractions.Add(pl);
+            }
+
+            atrakcije = new ObservableCollection<TouristAttraction>(newAtractions);
+            atrakcije2 = new ObservableCollection<TouristAttraction>();
+
+            List<PlaceRestaurant> places = FileService.getPlacesAndRestaurants();
+            var newPlaces = new List<PlaceRestaurant>();
+            foreach (PlaceRestaurant pl in places)
+            {
+                if (pl.JeObrisan == "0") newPlaces.Add(pl);
+            }
+            
+            smestaji = new ObservableCollection<PlaceRestaurant>(newPlaces);
             smestaji2 = new ObservableCollection<PlaceRestaurant>();
 
+        }
+        private void FillFields()
+        {
+            tbNaziv.Text = Trip.Naziv;
+            tbCena.Text =  Trip.Cena.ToString();
+            tbDatumPocetka.Text = Trip.DatumPocetka.ToString();
+            tbDatumKraja.Text = Trip.DatumPocetka.ToString();            
         }
 
         private void Sacuvajte_ButtonClicked(object sender, EventArgs e)
         {
+            if (tbNaziv.Text.Trim() == "")
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
 
+                return;
+            }
+            if (tbCena.Text.Trim() == "")
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
+
+                return;
+            }
+
+
+            String datumPocetka = tbDatumPocetka.Text.Trim();
+            String datumKraja = tbDatumKraja.Text.Trim();
+            string format = "dd/MM/yyyy";
+            DateTime dateTimePocetak;
+            DateTime dateTimeKraj;
+
+            if (datumPocetka == "" || datumKraja == "")
+            {
+
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
+                return;
+            }
+            if (DateTime.TryParseExact(datumPocetka, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimePocetak))
+            {
+                
+            }
+            else
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Format datuma nije validan, molimo Vas unesite datum formata: dd/MM/yyyy";
+                return;
+            }
+
+            if (DateTime.TryParseExact(datumKraja, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeKraj))
+            {
+
+            }
+            else
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Format datuma nije validan, molimo Vas unesite datum formata: dd/MM/yyyy";
+                return;
+            }
+            if (dateTimePocetak > dateTimeKraj)
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Datum pocetka mora biti pre datuma kraja, molimo Vas unesite drugacije datume";
+                return;
+            }
+
+
+            errorControl.Visibility = Visibility.Hidden;
+            Trip tr = new Trip();
+            
+            tr.Naziv = tbNaziv.Text;
+            long number;
+            if (long.TryParse(tbCena.Text, out number))
+            {
+               
+            }
+            else
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo vas unesite cenu u brojevima";
+                return;
+            }
+            tr.Cena = number;
+            tr.DatumPocetka = dateTimePocetak;
+            tr.DatumKraja = dateTimeKraj;
+            tr.JeObrisan = "0";
+            List<IBivuja> bivujas = new List<IBivuja>();
+            foreach (PlaceRestaurant place in smestaji2)
+            {
+                if (place != null)
+                {
+                    bivujas.Add(FileService.getRestaurantsById(place.Id));
+                }
+            }
+            foreach (TouristAttraction atr in atrakcije2)
+            {
+                if (atr != null)
+                {
+                    bivujas.Add(FileService.getAtractionsById(atr.Id));
+                }
+            }
+            tr.Objekti = bivujas;
+
+            // ovo je add
+            if (this.Trip == null)
+            {
+                
+                FileService.addTrips(tr);
+                 
+                // da bi mogli znati da li je sacuvano da se refreshuje tabela
+                double width = Window.GetWindow(this).Width;
+                double height = Window.GetWindow(this).Height;
+                double left = Window.GetWindow(this).Left;
+                double top = Window.GetWindow(this).Top;
+                OkPopup ok = new OkPopup($"Uspesno ste dodali objekat {tr.Naziv}.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+                    // da bi mogli znati da li je sacuvano da se refreshuje tabela
+
+                    this.DialogResult = true;
+                }
+
+            }
         }
         private void Otkazite_ButtonClicked(object sender, EventArgs e)
         {
+            YesNoPopup yn = new YesNoPopup("Da li ste sigurni da zelite da otkazete? Ovom akcijom nista nece biti izmenjeno.");
+            double width = Window.GetWindow(this).Width;
+            double height = Window.GetWindow(this).Height;
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+            yn.Left = left + width / 2 - 100;
+            yn.Top = top + height / 2 - 200;
+
+            if (yn.ShowDialog() == true)
+            {
+                this.DialogResult = false;
+            }
 
         }
         private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
