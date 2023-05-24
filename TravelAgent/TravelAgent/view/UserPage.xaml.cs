@@ -64,7 +64,8 @@ namespace TravelAgent.view
 
         private void SideNavigation_ButtonPregledClicked(object sender, EventArgs e)
         {
-            UserControl control = new SkeletonUpravljanje();
+            SelectedText = "Pregled svih putovanja";
+            UserControl control = new AllTripsOverview();
             MainContent.Content = null;
 
             // Set the newly created user control as the content of the container
@@ -73,7 +74,11 @@ namespace TravelAgent.view
 
         private void SideNavigation_ButtonRezervisaniClicked(object sender, EventArgs e)
         {
+            SelectedText = "Pregled rezervisanih putovanja";
+            UserControl control = new BookedTripsOverview();
 
+            MainContent.Content = null;
+            MainContent.Content = control;
         }
     }
   

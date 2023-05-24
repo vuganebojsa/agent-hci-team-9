@@ -66,12 +66,15 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonPregledProdatihPutovanja(object sender, EventArgs e)
         {
-
-            topNav_ButtonClicked(sender, e);
+            SelectedText = "Pregled prodatih putovanja";
+            UserControl control = new SoldTripsOverview();
+            MainContent.Content = null;
+            MainContent.Content = control;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked(object sender, EventArgs e)
         {
+            /*
             List<IBivuja> objekti = new List<IBivuja>
             {
                 new PlaceRestaurant(1, "Bibinovo",
@@ -90,6 +93,12 @@ namespace TravelAgent.view
             MainContent.Content = null;
             // Set the newly created user control as the content of the container
             MainContent.Content = st;
+            */
+            SelectedText = "Upravljanje putovanjima";
+            UserControl control = new TripsManagment();
+            MainContent.Content = null;
+            MainContent.Content = control;
+
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)

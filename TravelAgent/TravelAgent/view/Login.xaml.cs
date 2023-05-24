@@ -78,13 +78,18 @@ namespace TravelAgent.view
             }
             else
             {
+                
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorText = "Success";
 
                 double left = Left;
                 double top = Top;
+                
+                
+                CurrentlyloggedInUser.user = user;
+                
 
-                if(user.role == Role.AGENT)
+                if (user.role == Role.AGENT)
                 {
                     AdminPage sw = new AdminPage();
 
