@@ -28,5 +28,24 @@ namespace TravelAgent.services
             return prs;
 
         }
+
+        public static List<TouristAttraction> getAttractionsByKeyword(String keyword, List<TouristAttraction> attractions)
+        {
+            List<TouristAttraction> atts = new List<TouristAttraction>();
+
+            foreach (TouristAttraction attraction in attractions)
+            {
+                if (attraction.Id.ToString().Contains(keyword) ||
+                    attraction.Naziv.ToLower().Contains(keyword) ||
+                    attraction.Adresa.Naziv.ToLower().Contains(keyword))
+                {
+
+                    atts.Add(attraction);
+                }
+            }
+            return atts;
+
+        }
+
     }
 }
