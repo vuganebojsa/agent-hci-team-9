@@ -52,6 +52,14 @@ namespace TravelAgent.view
             cbType.Text = PlaceRestaurant.vrsta.ToString();
             tbNaziv.Text = PlaceRestaurant.Naziv;
             tbMesto.Text = PlaceRestaurant.Adresa.Naziv;
+
+            int zoomLevel = 12; // Adjust the zoom level as desired
+
+            bingMap.Center = new Microsoft.Maps.MapControl.WPF.Location(SelectedLocation.Latitude, SelectedLocation.Longitude);
+            Pushpin pin = new Pushpin();
+            pin.Location = new Microsoft.Maps.MapControl.WPF.Location(SelectedLocation.Latitude, SelectedLocation.Longitude);
+            bingMap.Children.Add(pin);
+            bingMap.ZoomLevel = zoomLevel;
         }
 
  
@@ -92,7 +100,7 @@ namespace TravelAgent.view
                 errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
                 return;
             }
-
+            SelectedLocation.Naziv = mesto;
             errorControl.Visibility = Visibility.Hidden;
 
             PlaceRestaurant pr = new PlaceRestaurant();

@@ -46,11 +46,15 @@ namespace TravelAgent.view
             priceColumn.Header = "Mesto";
             priceColumn.Binding = new Binding("Adresa.Naziv");
 
+            DataGridTextColumn typeColumn = new DataGridTextColumn();
+            typeColumn.Header = "Vrsta";
+            typeColumn.Binding = new Binding("vrsta");
 
             // Add the columns to the DataGrid
             TableDataGrid.Columns.Add(nameColumn);
             TableDataGrid.Columns.Add(destinationColumn);
             TableDataGrid.Columns.Add(priceColumn);
+            TableDataGrid.Columns.Add(typeColumn);
 
 
 
