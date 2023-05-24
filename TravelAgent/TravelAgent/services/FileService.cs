@@ -220,6 +220,31 @@ namespace TravelAgent.services
             return restaurants;
         }
 
+        public static List<TouristAttraction> getAtractions()
+        {
+            List<TouristAttraction> atractions = new List<TouristAttraction>();
+            using (StreamReader sr = new StreamReader(filePathAtractions))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    String locationId = info[2];
+                    Location location = getLocationFromFileById(locationId);
+
+                    atractions.Add(
+                        new TouristAttraction(
+                            long.Parse(info[0]), info[1], location,  info[3]));
+
+                }
+            }
+
+
+            return atractions;
+        }
+
         private static Location getLocationFromFileById(string locationId)
         {
             Location location = null;

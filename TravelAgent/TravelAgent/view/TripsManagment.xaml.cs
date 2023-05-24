@@ -147,7 +147,26 @@ namespace TravelAgent.view
         }
         private void Dodajte_ButtonClicked(object sender, EventArgs e)
         {
-            return;
+            double width = Window.GetWindow(this).Width;
+            double height = Window.GetWindow(this).Height;
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+
+            AddTripPopup ap = new AddTripPopup();
+            ap.Left = left + width / 2 - 130;
+            ap.Top = top + height / 2 - 250;
+
+            if (ap.ShowDialog() == true)
+            {
+                tbSearch.Text = "";
+                this.trips = FileService.getAllTrips();
+                filterTrips();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.tripsWithFlag;
+                /* TableDataGrid.Items.Refresh();
+
+                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
+            }
         }
     }
 }
