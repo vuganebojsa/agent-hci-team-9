@@ -23,14 +23,17 @@ namespace TravelAgent.view
     public partial class TripsManagment : UserControl
     {
         public List<Trip> trips { get; set; }
+        public List<Trip> tripsWithFlag { get; set; }
         public TripsManagment()
         {
+
+
             trips = FileService.getAllTrips();
+            filterTrips();
 
             InitializeComponent();
-
             TableDataGrid.AutoGenerateColumns = false;
-            TableDataGrid.ItemsSource = trips;
+            TableDataGrid.ItemsSource = tripsWithFlag;
 
             // Define columns manually
             DataGridTextColumn nameColumn = new DataGridTextColumn();
@@ -112,12 +115,33 @@ namespace TravelAgent.view
             yn.Top = top + height / 2 - 100;
             if (yn.ShowDialog() == true)
             {
-                this.trips.Remove(selectedItem);
+          
+                FileService.deleteTrip(trips, selectedItem);
 
+                foreach (Trip pr in trips)
+                {
+                    if (pr.Id == selectedItem.Id)
+                    {
+                        pr.Obrisan = "1";
+                        break;
+                    }
+                }
+                filterTrips();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.tripsWithFlag;
                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();
-                FileService.writeTrips(trips);
             }
 
+        }
+        private void filterTrips()
+        {
+            trips = FileService.getAllActiveTrips();
+            var newTrips = new List<Trip>();
+            foreach (Trip tr in trips)
+            {
+                if (tr.Obrisan == "0") newTrips.Add(tr);
+            }
+            tripsWithFlag = newTrips;
         }
         private void Dodajte_ButtonClicked(object sender, EventArgs e)
         {

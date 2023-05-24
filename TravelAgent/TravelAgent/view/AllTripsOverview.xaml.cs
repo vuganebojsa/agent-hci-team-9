@@ -25,7 +25,7 @@ namespace TravelAgent.view
         public List<Trip> trips { get; set; }
         public AllTripsOverview()
         {
-            trips = FileService.getAllTrips();
+            trips = FileService.getAllActiveTrips();
 
             InitializeComponent();
 

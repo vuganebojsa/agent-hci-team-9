@@ -16,8 +16,9 @@ namespace TravelAgent.Model
 
         public List<TouristAttraction> Atrakcije { get; set; }
         public List<PlaceRestaurant> SmestajRestorani { get; set; }
+        public string Obrisan { get; set; }
 
-        public Trip(long id, string naziv, double cena, DateTime datumPocetka, DateTime datumKraja, List<TouristAttraction> atrakcije, List<PlaceRestaurant> smestajRestorani)
+        public Trip(long id, string naziv, double cena, DateTime datumPocetka, DateTime datumKraja, List<TouristAttraction> atrakcije, List<PlaceRestaurant> smestajRestorani, string obrisan)
         {
             Id = id;
             Naziv = naziv;
@@ -26,8 +27,9 @@ namespace TravelAgent.Model
             DatumKraja = datumKraja;
             Atrakcije = atrakcije;
             SmestajRestorani = smestajRestorani;
+            Obrisan = obrisan;
         }
-        public Trip(long id, string naziv, double cena, DateTime datumPocetka, DateTime datumKraja)
+        public Trip(long id, string naziv, double cena, DateTime datumPocetka, DateTime datumKraja, string obrisan)
         {
             Id = id;
             Naziv = naziv;
@@ -36,6 +38,7 @@ namespace TravelAgent.Model
             DatumKraja = datumKraja;
             Atrakcije = new List<TouristAttraction>();
             SmestajRestorani = new List<PlaceRestaurant>();
+            Obrisan = obrisan;
 
         }
 
