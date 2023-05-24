@@ -82,7 +82,7 @@
 
                 <TextBlock Text="Detalji" FontSize="14" FontWeight="Medium" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
 
-                <Grid>
+                <Grid x:Name="gridDetalji" Visibility="Hidden">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -118,7 +118,7 @@
             </StackPanel>
 
             <Grid Grid.Column="1" Margin="5 5 5 5">
-                <m:Map CredentialsProvider="Ijvu2SMwlr7DxdnfTKKG~kJisNvX_vlWR5egGU2rIww~AmHWNbRje2l-vERM1_qq5tn-t3ZiEAY8C5KumLNp01RXxFPkFKOBHOpieJsW9C1T" />
+                <m:Map x:Name="bingMap" CredentialsProvider="Ijvu2SMwlr7DxdnfTKKG~kJisNvX_vlWR5egGU2rIww~AmHWNbRje2l-vERM1_qq5tn-t3ZiEAY8C5KumLNp01RXxFPkFKOBHOpieJsW9C1T" />
 
 
             </Grid>
