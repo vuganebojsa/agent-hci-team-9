@@ -26,7 +26,6 @@ namespace TravelAgent.view
         public bool IsReservation { get; set; }
         public bool IsUser { get; set; }
         public bool IsLogedIn { get; set; }
-        // dodati jos flegova
 
         public SelectedTrip()
         {
@@ -37,13 +36,28 @@ namespace TravelAgent.view
         public SelectedTrip(Trip trip, bool isReservation, bool isUser, bool isLogedIn)
         {
             this.trip = trip;
+            IsReservation = isReservation;
+            IsUser = isUser;
+            IsLogedIn = isLogedIn;
             InitializeComponent();
             FillFields();
             FillDestinationItems();
             SetPins();
-            IsReservation = isReservation;
-            IsUser = isUser;
-            IsLogedIn = isLogedIn;
+            CheckFlags();
+            
+        }
+
+        private void CheckFlags()
+        {
+            if (!IsLogedIn)
+            {
+                btnPocetna.Visibility = Visibility.Visible;
+                btnRezervisi.Visibility = Visibility.Hidden;
+            }else if (IsUser)
+            {
+                btnRezervisi.Visibility = Visibility.Visible;
+
+            }
         }
 
         private void SetPins()
@@ -95,7 +109,18 @@ namespace TravelAgent.view
 
         private void btnNazad_ButtonClicked(object sender, EventArgs e)
         {
-            // na osnovu flegova odredi gde se vraca, tj na koji/ciji ekran
+            StartWindow sw = new StartWindow();
+
+            
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+
+            sw.Left = left;
+            sw.Top = top;
+
+            Application.Current.MainWindow = sw;
+            Application.Current.MainWindow.Show();
+            Window.GetWindow(this).Close();
 
         }
 

@@ -54,8 +54,15 @@ namespace TravelAgent.view
 
         private void Putovanja_ButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainWindow = new Registration();
 
+            UnregisteredTrips registration = new UnregisteredTrips();
+            double left = Left;
+            double top = Top;
+
+            registration.Left = left;
+            registration.Top = top;
+
+            Application.Current.MainWindow = registration;
             Application.Current.MainWindow.Show();
             this.Close();
         }

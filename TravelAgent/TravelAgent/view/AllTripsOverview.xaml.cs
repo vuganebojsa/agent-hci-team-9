@@ -85,13 +85,42 @@ namespace TravelAgent.view
             }
             else
             {
-                
-                SelectedTrip st = new SelectedTrip(selectedItem);
-                UserPage parentWindow = (UserPage)Application.Current.MainWindow;
-                
-                parentWindow.MainContent.Content = null;
-                // Set the newly created user control as the content of the container
-                parentWindow.MainContent.Content = st;
+                User curUser = CurrentlyloggedInUser.user;
+                bool isUser = false;
+                bool isLogedIn = true;
+                if (curUser != null)
+                {
+                    isUser = curUser.role == Role.USER;
+
+                }
+                else
+                {
+                    isLogedIn = false;
+                }
+
+                SelectedTrip st = new SelectedTrip(selectedItem, false, isUser, isLogedIn);
+                if (isUser)
+                {
+                    UserPage parentWindow = (UserPage)Application.Current.MainWindow;
+                    parentWindow.MainContent.Content = null;
+                    // Set the newly created user control as the content of the container
+                    parentWindow.MainContent.Content = st;
+                }else if (isLogedIn)
+                {
+                    AdminPage parentWindow = (AdminPage)Application.Current.MainWindow;
+                    parentWindow.MainContent.Content = null;
+                    // Set the newly created user control as the content of the container
+                    parentWindow.MainContent.Content = st;
+                }
+                else
+                {
+                    UnregisteredTrips parentWindow = (UnregisteredTrips)Application.Current.MainWindow;
+                    parentWindow.MainContent.Content = null;
+                    // Set the newly created user control as the content of the container
+                    parentWindow.MainContent.Content = st;
+                }
+
+               
             }
 
         }
