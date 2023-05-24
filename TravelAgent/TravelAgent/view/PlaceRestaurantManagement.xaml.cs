@@ -92,16 +92,18 @@ namespace TravelAgent.view
             yn.Top = top + height/2 - 250;
             if (yn.ShowDialog() == true)
             {
-                FileService.deletePlacesRestaurants(selectedItem, placesRestaurants);
-
-                foreach(PlaceRestaurant pr in placesRestaurants)
+                foreach (PlaceRestaurant pr in placesRestaurants)
                 {
-                    if(pr.Id == selectedItem.Id)
+                    if (pr.Id == selectedItem.Id)
                     {
                         pr.JeObrisan = "1";
                         break;
                     }
                 }
+
+                FileService.deletePlacesRestaurants(selectedItem, placesRestaurants);
+
+                
                 filterPlacesRestaurants();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.placesRestaurantsWithFlag;
