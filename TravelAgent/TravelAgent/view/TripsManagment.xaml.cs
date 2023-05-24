@@ -29,11 +29,12 @@ namespace TravelAgent.view
 
 
             trips = FileService.getAllTrips();
+            List<Trip>  activeTrips = FileService.getAllActiveTrips();
             filterTrips();
 
             InitializeComponent();
             TableDataGrid.AutoGenerateColumns = false;
-            TableDataGrid.ItemsSource = tripsWithFlag;
+            TableDataGrid.ItemsSource = activeTrips;
 
             // Define columns manually
             DataGridTextColumn nameColumn = new DataGridTextColumn();
@@ -115,7 +116,7 @@ namespace TravelAgent.view
             yn.Top = top + height / 2 - 100;
             if (yn.ShowDialog() == true)
             {
-          
+                
                 FileService.deleteTrip(trips, selectedItem);
 
                 foreach (Trip pr in trips)
@@ -135,7 +136,7 @@ namespace TravelAgent.view
         }
         private void filterTrips()
         {
-            trips = FileService.getAllActiveTrips();
+            
             var newTrips = new List<Trip>();
             foreach (Trip tr in trips)
             {

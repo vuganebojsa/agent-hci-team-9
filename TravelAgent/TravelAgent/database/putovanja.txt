@@ -1,4 +1,5 @@
 id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani;obrisan
-2;Beograd nocu;2200;11/10/2021 12:00:00 AM;11/20/2021 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant];0
-3;Moja kuca;2340;9/19/2022 12:00:00 AM;10/19/2022 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant];1
+1;Beograd;2400;9/10/2022 12:00:00 AM;6/26/2022 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant];0
+2;Beograd;2490;9/10/2022 12:00:00 AM;6/26/2022 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant];0
+3;Beograd;2480;9/10/2025 12:00:00 AM;6/26/2022 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant];0
 4;Novi Sad;2340;9/19/2022 12:00:00 AM;6/29/2022 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant];0

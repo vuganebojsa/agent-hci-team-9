@@ -68,7 +68,7 @@
 
             <WrapPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="10 10 10 2">
                 <travel:BivujaButton ButtonClicked="Prikazi_ButtonClicked" ButtonContent="Prikazi" Height="40" Margin="5 0 5 0 "/>
-                <travel:BivujaButton ButtonClicked="Rezervisi_ButtonClicked" ButtonContent="Rezervisi" Height="40" Margin="5 0 5 0 "/>
+                
             </WrapPanel>
 
         </Grid>

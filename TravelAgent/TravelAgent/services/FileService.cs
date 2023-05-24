@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using TravelAgent.Model;
 
 namespace TravelAgent.services
@@ -117,8 +113,6 @@ namespace TravelAgent.services
                     DateTime startDateOnly = dateTime.Date;
                     dateTime = DateTime.Parse(info[4]);
                     DateTime endDateOnly = dateTime.Date;
-                    Console.WriteLine(endDateOnly);
-
 
                     trips.Add(
                         new Trip(
@@ -213,7 +207,7 @@ namespace TravelAgent.services
                         DateTime endDateOnly = dateTime.Date;
 
                         return new Trip(
-                           long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly, "0");
+                           long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly, info[7]);
                     }
                 }
             }
@@ -233,8 +227,10 @@ namespace TravelAgent.services
                     String[] info = line.Split(";");
                     Trip trip = getTripById(long.Parse(info[0]));
                     //if (trip.obrisan!= 0 && isTripOver(trip))
-                    if (trip != null && isTripOver(trip))
+
+                    if (isTripOver(trip))
                     {
+
                         User user = getUserById(long.Parse(info[1]));
                         SoldTrip soldTrip = new SoldTrip(trip, user);
                         soldTrips.Add(soldTrip);
@@ -248,6 +244,7 @@ namespace TravelAgent.services
         {
             return trip.DatumPocetka < DateTime.Now;
         }
+
         public static void deleteTrip(List<Trip> trips, Trip selectedItem)
         {
             File.WriteAllText(filePathAllTrips, string.Empty);
@@ -259,7 +256,7 @@ namespace TravelAgent.services
                 foreach (Trip tr in trips)
                 {
 
-                    sw.WriteLine($"{tr.Id.ToString()};{tr.Naziv};{tr.Cena};{tr.DatumPocetka.ToString()};{tr.DatumKraja};{tr.Atrakcije};{tr.SmestajRestorani};{tr.Obrisan}");
+                    sw.WriteLine($"{tr.Id.ToString()};{tr.Naziv};{tr.Cena};{tr.DatumPocetka};{tr.DatumKraja};{tr.Atrakcije};{tr.SmestajRestorani};{tr.Obrisan}");
 
                 }
             }
@@ -272,5 +269,5 @@ namespace TravelAgent.services
 
 
 
-    }
+}
 

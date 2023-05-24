@@ -89,31 +89,6 @@ namespace TravelAgent.view
 
         }
 
-        private void Rezervisi_ButtonClicked(object sender, EventArgs e)
-        {
-            double width = Window.GetWindow(this).Width;
-            double height = Window.GetWindow(this).Height;
-            double left = Window.GetWindow(this).Left;
-            double top = Window.GetWindow(this).Top;
-            var selectedItem = (Trip)TableDataGrid.SelectedItem;
-            if (selectedItem == null)
-            {
-                OkPopup ok = new OkPopup("Molimo Vas prvo izaberite red iz tabele kako biste rezervisali putovanje.");
-                ok.Left = left + width / 2 - 100;
-                ok.Top = top + height / 2 - 100;
-                if (ok.ShowDialog() == true)
-                {
-
-                    return;
-                }
-                return;
-
-            }
-            else
-            {
-                //TO DO
-            }
-
-        }
+       
     }
 }
