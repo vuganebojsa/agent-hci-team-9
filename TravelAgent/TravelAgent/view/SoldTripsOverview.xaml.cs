@@ -22,42 +22,45 @@ namespace TravelAgent.view
     /// </summary>
     public partial class SoldTripsOverview : UserControl
     {
-        public List<Trip> trips { get; set; }
+        public List<SoldTrip> soldTrips { get; set; }
         public SoldTripsOverview()
         {
-            trips = FileService.getAllSoldTrips();
+            soldTrips = FileService.getAllSoldTrips();
 
             InitializeComponent();
 
             TableDataGrid.AutoGenerateColumns = false;
-            TableDataGrid.ItemsSource = trips;
+            TableDataGrid.ItemsSource = soldTrips;
 
             // Define columns manually
             DataGridTextColumn nameColumn = new DataGridTextColumn();
             nameColumn.Header = "#";
-            nameColumn.Binding = new Binding("Id");
+            nameColumn.Binding = new Binding("Trip.Id");
+
             DataGridTextColumn destinationColumn = new DataGridTextColumn();
             destinationColumn.Header = "Naziv";
-            destinationColumn.Binding = new Binding("Naziv");
+            destinationColumn.Binding = new Binding("Trip.Naziv");
 
             DataGridTextColumn priceColumn = new DataGridTextColumn();
             priceColumn.Header = "Cena";
-            priceColumn.Binding = new Binding("Cena");
+            priceColumn.Binding = new Binding("Trip.Cena");
 
             DataGridTextColumn startDateColumn = new DataGridTextColumn();
-            startDateColumn.Header = "Datum pocetka";
-            startDateColumn.Binding = new Binding("DatumPocetka") { StringFormat = "MM/dd/yyyy" };
+            startDateColumn.Header = "Datum";
+            startDateColumn.Binding = new Binding("Trip.DatumPocetka") { StringFormat = "MM/dd/yyyy" };
 
-            DataGridTextColumn endDateColumn = new DataGridTextColumn();
-            endDateColumn.Header = "Datum kraja";
-            endDateColumn.Binding = new Binding("DatumKraja") { StringFormat = "MM/dd/yyyy" };
+            
+
+            DataGridTextColumn putnikColumn = new DataGridTextColumn();
+            putnikColumn.Header = "Putnik";
+            putnikColumn.Binding = new Binding("User.Name");
 
             // Add the columns to the DataGrid
             TableDataGrid.Columns.Add(nameColumn);
             TableDataGrid.Columns.Add(destinationColumn);
             TableDataGrid.Columns.Add(priceColumn);
             TableDataGrid.Columns.Add(startDateColumn);
-            TableDataGrid.Columns.Add(endDateColumn);
+            TableDataGrid.Columns.Add(putnikColumn);
         }
 
         

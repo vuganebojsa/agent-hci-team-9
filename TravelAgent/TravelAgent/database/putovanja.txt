@@ -1,2 +1,4 @@
 id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani
 1;Moja Kuca;3400;12/25/2030 12:00:00 AM;12/25/2030 12:00:00 AM;System.Collections.Generic.List`1[TravelAgent.Model.TouristAttraction];System.Collections.Generic.List`1[TravelAgent.Model.PlaceRestaurant]
+2;Beograd nocu;2200;11/10/2021;11/20/2021;;
+3;Novi Sad;2500;11/20/2020;9/14/2021;;

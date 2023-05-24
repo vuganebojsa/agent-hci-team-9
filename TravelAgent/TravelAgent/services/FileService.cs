@@ -42,6 +42,31 @@ namespace TravelAgent.services
             return null;
         }
 
+        public static User getUserById(long id)
+        {
+
+            using (StreamReader sr = new StreamReader(filePathUsers))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    if (long.Parse(info[0]) == id)
+                    {
+
+                        return new User(long.Parse(info[0]), info[1], info[2], info[3], info[4], (Role)Enum.Parse(typeof(Role), info[5]));
+
+
+                    }
+                }
+            }
+
+
+            return null;
+        }
+
         public static long getLastUserIdFromFile()
         {
             String id = "#";
@@ -165,9 +190,9 @@ namespace TravelAgent.services
 
             return null;
         }
-        public static List<Trip> getAllSoldTrips()
+        public static List<SoldTrip> getAllSoldTrips()
         {
-            List<Trip> trips = new List<Trip>();
+            List<SoldTrip> soldTrips = new List<SoldTrip>();
             using (StreamReader sr = new StreamReader(filePathBookedTrips))
             {
                 string line;
@@ -179,11 +204,13 @@ namespace TravelAgent.services
                     Trip trip = getTripById(long.Parse(info[0]));
                     if (trip != null && isTripOver(trip))
                     {
-                        trips.Add(trip);
+                        User user = getUserById(long.Parse(info[1]));
+                        SoldTrip soldTrip = new SoldTrip(trip, user);
+                        soldTrips.Add(soldTrip);
                     }                                
                 }
             }
-            return trips;
+            return soldTrips;
         }
 
         private static bool isTripOver(Trip trip)
