@@ -58,6 +58,10 @@ namespace TravelAgent.view
                 btnRezervisi.Visibility = Visibility.Visible;
 
             }
+            else
+            {
+                btnRezervisi.Visibility = Visibility.Hidden;
+            }
         }
 
         private void SetPins()
