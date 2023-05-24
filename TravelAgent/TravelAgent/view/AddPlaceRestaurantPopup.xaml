@@ -7,7 +7,7 @@
              xmlns:travel="clr-namespace:TravelAgent"
             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
              mc:Ignorable="d" 
-             d:DesignHeight="750" d:DesignWidth="500" WindowStyle="None" MaxWidth="500" MaxHeight="750">
+             d:DesignHeight="750" d:DesignWidth="500" WindowStyle="SingleBorderWindow"  MaxWidth="500" MaxHeight="750">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"></RowDefinition>

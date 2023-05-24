@@ -1,9 +1,6 @@
-id;naziv;mesto;tip;obrisan
-1;Bogorodica SLevlja;;Restoran;0
-2;Outlook1;;Smestaj;0
-3;Mesni Narezak;;Restoran;0
-4;Robosavic;;Restoran;0
-5;fasfas;;Restoran;1
-6;qwrwqr;;Restoran;1
-7;asfsaf;;Restoran;1
-8;fsafsafsafsa;;Smestaj;1
+id;naziv;mesto;tip;fleg
+1;Bogorodica SLevlja;1;Restoran;0
+2;Outlook1;2;Smestaj;0
+3;Mesni Narezak;3;Restoran;0
+9;fasfasfsa;9;Smestaj;0
+10;xzvxzv;10;Smestaj;0

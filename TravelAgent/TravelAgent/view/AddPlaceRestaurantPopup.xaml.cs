@@ -138,7 +138,7 @@ namespace TravelAgent.view
                     {
                         p.vrsta = type;
                         p.Naziv = name;
-                        //p.Adresa = mesto;
+                        p.Adresa = SelectedLocation;
                         p.JeObrisan = "0"; 
                         PlaceRestaurant = p;
                         break;

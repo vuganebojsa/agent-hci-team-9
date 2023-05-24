@@ -31,7 +31,29 @@ namespace TravelAgent.view
 
             InitializeComponent();
 
+            TableDataGrid.AutoGenerateColumns = false;
             TableDataGrid.ItemsSource = placesRestaurantsWithFlag;
+
+            // Define columns manually
+            DataGridTextColumn nameColumn = new DataGridTextColumn();
+            nameColumn.Header = "#";
+            nameColumn.Binding = new Binding("Id");
+            DataGridTextColumn destinationColumn = new DataGridTextColumn();
+            destinationColumn.Header = "Naziv";
+            destinationColumn.Binding = new Binding("Naziv");
+
+            DataGridTextColumn priceColumn = new DataGridTextColumn();
+            priceColumn.Header = "Mesto";
+            priceColumn.Binding = new Binding("Adresa.Naziv");
+
+
+            // Add the columns to the DataGrid
+            TableDataGrid.Columns.Add(nameColumn);
+            TableDataGrid.Columns.Add(destinationColumn);
+            TableDataGrid.Columns.Add(priceColumn);
+
+
+
         }
 
         private void filterPlacesRestaurants()
@@ -67,7 +89,7 @@ namespace TravelAgent.view
             YesNoPopup yn = new YesNoPopup($"Da li ste sigurni da zelite da obrisete {selectedItem.Naziv} objekat?");
            
             yn.Left = left + width/2 - 100;
-            yn.Top = top + height/2 - 100;
+            yn.Top = top + height/2 - 250;
             if (yn.ShowDialog() == true)
             {
                 FileService.deletePlacesRestaurants(selectedItem, placesRestaurants);
@@ -99,7 +121,7 @@ namespace TravelAgent.view
 
             AddPlaceRestaurantPopup ap = new AddPlaceRestaurantPopup();
             ap.Left = left + width / 2 - 100;
-            ap.Top = top + height / 2 - 150;
+            ap.Top = top + height / 2 - 250;
 
             if(ap.ShowDialog() == true)
             {
