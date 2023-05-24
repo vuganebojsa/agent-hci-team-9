@@ -65,13 +65,18 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonPregledProdatihPutovanja(object sender, EventArgs e)
         {
-
-            topNav_ButtonClicked(sender, e);
+            SelectedText = "Pregled prodatih putovanja";
+            UserControl control = new SoldTripsOverview();
+            MainContent.Content = null;
+            MainContent.Content = control;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked(object sender, EventArgs e)
         {
-
+            SelectedText = "Upravljanje putovanjima";
+            UserControl control = new TripsManagment();
+            MainContent.Content = null;
+            MainContent.Content = control;
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)

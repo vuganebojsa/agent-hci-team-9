@@ -1,9 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TravelAgent.Model;
 
 namespace TravelAgent.services
@@ -12,6 +9,8 @@ namespace TravelAgent.services
     {
 
         private static string filePathUsers = "../../../database/korisnici.txt";
+        private static string filePathAllTrips = "../../../database/putovanja.txt";
+        private static string filePathBookedTrips = "../../../database/rezervisana_putovanja.txt";
         private static string filePathLocations = "../../../database/lokacije.txt";
         private static string filePathRestaurants = "../../../database/restorani_smestaji.txt";
 
@@ -19,17 +18,45 @@ namespace TravelAgent.services
         public static User getUserByEmailAndPassword(String email, String password)
         {
 
-            using(StreamReader sr = new StreamReader(filePathUsers))
+            using (StreamReader sr = new StreamReader(filePathUsers))
             {
                 string line;
                 //id;ime;prezime;email;lozinka;uloga
                 line = sr.ReadLine();
-                while((line = sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()) != null)
                 {
                     String[] info = line.Split(";");
                     if (info[3] == email && info[4] == password)
                     {
-                        return new User(long.Parse(info[0]), info[1], info[2], info[3], info[4], (Role) Enum.Parse(typeof(Role), info[5]));
+
+                        return new User(long.Parse(info[0]), info[1], info[2], info[3], info[4], (Role)Enum.Parse(typeof(Role), info[5]));
+
+
+                    }
+                }
+            }
+
+
+            return null;
+        }
+
+        public static User getUserById(long id)
+        {
+
+            using (StreamReader sr = new StreamReader(filePathUsers))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    if (long.Parse(info[0]) == id)
+                    {
+
+                        return new User(long.Parse(info[0]), info[1], info[2], info[3], info[4], (Role)Enum.Parse(typeof(Role), info[5]));
+
+
                     }
                 }
             }
@@ -58,6 +85,20 @@ namespace TravelAgent.services
             return long.Parse(id);
         }
 
+        public static bool registerUser(String name, String surname, String email, String password)
+        {
+
+            long id = getLastUserIdFromFile();
+
+            using (StreamWriter sw = File.AppendText(filePathUsers))
+            {
+                String role = Role.USER.ToString();
+                sw.WriteLine($"{id};{name};{surname};{email};{password};{role}");
+            }
+
+
+            return true;
+        }
         public static long getLastIdFromPlacesRestaurants()
         {
             String id = "#";
@@ -88,29 +129,14 @@ namespace TravelAgent.services
                 sw.WriteLine("id;naziv;mesto;tip;obrisan");
                 foreach (PlaceRestaurant pr in placesRestaurants)
                 {
-                    
+
                     sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa.Id};{pr.vrsta.ToString()};{pr.JeObrisan}");
-                    
+
                 }
             }
 
 
-            
-        }
 
-        public static bool registerUser(String name, String surname, String email, String password)
-        {
-
-            long id = getLastUserIdFromFile();
-
-            using (StreamWriter sw = File.AppendText(filePathUsers))
-            {
-                String role = Role.USER.ToString();
-                sw.WriteLine($"{id};{name};{surname};{email};{password};{role}");
-            }
-
-
-            return true;
         }
 
         public static List<PlaceRestaurant> getPlacesAndRestaurants()
@@ -129,8 +155,8 @@ namespace TravelAgent.services
 
                     restaurants.Add(
                         new PlaceRestaurant(
-                            long.Parse(info[0]), info[1], location, (Vrsta)Enum.Parse(typeof(Vrsta), info[3]), info[4]));  
-                    
+                            long.Parse(info[0]), info[1], location, (Vrsta)Enum.Parse(typeof(Vrsta), info[3]), info[4]));
+
                 }
             }
 
@@ -149,11 +175,12 @@ namespace TravelAgent.services
                 while ((line = sr.ReadLine()) != null)
                 {
                     String[] info = line.Split(";");
-                    if (info[0] == locationId) {
+                    if (info[0] == locationId)
+                    {
                         location = new Location(long.Parse(info[0]), info[1], Double.Parse(info[2]), Double.Parse(info[3]));
                         break;
-                        }
-                    
+                    }
+
 
 
 
@@ -161,6 +188,7 @@ namespace TravelAgent.services
             }
             return location;
         }
+
         public static List<Location> GetAllLocations()
         {
             List<Location> locations = new List<Location>();
@@ -196,7 +224,7 @@ namespace TravelAgent.services
                 sw.WriteLine("id;naziv;longitude;latitude");
                 foreach (Location loc in locations)
                 {
-                    if(loc.Id ==  location.Id)
+                    if (loc.Id == location.Id)
                         sw.WriteLine($"{location.Id};{location.Naziv};{location.Longitude};{location.Latitude}");
                     else
                         sw.WriteLine($"{loc.Id};{loc.Naziv};{loc.Longitude};{loc.Latitude}");
@@ -208,6 +236,30 @@ namespace TravelAgent.services
             return true;
         }
 
+        public static List<Trip> getAllTrips()
+        {
+            List<Trip> trips = new List<Trip>();
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    DateTime dateTime = DateTime.Parse(info[3]);
+                    DateTime startDateOnly = dateTime.Date;
+                    dateTime = DateTime.Parse(info[4]);
+                    DateTime endDateOnly = dateTime.Date;
+
+                    trips.Add(
+                        new Trip(
+                            long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly, info[7]));
+                }
+            }
+            return trips;
+        }
+
         public static bool writePlacesRestaurants(List<PlaceRestaurant> placeRestaurants)
         {
 
@@ -216,7 +268,7 @@ namespace TravelAgent.services
             using (StreamWriter sw = File.AppendText(filePathRestaurants))
             {
                 sw.WriteLine("id;naziv;mesto;tip;fleg");
-                foreach(PlaceRestaurant pr in placeRestaurants)
+                foreach (PlaceRestaurant pr in placeRestaurants)
                 {
                     sw.WriteLine($"{pr.Id.ToString()};{pr.Naziv};{pr.Adresa.Id};{pr.vrsta.ToString()};{pr.JeObrisan}");
 
@@ -240,7 +292,7 @@ namespace TravelAgent.services
             }
             using (StreamWriter sw = File.AppendText(filePathRestaurants))
             {
-                
+
                 sw.WriteLine($"{id};{placeRestaurant.Naziv};{locationId};{placeRestaurant.vrsta.ToString()};{placeRestaurant.JeObrisan}");
             }
 
@@ -267,5 +319,153 @@ namespace TravelAgent.services
             if (id == "#") return 1;
             return long.Parse(id);
         }
+
+        public static List<Trip> getAllActiveTrips()
+        {
+            List<Trip> trips = new List<Trip>();
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    DateTime dateTime = DateTime.Parse(info[3]);
+                    DateTime startDateOnly = dateTime.Date;
+                    dateTime = DateTime.Parse(info[4]);
+                    DateTime endDateOnly = dateTime.Date;
+                    Console.WriteLine(endDateOnly);
+
+                    if (info[7] == "0")
+                    {
+                        trips.Add(
+                            new Trip(
+                                long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly, info[7]));
+                    }
+                }
+            }
+            return trips;
+        }
+
+        public static List<Trip> getAllTripsByUserId(long userId)
+        {
+            List<Trip> trips = new List<Trip>();
+            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            {
+                string line;
+                //id;ime;prezime;email;lozinka;uloga
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    if (long.Parse(info[1]) == userId)
+                    {
+                        using (StreamReader sr2 = new StreamReader(filePathAllTrips))
+                        {
+                            string lineOfTrips;
+                            lineOfTrips = sr2.ReadLine();
+                            while ((lineOfTrips = sr2.ReadLine()) != null)
+                            {
+                                String[] infoTrips = lineOfTrips.Split(";");
+                                if (long.Parse(info[0]) == long.Parse(infoTrips[0]))
+                                {
+                                    DateTime dateTime = DateTime.Parse(infoTrips[3]);
+                                    DateTime startDateOnly = dateTime.Date;
+                                    dateTime = DateTime.Parse(infoTrips[4]);
+                                    DateTime endDateOnly = dateTime.Date;
+                                    trips.Add(
+                        new Trip(
+                            long.Parse(infoTrips[0]), infoTrips[1], double.Parse(infoTrips[2]), startDateOnly, endDateOnly, infoTrips[7]));
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            return trips;
+        }
+        private static Trip getTripById(long id)
+        {
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
+            {
+                string line;
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+
+                    if (long.Parse(info[0]) == id)
+                    {
+                        DateTime dateTime = DateTime.Parse(info[3]);
+                        DateTime startDateOnly = dateTime.Date;
+                        dateTime = DateTime.Parse(info[4]);
+                        DateTime endDateOnly = dateTime.Date;
+
+                        return new Trip(
+                           long.Parse(info[0]), info[1], double.Parse(info[2]), startDateOnly, endDateOnly, info[7]);
+                    }
+                }
+            }
+
+            return null;
+        }
+        public static List<SoldTrip> getAllSoldTrips()
+        {
+            List<SoldTrip> soldTrips = new List<SoldTrip>();
+            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            {
+                string line;
+                //idPutovanja;idPutnika
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    Trip trip = getTripById(long.Parse(info[0]));
+                    //if (trip.obrisan!= 0 && isTripOver(trip))
+
+                    if (isTripOver(trip))
+                    {
+
+                        User user = getUserById(long.Parse(info[1]));
+                        SoldTrip soldTrip = new SoldTrip(trip, user);
+                        soldTrips.Add(soldTrip);
+                    }
+                }
+            }
+            return soldTrips;
+        }
+
+        private static bool isTripOver(Trip trip)
+        {
+            return trip.DatumPocetka < DateTime.Now;
+        }
+
+        public static void deleteTrip(List<Trip> trips, Trip selectedItem)
+        {
+            File.WriteAllText(filePathAllTrips, string.Empty);
+
+            selectedItem.Obrisan = "1";
+            using (StreamWriter sw = File.AppendText(filePathAllTrips))
+            {
+                sw.WriteLine("id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani;obrisan");
+                foreach (Trip tr in trips)
+                {
+
+                    sw.WriteLine($"{tr.Id.ToString()};{tr.Naziv};{tr.Cena};{tr.DatumPocetka};{tr.DatumKraja};{tr.Atrakcije};{tr.SmestajRestorani};{tr.Obrisan}");
+
+                }
+            }
+
+
+
+        }
     }
+
+
+
+
 }
+
