@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravelAgent.Model;
 
 namespace TravelAgent.view
 {
@@ -73,10 +74,31 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked(object sender, EventArgs e)
         {
+            /*
+            List<IBivuja> objekti = new List<IBivuja>
+            {
+                new PlaceRestaurant(1, "Bibinovo",
+                new Location("Novi Sad 1", 19.842622577411916, 45.2497935492016),
+                Vrsta.Restoran, "0"),
+                 new PlaceRestaurant(1, "Bibinov Smestaj",
+                new Location("Novi Sad 2", 19.942622577411916, 45.3497935492016),
+                Vrsta.Smestaj, "0"),
+                  new TouristAttraction(1, "Bibinova Atrakcija",
+                new Location("Novi Sad 3", 19.942622577411916, 45.2497935492016),
+                 "0"),
+            };
+            Trip trip = new Trip(1, "Krstarenje meridianom", 10000, DateTime.Now, DateTime.Now.AddDays(3), objekti, "0");
+
+            SelectedTrip st = new SelectedTrip(trip);
+            MainContent.Content = null;
+            // Set the newly created user control as the content of the container
+            MainContent.Content = st;
+            */
             SelectedText = "Upravljanje putovanjima";
             UserControl control = new TripsManagment();
             MainContent.Content = null;
             MainContent.Content = control;
+
         }
 
         private void SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima(object sender, EventArgs e)
