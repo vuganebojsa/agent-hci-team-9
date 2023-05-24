@@ -24,6 +24,8 @@ namespace TravelAgent.view
     {
         public Trip trip { get; set; }
         public bool IsReservation { get; set; }
+        public bool IsUser { get; set; }
+        public bool IsLogedIn { get; set; }
         // dodati jos flegova
 
         public SelectedTrip()
@@ -32,13 +34,16 @@ namespace TravelAgent.view
         }
 
 
-        public SelectedTrip(Trip trip)
+        public SelectedTrip(Trip trip, bool isReservation, bool isUser, bool isLogedIn)
         {
             this.trip = trip;
             InitializeComponent();
             FillFields();
             FillDestinationItems();
             SetPins();
+            IsReservation = isReservation;
+            IsUser = isUser;
+            IsLogedIn = isLogedIn;
         }
 
         private void SetPins()

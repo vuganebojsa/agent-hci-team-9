@@ -1,5 +1,5 @@
 id;naziv;mesto;tip;fleg
-1;Bogorodica SLevlja;13;Smestaj;0
+1;Bogorodica SLevlja;13;Restoran;0
 2;Outlook;2;Smestaj;0
 3;Mesni Narezak;3;Restoran;0
 9;fasfasfsa;4;Smestaj;1

@@ -19,7 +19,7 @@ namespace TravelAgent.view
 {
     /// <summary>
     /// Interaction logic for PlaceRestaurantManagement.xaml
-    /// </summary>
+    /// </summary>d
     public partial class PlaceRestaurantManagement : UserControl
     {
         public List<PlaceRestaurant> placesRestaurants { get; set; }
@@ -126,7 +126,7 @@ namespace TravelAgent.view
             double top = Window.GetWindow(this).Top;
 
             AddPlaceRestaurantPopup ap = new AddPlaceRestaurantPopup();
-            ap.Left = left + width / 2 - 100;
+            ap.Left = left + width / 2 - 130;
             ap.Top = top + height / 2 - 250;
 
             if(ap.ShowDialog() == true)
@@ -163,8 +163,8 @@ namespace TravelAgent.view
 
             }
             AddPlaceRestaurantPopup ap = new AddPlaceRestaurantPopup(selectedItem);
-            ap.Left = left + width / 2 - 100;
-            ap.Top = top + height / 2 - 150;
+            ap.Left = left + width / 2 - 130;
+            ap.Top = top + height / 2 - 250;
 
             if (ap.ShowDialog() == true)
             {

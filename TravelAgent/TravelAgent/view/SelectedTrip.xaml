@@ -28,7 +28,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Osnovni podaci" FontSize="24" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-            <travel:BivujaButton x:Name="btnNazad" ButtonContent="Nazad" Grid.Column="1" VerticalAlignment="Center" Height="40" HorizontalAlignment="Right" Margin="0 0 5 0" ButtonClicked="btnNazad_ButtonClicked"/>
+            <travel:BivujaButton x:Name="btnPocetna" ButtonContent="Pocetna" Visibility="Hidden" Grid.Column="1" VerticalAlignment="Center" Height="40" HorizontalAlignment="Right" Margin="0 0 5 0" ButtonClicked="btnNazad_ButtonClicked"/>
         </Grid>
         <Grid Grid.Row="1"> 
             <Grid.RowDefinitions>
