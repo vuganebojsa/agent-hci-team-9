@@ -26,7 +26,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Osnovni podaci" FontSize="24" FontWeight="DemiBold" Foreground="#073E66" Margin="10 0 10 0" VerticalAlignment="Center"></TextBlock>
-            <travel:BivujaButton x:Name="btnNazad" ButtonContent="Nazad" Grid.Column="1" VerticalAlignment="Center" Height="40" HorizontalAlignment="Right" Margin="0 0 5 0"/>
+            <travel:BivujaButton x:Name="btnNazad" ButtonContent="Nazad" Grid.Column="1" VerticalAlignment="Center" Height="40" HorizontalAlignment="Right" Margin="0 0 5 0" ButtonClicked="btnNazad_ButtonClicked"/>
         </Grid>
         <Grid Grid.Row="1"> 
             <Grid.RowDefinitions>
@@ -61,7 +61,7 @@
                 
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <travel:BivujaButton x:Name="btnRezervisi" ButtonContent="Rezervisi" Height="40" Margin="0 0 5 0 "/>
+                <travel:BivujaButton x:Name="btnRezervisi" ButtonContent="Rezervisi" Height="40" Margin="0 0 5 0 " ButtonClicked="btnRezervisi_ButtonClicked"/>
             </StackPanel>
 
         </Grid>
@@ -78,7 +78,7 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Plan Putovanja" FontSize="20" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
                 <ListBox x:Name="lbDestinations" Height="150" Background="#F1F1F1" Margin="10 5 10 0"></ListBox>
-                <travel:BivujaButton x:Name="btnPrikaziDetalje" ButtonContent="Prikazi Detalje" Height="40" Width="140" HorizontalAlignment="Right" Margin="0 5 10 5"/>
+                <travel:BivujaButton x:Name="btnPrikaziDetalje" ButtonContent="Prikazi Detalje" Height="40" Width="140" HorizontalAlignment="Right" Margin="0 5 10 5" ButtonClicked="btnPrikaziDetalje_ButtonClicked"/>
 
                 <TextBlock Text="Detalji" FontSize="14" FontWeight="Medium" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
 

@@ -22,6 +22,9 @@ namespace TravelAgent.view
     public partial class SelectedTrip : UserControl
     {
         public Trip trip { get; set; }
+        public bool IsReservation { get; set; }
+        // dodati jos flegova
+
         public SelectedTrip()
         {
             InitializeComponent();
@@ -32,6 +35,31 @@ namespace TravelAgent.view
         {
             this.trip = trip;
             InitializeComponent();
+            FillFields();
+        }
+
+        private void FillFields()
+        {
+            tbCena.Text = trip.Cena.ToString() + " RSD";
+            tbDatumKraja.Text = trip.DatumKraja.ToString();
+            tbDatumPocetka.Text = trip.DatumPocetka.ToString();
+            tbNaziv.Text = trip.Naziv.ToString();
+            
+        }
+
+        private void btnNazad_ButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRezervisi_ButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrikaziDetalje_ButtonClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
