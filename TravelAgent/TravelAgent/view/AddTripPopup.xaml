@@ -46,7 +46,7 @@
                 
                 <StackPanel  Grid.Column="1">
                     <TextBlock Text="Turisticke atrakcije:" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
-                    <ListView x:Name="lbAtrakcije" ItemsSource="{Binding atrakcije}" AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop_Back" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove"
+                    <ListView x:Name="lbAtrakcije" ItemsSource="{Binding atrakcije}" AllowDrop="True" DragEnter="ListView_DragEnter_atrakcije" Drop="ListView_Drop_Back" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove"
                     Height="120" Background="#F1F1F1" Margin="10 5 10 0"
                     FontSize="14"
                     Foreground="#073E66"
@@ -65,7 +65,7 @@
                     <ListView x:Name="lbSmestaji" ItemsSource="{Binding smestaji}"
                             Height="120" Background="#F1F1F1" Margin="10 5 10 0"
                             FontSize="14" Foreground="#073E66" FontWeight="DemiBold"
-                           AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop2_Back" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove2">
+                           AllowDrop="True" DragEnter="ListView_DragEnter_smestaji" Drop="ListView_Drop2_Back" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove2">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
@@ -86,7 +86,7 @@
                 <StackPanel  Grid.Column="0">
                     
                     <TextBlock Text="Prevucite atrakcije u polje ispod" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
-                    <ListView x:Name="lbPrevuciAtrakcije" ItemsSource="{Binding atrakcije2}"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop"
+                    <ListView x:Name="lbPrevuciAtrakcije" ItemsSource="{Binding atrakcije2}"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter_atrakcije" Drop="ListView_Drop"
                     Height="120" Background="#F1F1F1" Margin="10 5 10 0"
                     FontSize="14"
                     Foreground="#073E66"
@@ -103,7 +103,7 @@
                     </ListView>
 
                     <TextBlock Text="Prevucite smestaje i restorane u polje ispod" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
-                    <ListView x:Name="lbPrevuciSmestajeRestorane" ItemsSource="{Binding smestaji2}"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove2" AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop2"
+                    <ListView x:Name="lbPrevuciSmestajeRestorane" ItemsSource="{Binding smestaji2}"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove2" AllowDrop="True" DragEnter="ListView_DragEnter_smestaji" Drop="ListView_Drop2"
                     Height="120" Background="#F1F1F1" Margin="10 5 10 0"
                     FontSize="14"
                     Foreground="#073E66"

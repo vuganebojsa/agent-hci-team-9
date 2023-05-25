@@ -54,8 +54,13 @@ namespace TravelAgent.view
 
         public AddTripPopup()
         {
+
             InitializeComponent();
             this.DataContext = this;
+            lbAtrakcije.IsEnabled = true;
+            lbSmestaji.IsEnabled = true;
+            lbPrevuciSmestajeRestorane.IsEnabled = true;
+            lbPrevuciAtrakcije.IsEnabled = true;
 
             List<TouristAttraction> atractions = FileService.getAtractions();
             var newAtractions = new List<TouristAttraction>();
@@ -260,7 +265,7 @@ namespace TravelAgent.view
         private void ListView_MouseMove(object sender, MouseEventArgs e)
         {
             
-                Point mousePos = e.GetPosition(null);
+            Point mousePos = e.GetPosition(null);
                 Vector diff = startPoint - mousePos;
 
                 if (e.LeftButton == MouseButtonState.Pressed &&
@@ -284,10 +289,11 @@ namespace TravelAgent.view
                 }
             
         }
+        
 
         private void ListView_MouseMove2(object sender, MouseEventArgs e)
         {
-
+            
             Point mousePos = e.GetPosition(null);
             Vector diff = startPoint - mousePos;
 
@@ -312,6 +318,7 @@ namespace TravelAgent.view
             }
 
         }
+        
         private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
         {
             do
@@ -325,22 +332,57 @@ namespace TravelAgent.view
             while (current != null);
             return null;
         }
-        private void ListView_DragEnter(object sender, DragEventArgs e)
+        private void ListView_DragEnter_atrakcije(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
             {
                 e.Effects = DragDropEffects.None;
             }
+            lbAtrakcije.IsEnabled = true;
+            lbSmestaji.IsEnabled = false;
+            lbPrevuciSmestajeRestorane.IsEnabled = false;
+            lbPrevuciAtrakcije.IsEnabled = true;
         }
+
+        private void ListView_DragEnter_smestaji(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+            lbAtrakcije.IsEnabled = false;
+            lbSmestaji.IsEnabled = true;
+            lbPrevuciSmestajeRestorane.IsEnabled = true;
+            lbPrevuciAtrakcije.IsEnabled = false;
+        }
+
+        
 
         private void ListView_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("myFormat"))
             {
+                int eror = 0;
                 TouristAttraction atraction = e.Data.GetData("myFormat") as TouristAttraction;
                 atrakcije.Remove(atraction);
-                atrakcije2.Add(atraction);
+                foreach(TouristAttraction tr in  atrakcije2)
+                {
+                    if (tr.Id == atraction.Id)
+                    {
+                        eror = 1;
+                    }
+                }
+                if (eror == 0)
+                {
+                       atrakcije2.Add(atraction);
+                }
+                
+                
             }
+            lbAtrakcije.IsEnabled = true;
+            lbSmestaji.IsEnabled = true;
+            lbPrevuciSmestajeRestorane.IsEnabled = true;
+            lbPrevuciAtrakcije.IsEnabled = true;
         }
 
         private void ListView_Drop_Back(object sender, DragEventArgs e)
@@ -348,9 +390,25 @@ namespace TravelAgent.view
             if (e.Data.GetDataPresent("myFormat"))
             {
                 TouristAttraction atraction = e.Data.GetData("myFormat") as TouristAttraction;
+                int eror = 0;
                 atrakcije2.Remove(atraction);
-                atrakcije.Add(atraction);
+                
+                foreach (TouristAttraction tr in atrakcije)
+                {
+                    if (tr.Id == atraction.Id)
+                    {
+                        eror = 1;
+                    }
+                }
+                if (eror == 0)
+                {
+                    atrakcije.Add(atraction);
+                }
             }
+            lbAtrakcije.IsEnabled = true;
+            lbSmestaji.IsEnabled = true;
+            lbPrevuciSmestajeRestorane.IsEnabled = true;
+            lbPrevuciAtrakcije.IsEnabled = true;
         }
 
         private void ListView_Drop2(object sender, DragEventArgs e)
@@ -358,18 +416,50 @@ namespace TravelAgent.view
             if (e.Data.GetDataPresent("myFormat"))
             {
                 PlaceRestaurant place = e.Data.GetData("myFormat") as PlaceRestaurant;
+                int eror = 0;
                 smestaji.Remove(place);
-                smestaji2.Add(place);
+
+                foreach (PlaceRestaurant tr in smestaji2)
+                {
+                    if (tr.Id == place.Id)
+                    {
+                        eror = 1;
+                    }
+                }
+                if (eror == 0)
+                {
+                    smestaji2.Add(place);
+                }
             }
+            lbAtrakcije.IsEnabled = true;
+            lbSmestaji.IsEnabled = true;
+            lbPrevuciSmestajeRestorane.IsEnabled = true;
+            lbPrevuciAtrakcije.IsEnabled = true;
         }
         private void ListView_Drop2_Back(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("myFormat"))
             {
                 PlaceRestaurant place = e.Data.GetData("myFormat") as PlaceRestaurant;
+                int eror = 0;
                 smestaji2.Remove(place);
-                smestaji.Add(place);
+
+                foreach (PlaceRestaurant tr in smestaji)
+                {
+                    if (tr.Id == place.Id)
+                    {
+                        eror = 1;
+                    }
+                }
+                if (eror == 0)
+                {
+                    smestaji.Add(place);
+                }
             }
+            lbAtrakcije.IsEnabled = true;
+            lbSmestaji.IsEnabled = true;
+            lbPrevuciSmestajeRestorane.IsEnabled = true;
+            lbPrevuciAtrakcije.IsEnabled = true;
         }
 
 
