@@ -169,8 +169,8 @@ namespace TravelAgent.view
         {
             tbNaziv.Text = Trip.Naziv;
             tbCena.Text =  Trip.Cena.ToString();
-            tbDatumPocetka.Text = Trip.DatumPocetka.ToString();
-            tbDatumKraja.Text = Trip.DatumPocetka.ToString();
+            tbDatumPocetka.Text = Trip.DatumPocetka.ToString().Split(" ")[0];
+            tbDatumKraja.Text = Trip.DatumKraja.ToString().Split(" ")[0];
             foreach (IBivuja ibj in Trip.Objekti)
             {
                 if (ibj.GetType() == typeof(PlaceRestaurant))
@@ -207,7 +207,7 @@ namespace TravelAgent.view
 
             String datumPocetka = tbDatumPocetka.Text.Trim();
             String datumKraja = tbDatumKraja.Text.Trim();
-            string format = "dd/MM/yyyy";
+            string format = "MM/dd/yyyy";
             DateTime dateTimePocetak;
             DateTime dateTimeKraj;
 
@@ -225,7 +225,7 @@ namespace TravelAgent.view
             else
             {
                 errorControl.Visibility = Visibility.Visible;
-                errorControl.ErrorHandler.Text = "Format datuma nije validan, molimo Vas unesite datum formata: dd/MM/yyyy";
+                errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:MM/dd/yyyy (MM-mesec, dd-dan, yyyy-godina)";
                 return;
             }
 
@@ -236,7 +236,7 @@ namespace TravelAgent.view
             else
             {
                 errorControl.Visibility = Visibility.Visible;
-                errorControl.ErrorHandler.Text = "Format datuma nije validan, molimo Vas unesite datum formata: dd/MM/yyyy";
+                errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:MM/dd/yyyy (MM-mesec, dd-dan, yyyy-godina)";
                 return;
             }
             if (dateTimePocetak > dateTimeKraj)
@@ -571,6 +571,9 @@ namespace TravelAgent.view
             lbPrevuciAtrakcije.IsEnabled = true;
         }
 
+        private void tbDatumPocetka_Loaded(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
