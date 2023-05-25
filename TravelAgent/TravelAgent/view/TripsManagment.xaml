@@ -29,7 +29,7 @@
                            Foreground="#073E66" FontSize="16"/>
 
                     <TextBox x:Name="tbSearch" Margin="10" MinWidth="150"
-                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0"/>
+                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0" TextChanged="tbSearch_TextChanged"/>
 
 
                 </WrapPanel>

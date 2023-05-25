@@ -183,5 +183,25 @@ namespace TravelAgent.view
                  CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
             }
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String text = tbSearch.Text.ToLower().Trim();
+            if (text == "")
+            {
+                this.trips = FileService.getAllTrips();
+                filterTrips();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.trips;
+                return;
+            }
+            var newVals = SearchService.getTripsByKeyword(text, this.trips);
+            this.trips = newVals;
+            filterTrips();
+            TableDataGrid.ItemsSource = null;
+            TableDataGrid.ItemsSource = this.tripsWithFlag;
+
+
+        }
     }
 }

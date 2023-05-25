@@ -18,5 +18,9 @@ namespace TravelAgent.Model
             
 
         }
+        public SoldTrip()
+        {
+
+        }
     }
 }

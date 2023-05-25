@@ -28,16 +28,16 @@
                            Foreground="#073E66" FontSize="16"/>
 
                     <TextBox x:Name="tbSearch" Margin="10" MinWidth="150"
-                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0"/>
+                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0" TextChanged="tbSearch_TextChanged"/>
 
 
                 </WrapPanel>
                 <WrapPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <TextBlock Text="Izaberite datum:" VerticalAlignment="Center"
+                    <TextBlock Text="Izaberite mesec:" VerticalAlignment="Center"
                            Foreground="#073E66" FontSize="16"/>
 
                     <TextBox x:Name="tbDate" Margin="10" MinWidth="150"
-                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0"/>
+                                    MinHeight="30" Background="#EFEFEF" VerticalContentAlignment="Center" Padding="5 0 0 0" TextChanged="tbDate_TextChanged"/>
 
 
                 </WrapPanel>
