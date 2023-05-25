@@ -486,7 +486,7 @@ namespace TravelAgent.services
                     str = str.Remove(str.Length - 1);
                 }
 
-                sw.WriteLine($"{trip.Id.ToString()};{trip.Naziv};{trip.Cena};{trip.DatumPocetka};{trip.DatumKraja};{str};{trip.JeObrisan}");
+                sw.WriteLine($"{id};{trip.Naziv};{trip.Cena};{trip.DatumPocetka};{trip.DatumKraja};{str};{trip.JeObrisan}");
 
                 
 
