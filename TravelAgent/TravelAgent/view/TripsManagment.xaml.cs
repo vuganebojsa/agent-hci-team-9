@@ -85,7 +85,22 @@ namespace TravelAgent.view
             }
             else
             {
-                //TO DO
+                Trip trip = FileService.getTripById(selectedItem.Id);
+                AddTripPopup ap = new AddTripPopup(trip);
+                ap.Left = left + width / 2 - 130;
+                ap.Top = top + height / 2 - 250;
+
+                if (ap.ShowDialog() == true)
+                {
+                    tbSearch.Text = "";
+                    this.trips = FileService.getAllTrips();
+                    filterTrips();
+                    TableDataGrid.ItemsSource = null;
+                    TableDataGrid.ItemsSource = this.tripsWithFlag;
+                    /* TableDataGrid.Items.Refresh();
+
+                     CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
+                }
             }
 
         }

@@ -86,6 +86,73 @@ namespace TravelAgent.view
         {
             this.Trip = trip;
             InitializeComponent();
+            smestaji2 = new ObservableCollection<PlaceRestaurant>();
+            atrakcije2 = new ObservableCollection<TouristAttraction>();
+
+
+            List<TouristAttraction> atractions = FileService.getAtractions();
+            var newAtr = new List<TouristAttraction>();
+            foreach (TouristAttraction at in atractions)
+            {
+
+                if (at.JeObrisan == "0") newAtr.Add(at);
+            }
+            var atrrr = new List<TouristAttraction>();
+            foreach (TouristAttraction pl in newAtr)
+            {
+                int error = 0;
+                foreach (IBivuja ibj in Trip.Objekti)
+                {
+                    if (ibj.GetType() == typeof(TouristAttraction))
+                    {
+                        if (ibj.Id == pl.Id)
+                        {
+
+                            error = 1;
+                        }
+                    }
+                }
+                if (error == 0)
+                {
+                    atrrr.Add(pl);
+                }
+            }
+
+            atrakcije = new ObservableCollection<TouristAttraction>(atrrr);
+
+
+
+
+
+            List<PlaceRestaurant> places = FileService.getPlacesAndRestaurants();
+            var newPlaces = new List<PlaceRestaurant>();
+            foreach (PlaceRestaurant pl in places)
+            {
+                
+                if (pl.JeObrisan == "0") newPlaces.Add(pl);
+            }
+            var plaaace = new List<PlaceRestaurant>();
+            foreach (PlaceRestaurant pl in newPlaces)
+            {
+                int error = 0;
+                foreach (IBivuja ibj in Trip.Objekti)
+                {
+                    if (ibj.GetType() == typeof(PlaceRestaurant))
+                    {
+                        if (ibj.Id == pl.Id)
+                        {
+
+                            error = 1;
+                        }
+                    }
+                }
+                if (error == 0)
+                {
+                    plaaace.Add(pl);
+                }
+            }
+
+            smestaji = new ObservableCollection<PlaceRestaurant>(plaaace);
             if (this.Trip != null)
             {
                 
@@ -94,25 +161,8 @@ namespace TravelAgent.view
             }
             this.DataContext = this;
             
-            List<TouristAttraction> atractions = FileService.getAtractions();
-            var newAtractions = new List<TouristAttraction>();
-            foreach (TouristAttraction pl in atractions)
-            {
-                if (pl.JeObrisan == "0") newAtractions.Add(pl);
-            }
-
-            atrakcije = new ObservableCollection<TouristAttraction>(newAtractions);
-            atrakcije2 = new ObservableCollection<TouristAttraction>();
-
-            List<PlaceRestaurant> places = FileService.getPlacesAndRestaurants();
-            var newPlaces = new List<PlaceRestaurant>();
-            foreach (PlaceRestaurant pl in places)
-            {
-                if (pl.JeObrisan == "0") newPlaces.Add(pl);
-            }
             
-            smestaji = new ObservableCollection<PlaceRestaurant>(newPlaces);
-            smestaji2 = new ObservableCollection<PlaceRestaurant>();
+            
 
         }
         private void FillFields()
@@ -120,7 +170,21 @@ namespace TravelAgent.view
             tbNaziv.Text = Trip.Naziv;
             tbCena.Text =  Trip.Cena.ToString();
             tbDatumPocetka.Text = Trip.DatumPocetka.ToString();
-            tbDatumKraja.Text = Trip.DatumPocetka.ToString();            
+            tbDatumKraja.Text = Trip.DatumPocetka.ToString();
+            foreach (IBivuja ibj in Trip.Objekti)
+            {
+                if (ibj.GetType() == typeof(PlaceRestaurant))
+                {
+                    smestaji2.Add((PlaceRestaurant)ibj);
+                }
+                else
+                {
+                    atrakcije2.Add((TouristAttraction)ibj);
+
+                }
+
+            }
+           
         }
 
         private void Sacuvajte_ButtonClicked(object sender, EventArgs e)
@@ -217,6 +281,13 @@ namespace TravelAgent.view
                     bivujas.Add(FileService.getAtractionsById(atr.Id));
                 }
             }
+            if (bivujas.Count == 0)
+            {
+                errorControl.Visibility = Visibility.Visible;
+                errorControl.ErrorHandler.Text = "Molimo vas odaberite neku od atrakcija ili smestaja/restorana";
+                return;
+            }
+            
             tr.Objekti = bivujas;
 
             // ovo je add
@@ -240,6 +311,44 @@ namespace TravelAgent.view
                     this.DialogResult = true;
                 }
 
+            }
+            else
+            {
+                List<Trip> trips = FileService.getAllActiveTrips();
+                
+                foreach (Trip trip in trips)
+                {  
+                    if (trip.Id == this.Trip.Id)
+                    {
+                       
+                        trip.Naziv = tbNaziv.Text;
+                        trip.Cena = number;
+                        trip.DatumPocetka = dateTimePocetak;
+                        trip.DatumKraja = dateTimeKraj;
+                        trip.JeObrisan = "0";
+                        trip.Objekti = bivujas;
+
+                        Trip = trip;
+                        break;
+                    }
+                }
+                
+                FileService.writeTrips(trips);
+
+
+                double width = Window.GetWindow(this).Width;
+                double height = Window.GetWindow(this).Height;
+                double left = Window.GetWindow(this).Left;
+                double top = Window.GetWindow(this).Top;
+                OkPopup ok = new OkPopup("Uspesno ste izmenili putovanje.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+                    // da bi mogli znati da li je sacuvano da se refreshuje tabela
+
+                    this.DialogResult = true;
+                }
             }
         }
         private void Otkazite_ButtonClicked(object sender, EventArgs e)
