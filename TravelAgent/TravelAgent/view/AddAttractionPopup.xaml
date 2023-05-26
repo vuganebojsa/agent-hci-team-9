@@ -17,7 +17,7 @@
 
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock x:Name="tbRegistration" Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="32" FontWeight="Bold">Dodajte Smestaj ili Restoran</TextBlock>
+            <TextBlock x:Name="tbRegistration" Foreground="#FF105A87" TextWrapping="Wrap" Margin="20 14 50 10" FontSize="32" FontWeight="Bold">Dodajte Turisticku Atrakciju</TextBlock>
             <local:ErrorControl Margin="20 0 20 0" Visibility="Hidden" x:Name="errorControl"></local:ErrorControl>
         </StackPanel>
         <Grid x:Name="mainGrid" Grid.Row="1">
