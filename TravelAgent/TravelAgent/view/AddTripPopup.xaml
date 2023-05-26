@@ -48,15 +48,15 @@
                     <TextBlock Text="Turisticke atrakcije:" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
                     <ListView x:Name="lbAtrakcije" ItemsSource="{Binding atrakcije}" AllowDrop="True" DragEnter="ListView_DragEnter_atrakcije" Drop="ListView_Drop_Back" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove"
                     Height="120" Background="#F1F1F1" Margin="10 5 10 0"
-                    FontSize="14"
+                    FontSize="16"
                     Foreground="#073E66"
                     FontWeight="DemiBold">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
-                                    <TextBlock Text="{Binding Naziv}" FontWeight="Bold" FontSize="10"/>
-                                    <TextBlock Text=", " FontSize="10"/>
-                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="10"/>
+                                    <TextBlock Text="{Binding Naziv}" FontWeight="Bold" FontSize="12"/>
+                                    <TextBlock Text=", " FontSize="12"/>
+                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="12"/>
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -64,16 +64,16 @@
                     <TextBlock Text="Smestaji i restorani:" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
                     <ListView x:Name="lbSmestaji" ItemsSource="{Binding smestaji}"
                             Height="120" Background="#F1F1F1" Margin="10 5 10 0"
-                            FontSize="14" Foreground="#073E66" FontWeight="DemiBold"
+                            FontSize="16" Foreground="#073E66" FontWeight="DemiBold"
                            AllowDrop="True" DragEnter="ListView_DragEnter_smestaji" Drop="ListView_Drop2_Back" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove2">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
-                                    <TextBlock Text="{Binding vrsta}" FontWeight="Bold" FontSize="10"/>
-                                    <TextBlock Text=", " FontSize="10"/>
-                                    <TextBlock Text="{Binding Naziv}"  FontSize="10"/>
-                                    <TextBlock Text=", " FontSize="10"/>
-                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="10"/>
+                                    <TextBlock Text="{Binding vrsta}" FontWeight="Bold" FontSize="12"/>
+                                    <TextBlock Text=", " FontSize="12"/>
+                                    <TextBlock Text="{Binding Naziv}"  FontSize="12"/>
+                                    <TextBlock Text=", " FontSize="12"/>
+                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="12"/>
                                     
                                     
                                 </WrapPanel>
@@ -88,15 +88,15 @@
                     <TextBlock Text="Prevucite atrakcije u polje ispod" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
                     <ListView x:Name="lbPrevuciAtrakcije" ItemsSource="{Binding atrakcije2}"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter_atrakcije" Drop="ListView_Drop"
                     Height="120" Background="#F1F1F1" Margin="10 5 10 0"
-                    FontSize="14"
+                    FontSize="16"
                     Foreground="#073E66"
                     FontWeight="DemiBold" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
-                                    <TextBlock Text="{Binding Naziv}" FontSize="10" FontWeight="Bold" />
-                                    <TextBlock Text=", " FontSize="10"/>
-                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="10"/>
+                                    <TextBlock Text="{Binding Naziv}" FontSize="12" FontWeight="Bold" />
+                                    <TextBlock Text=", " FontSize="12"/>
+                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="12"/>
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -105,17 +105,17 @@
                     <TextBlock Text="Prevucite smestaje i restorane u polje ispod" FontSize="10" FontWeight="DemiBold" Foreground="#073E66" Margin="10 5 10 0" VerticalAlignment="Center"></TextBlock>
                     <ListView x:Name="lbPrevuciSmestajeRestorane" ItemsSource="{Binding smestaji2}"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove2" AllowDrop="True" DragEnter="ListView_DragEnter_smestaji" Drop="ListView_Drop2"
                     Height="120" Background="#F1F1F1" Margin="10 5 10 0"
-                    FontSize="14"
+                    FontSize="16"
                     Foreground="#073E66"
                     FontWeight="DemiBold" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
-                                    <TextBlock Text="{Binding vrsta}" FontSize="10" FontWeight="Bold"/>
-                                    <TextBlock Text=", " FontSize="10" />
-                                    <TextBlock Text="{Binding Naziv}" FontSize="10" />
-                                    <TextBlock Text=", " FontSize="10"/>
-                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="10" />
+                                    <TextBlock Text="{Binding vrsta}" FontSize="12" FontWeight="Bold"/>
+                                    <TextBlock Text=", " FontSize="12" />
+                                    <TextBlock Text="{Binding Naziv}" FontSize="12" />
+                                    <TextBlock Text=", " FontSize="12"/>
+                                    <TextBlock Text="{Binding Adresa.Naziv}" FontSize="12" />
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
