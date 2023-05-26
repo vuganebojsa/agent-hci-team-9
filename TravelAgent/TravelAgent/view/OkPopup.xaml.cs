@@ -23,6 +23,9 @@ namespace TravelAgent.view
         public OkPopup()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+            this.Title = "BIVUJA";
         }
         public OkPopup(String text)
         {

@@ -22,6 +22,9 @@ namespace TravelAgent.view
         public UnregisteredTrips()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+            this.Title = "BIVUJA";
             UserControl control = new AllTripsOverview();
             MainContent.Content = null;
 

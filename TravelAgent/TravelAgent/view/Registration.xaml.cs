@@ -25,6 +25,9 @@ namespace TravelAgent.view
         public Registration()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+            this.Title = "BIVUJA";
             ime.txtInput.Focus();
 
         }

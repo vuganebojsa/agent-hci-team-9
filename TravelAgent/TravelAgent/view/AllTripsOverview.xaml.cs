@@ -28,7 +28,7 @@ namespace TravelAgent.view
             trips = FileService.getAllActiveTrips();
 
             InitializeComponent();
-
+            if (CurrentlyloggedInUser.user != null) btnBack.Visibility = Visibility.Hidden;
             TableDataGrid.AutoGenerateColumns = false;
             TableDataGrid.ItemsSource = trips;
 
@@ -143,6 +143,20 @@ namespace TravelAgent.view
 
         }
 
+        private void btnBack_ButtonClicked(object sender, EventArgs e)
+        {
+            StartWindow sw = new StartWindow();
 
+
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+
+            sw.Left = left;
+            sw.Top = top;
+
+            Application.Current.MainWindow = sw;
+            Application.Current.MainWindow.Show();
+            Window.GetWindow(this).Close();
+        }
     }
 }

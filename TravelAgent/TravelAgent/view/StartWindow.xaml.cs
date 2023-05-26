@@ -22,6 +22,9 @@ namespace TravelAgent.view
         public StartWindow()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+            this.Title = "BIVUJA";
         }
 
         private void Login_ButtonClicked(object sender, EventArgs e)

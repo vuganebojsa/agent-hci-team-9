@@ -177,7 +177,7 @@ namespace TravelAgent.view
                 double height = Window.GetWindow(this).Height;
                 double left = Window.GetWindow(this).Left;
                 double top = Window.GetWindow(this).Top;
-                OkPopup ok = new OkPopup("Molimo Vas prvo izaberite stavku iz liste kako biste prikazali njene detalje.");
+                OkPopup ok = new OkPopup("Molimo Vas prvo izaberite stavku iz liste plan putovanja kako biste prikazali njene detalje.");
                 ok.Left = left + width / 2 - 100;
                 ok.Top = top + height / 2 - 100;
                 if (ok.ShowDialog() == true)

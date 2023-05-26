@@ -27,6 +27,9 @@ namespace TravelAgent.view
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             InitializeComponent();
+            Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+            this.Title = "BIVUJA";
             tbEmail.txtInput.Focus();
         }
         private void Registracija_ButtonClicked(object sender, EventArgs e)
