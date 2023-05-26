@@ -259,7 +259,7 @@ namespace TravelAgent.view
             else
             {
                 errorControl.Visibility = Visibility.Visible;
-                errorControl.ErrorHandler.Text = "Molimo vas unesite cenu u brojevima";
+                errorControl.ErrorHandler.Text = "Molimo Vas unesite cenu u brojevima";
                 return;
             }
             tr.Cena = number;
@@ -284,7 +284,7 @@ namespace TravelAgent.view
             if (bivujas.Count == 0)
             {
                 errorControl.Visibility = Visibility.Visible;
-                errorControl.ErrorHandler.Text = "Molimo vas odaberite neku od atrakcija ili smestaja/restorana";
+                errorControl.ErrorHandler.Text = "Molimo Vas odaberite neku od atrakcija ili smestaja/restorana";
                 return;
             }
             
