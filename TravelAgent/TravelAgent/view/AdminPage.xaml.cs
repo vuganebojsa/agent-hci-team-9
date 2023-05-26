@@ -112,7 +112,11 @@ namespace TravelAgent.view
 
         private void SideNavigationAgent_ButtonUpravljanjeTuristickimAtrakcijama(object sender, EventArgs e)
         {
-
+            UserControl control = new AttractionsManagement();
+            MainContent.Content = null;
+            topNav.HeaderText = "Upravljanje atrakcijama";
+            // Set the newly created user control as the content of the container
+            MainContent.Content = control;
         }
     }
 }

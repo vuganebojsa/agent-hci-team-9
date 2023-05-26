@@ -190,10 +190,25 @@ namespace TravelAgent.services
 
                 }
             }
-
-
-
         }
+
+        public static void deleteAttractions(TouristAttraction selectedItem, List<TouristAttraction> attractions)
+        {
+            File.WriteAllText(filePathAtractions, string.Empty);
+
+            selectedItem.JeObrisan = "1";
+            using (StreamWriter sw = File.AppendText(filePathAtractions))
+            {
+                sw.WriteLine("id;naziv;mesto;fleg");
+                foreach (TouristAttraction att in attractions)
+                {
+
+                    sw.WriteLine($"{att.Id.ToString()};{att.Naziv};{att.Adresa.Id};{att.JeObrisan}");
+
+                }
+            }
+        }
+
 
         public static List<PlaceRestaurant> getPlacesAndRestaurants()
         {
@@ -218,6 +233,29 @@ namespace TravelAgent.services
 
 
             return restaurants;
+        }
+
+        public static List<TouristAttraction> getAttractions()
+        {
+            List<TouristAttraction> attractions = new List<TouristAttraction>();
+            using (StreamReader sr = new StreamReader(filePathAtractions))
+            {
+                string line;
+                //id;naziv;mesto;fleg
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    String locationId = info[2];
+                    Location location = getLocationFromFileById(locationId);
+
+                    attractions.Add(
+                        new TouristAttraction(
+                            long.Parse(info[0]), info[1], location, info[3]));
+
+                }
+            }
+            return attractions;
         }
 
         private static Location getLocationFromFileById(string locationId)
@@ -350,6 +388,25 @@ namespace TravelAgent.services
             return true;
         }
 
+        public static bool writeAttractions(List<TouristAttraction> attractions)
+        {
+
+            File.WriteAllText(filePathAtractions, string.Empty);
+
+            using (StreamWriter sw = File.AppendText(filePathAtractions))
+            {
+                sw.WriteLine("id;naziv;mesto;tip;fleg");
+                foreach (TouristAttraction att in attractions)
+                {
+                    sw.WriteLine($"{att.Id.ToString()};{att.Naziv};{att.Adresa.Id};{att.JeObrisan}");
+
+                }
+            }
+
+
+            return true;
+        }
+
         public static bool addPlaceRestaurant(PlaceRestaurant placeRestaurant)
         {
 
@@ -371,10 +428,51 @@ namespace TravelAgent.services
             return true;
         }
 
+        public static bool addAttraction(TouristAttraction attraction)
+        {
+
+            long id = getLastIdFromAttractions();//TODO 
+            long locationId = getLastIdFromLocations();
+
+            using (StreamWriter sw = File.AppendText(filePathLocations))
+            {
+
+                sw.WriteLine($"{locationId};{attraction.Adresa.Naziv};{attraction.Adresa.Longitude};{attraction.Adresa.Latitude}");
+            }
+            using (StreamWriter sw = File.AppendText(filePathAtractions))
+            {
+
+                sw.WriteLine($"{id};{attraction.Naziv};{locationId};{attraction.JeObrisan}");
+            }
+
+
+            return true;
+        }
+
         private static long getLastIdFromLocations()
         {
             String id = "#";
             using (StreamReader sr = new StreamReader(filePathLocations))
+            {
+                string line;
+                // 
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    long lid = long.Parse(info[0]);
+                    lid = lid + 1;
+                    id = lid.ToString();
+                }
+            }
+            if (id == "#") return 1;
+            return long.Parse(id);
+        }
+
+        public static long getLastIdFromAttractions()
+        {
+            String id = "#";
+            using (StreamReader sr = new StreamReader(filePathAtractions))
             {
                 string line;
                 // 
