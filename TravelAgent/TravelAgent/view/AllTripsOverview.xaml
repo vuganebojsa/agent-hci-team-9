@@ -21,7 +21,9 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                
+                <TextBlock Text="Putovanja" VerticalAlignment="Center" Margin="10 5 5 5"
+                           Foreground="#073E66" FontSize="16" TextWrapping="Wrap"/>
+
 
                 <WrapPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock Text="Pretrazite:" VerticalAlignment="Center"
