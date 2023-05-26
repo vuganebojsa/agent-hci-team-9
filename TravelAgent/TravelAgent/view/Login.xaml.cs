@@ -27,6 +27,7 @@ namespace TravelAgent.view
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             InitializeComponent();
+            Loaded += Login_Loaded;
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
@@ -59,6 +60,21 @@ namespace TravelAgent.view
             Application.Current.MainWindow = sw;
             Application.Current.MainWindow.Show();
             this.Close();
+        }
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Login_KeyDown;
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Enter)
+            {
+                // Manually trigger the button click event
+                BivujaButton_ButtonClicked(sender, e);
+            }
         }
 
         private void BivujaButton_ButtonClicked(object sender, EventArgs e)

@@ -56,6 +56,7 @@ namespace TravelAgent.view
         {
 
             InitializeComponent();
+            Loaded += Ok_Loaded;
             this.DataContext = this;
             lbAtrakcije.IsEnabled = true;
             lbSmestaji.IsEnabled = true;
@@ -86,6 +87,7 @@ namespace TravelAgent.view
         {
             this.Trip = trip;
             InitializeComponent();
+            Loaded += Ok_Loaded;
             smestaji2 = new ObservableCollection<PlaceRestaurant>();
             atrakcije2 = new ObservableCollection<TouristAttraction>();
 
@@ -367,6 +369,23 @@ namespace TravelAgent.view
             }
 
         }
+
+        private void Ok_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Ok_KeyDown;
+        }
+
+        private void Ok_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Enter)
+            {
+                // Manually trigger the button click event
+                Sacuvajte_ButtonClicked(sender, e);
+            }
+        }
+
         private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             startPoint = e.GetPosition(null);
