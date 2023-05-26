@@ -29,6 +29,7 @@ namespace TravelAgent.services
 
         }
 
+
         public static List<Trip> getTripsByKeyword(String keyword, List<Trip> trips)
         {
             List<Trip> trp = new List<Trip>();
@@ -84,5 +85,25 @@ namespace TravelAgent.services
             return trp;
 
         }
+
+        public static List<TouristAttraction> getAttractionsByKeyword(String keyword, List<TouristAttraction> attractions)
+        {
+            List<TouristAttraction> atts = new List<TouristAttraction>();
+
+            foreach (TouristAttraction attraction in attractions)
+            {
+                if (attraction.Id.ToString().Contains(keyword) ||
+                    attraction.Naziv.ToLower().Contains(keyword) ||
+                    attraction.Adresa.Naziv.ToLower().Contains(keyword))
+                {
+
+                    atts.Add(attraction);
+                }
+            }
+            return atts;
+
+        }
+
+
     }
 }
