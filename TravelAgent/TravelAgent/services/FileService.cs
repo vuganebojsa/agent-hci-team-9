@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 using TravelAgent.Model;
 
 namespace TravelAgent.services
@@ -175,6 +176,27 @@ namespace TravelAgent.services
             return long.Parse(id);
         }
 
+        public static long getLastIdFromTrips()
+        {
+            String id = "#";
+            using (StreamReader sr = new StreamReader(filePathAllTrips))
+            {
+                string line;
+                // 
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    long lid = long.Parse(info[0]);
+                    lid = lid + 1;
+                    id = lid.ToString();
+                    
+                }
+            }
+            if (id == "#") return 1;
+            return long.Parse(id);
+        }
+
         public static void deletePlacesRestaurants(PlaceRestaurant selectedItem, List<PlaceRestaurant> placesRestaurants)
         {
             File.WriteAllText(filePathRestaurants, string.Empty);
@@ -235,13 +257,14 @@ namespace TravelAgent.services
             return restaurants;
         }
 
-        public static List<TouristAttraction> getAttractions()
+        public static List<TouristAttraction> getAtractions()
         {
-            List<TouristAttraction> attractions = new List<TouristAttraction>();
+            List<TouristAttraction> atractions = new List<TouristAttraction>();
             using (StreamReader sr = new StreamReader(filePathAtractions))
             {
                 string line;
-                //id;naziv;mesto;fleg
+                //id;ime;prezime;email;lozinka;uloga
+
                 line = sr.ReadLine();
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -249,13 +272,17 @@ namespace TravelAgent.services
                     String locationId = info[2];
                     Location location = getLocationFromFileById(locationId);
 
-                    attractions.Add(
+
+                    atractions.Add(
                         new TouristAttraction(
-                            long.Parse(info[0]), info[1], location, info[3]));
+                            long.Parse(info[0]), info[1], location,  info[3]));
 
                 }
             }
-            return attractions;
+
+
+            return atractions;
+
         }
 
         private static Location getLocationFromFileById(string locationId)
@@ -282,6 +309,8 @@ namespace TravelAgent.services
             }
             return location;
         }
+
+
 
         public static List<Location> GetAllLocations()
         {
@@ -333,7 +362,7 @@ namespace TravelAgent.services
         public static List<Trip> getAllTrips()
         {
             List<Trip> trips = new List<Trip>();
-            List<IBivuja> bivujas = new List<IBivuja>();
+            
             using (StreamReader sr = new StreamReader(filePathAllTrips))
             {
                 string line;
@@ -341,6 +370,7 @@ namespace TravelAgent.services
                 line = sr.ReadLine();
                 while ((line = sr.ReadLine()) != null)
                 {
+                    List<IBivuja> bivujas = new List<IBivuja>();
                     String[] info = line.Split(";");
                     DateTime dateTime = DateTime.Parse(info[3]);
                     DateTime startDateOnly = dateTime.Date;
@@ -388,6 +418,42 @@ namespace TravelAgent.services
             return true;
         }
 
+
+        public static bool writeTrips(List<Trip> trips)
+        {
+
+            File.WriteAllText(filePathAllTrips, string.Empty);
+
+            using (StreamWriter sw = File.AppendText(filePathAllTrips))
+            {
+                sw.WriteLine("id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani;obrisan");
+                foreach (Trip trip in trips)
+                {
+                    String str = "";
+                    foreach (IBivuja ibj in trip.Objekti)
+                    {
+                        if (ibj.GetType() == typeof(PlaceRestaurant))
+                        {
+                            str += ibj.Id + "-s/";
+
+                        }
+                        else
+                        {
+                            str += ibj.Id + "-t/";
+
+                        }
+
+                    }
+                    if( str.Length > 0) {
+                        str = str.Remove(str.Length - 1);
+                    }
+
+                    sw.WriteLine($"{trip.Id.ToString()};{trip.Naziv};{trip.Cena};{trip.DatumPocetka};{trip.DatumKraja};{str};{trip.JeObrisan}");
+                }
+            }
+                  return true;
+        }
+
         public static bool writeAttractions(List<TouristAttraction> attractions)
         {
 
@@ -399,6 +465,7 @@ namespace TravelAgent.services
                 foreach (TouristAttraction att in attractions)
                 {
                     sw.WriteLine($"{att.Id.ToString()};{att.Naziv};{att.Adresa.Id};{att.JeObrisan}");
+
 
                 }
             }
@@ -428,6 +495,46 @@ namespace TravelAgent.services
             return true;
         }
 
+
+        public static bool addTrips(Trip trip)
+        {
+
+            long id = getLastIdFromTrips();           
+            using (StreamWriter sw = File.AppendText(filePathAllTrips))
+            {
+               
+                    String str = "";
+                    foreach (IBivuja ibj in trip.Objekti)
+                    {
+                        if (ibj.GetType() == typeof(PlaceRestaurant))
+                        {
+                            str += ibj.Id + "-s/";
+
+                        }
+                        else
+                        {
+                            str += ibj.Id + "-t/";
+
+                        }
+
+                    }
+                if (str.Length > 0)
+                {
+                    str = str.Remove(str.Length - 1);
+                }
+
+                sw.WriteLine($"{id};{trip.Naziv};{trip.Cena};{trip.DatumPocetka};{trip.DatumKraja};{str};{trip.JeObrisan}");
+              }
+
+
+            return true;
+        }
+              
+
+                
+
+                // sw.WriteLine($"{id};{placeRestaurant.Naziv};{locationId};{placeRestaurant.vrsta.ToString()};{placeRestaurant.JeObrisan}");
+
         public static bool addAttraction(TouristAttraction attraction)
         {
 
@@ -443,6 +550,7 @@ namespace TravelAgent.services
             {
 
                 sw.WriteLine($"{id};{attraction.Naziv};{locationId};{attraction.JeObrisan}");
+
             }
 
 
@@ -492,7 +600,7 @@ namespace TravelAgent.services
         public static List<Trip> getAllActiveTrips()
         {
             List<Trip> trips = new List<Trip>();
-            List<IBivuja> bivujas = new List<IBivuja>();
+            
             using (StreamReader sr = new StreamReader(filePathAllTrips))
             {
                 string line;
@@ -500,6 +608,7 @@ namespace TravelAgent.services
                 line = sr.ReadLine();
                 while ((line = sr.ReadLine()) != null)
                 {
+                    List<IBivuja> bivujas = new List<IBivuja>();
                     String[] info = line.Split(";");
                     DateTime dateTime = DateTime.Parse(info[3]);
                     DateTime startDateOnly = dateTime.Date;
@@ -533,7 +642,7 @@ namespace TravelAgent.services
 
         public static List<Trip> getAllTripsByUserId(long userId)
         {
-            List<IBivuja> bivujas = new List<IBivuja>();
+            
             List<Trip> trips = new List<Trip>();
             using (StreamReader sr = new StreamReader(filePathBookedTrips))
             {
@@ -551,6 +660,7 @@ namespace TravelAgent.services
                             lineOfTrips = sr2.ReadLine();
                             while ((lineOfTrips = sr2.ReadLine()) != null)
                             {
+                                List<IBivuja> bivujas = new List<IBivuja>();
                                 String[] infoTrips = lineOfTrips.Split(";");
                                 if (long.Parse(info[0]) == long.Parse(infoTrips[0]))
                                 {
@@ -584,15 +694,16 @@ namespace TravelAgent.services
             }
             return trips;
         }
-        private static Trip getTripById(long id)
+        public static Trip getTripById(long id)
         {
-            List<IBivuja> bivujas = new List<IBivuja>();
+            
             using (StreamReader sr = new StreamReader(filePathAllTrips))
             {
                 string line;
                 line = sr.ReadLine();
                 while ((line = sr.ReadLine()) != null)
                 {
+                    List<IBivuja> bivujas = new List<IBivuja>();
                     String[] info = line.Split(";");
 
                     if (long.Parse(info[0]) == id)

@@ -125,6 +125,24 @@ namespace TravelAgent.view
 
         }
 
-       
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<Trip> trips = FileService.getAllActiveTrips();
+            String text = tbSearch.Text.ToLower().Trim();
+            if (text == "")
+            {
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = trips;
+                return;
+            }
+            var newVals = SearchService.getTripsByKeyword(text, trips);
+            trips = newVals;
+            TableDataGrid.ItemsSource = null;
+            TableDataGrid.ItemsSource = trips;
+
+
+        }
+
+
     }
 }

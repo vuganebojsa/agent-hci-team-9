@@ -36,5 +36,9 @@ namespace TravelAgent.Model
             Objekti = objekti;
             JeObrisan = jeObrisan;
         }
+        public Trip()
+        {
+
+        }
     }
 }

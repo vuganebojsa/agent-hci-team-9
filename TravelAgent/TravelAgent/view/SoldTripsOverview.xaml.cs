@@ -95,5 +95,52 @@ namespace TravelAgent.view
                 parentWindow.MainContent.Content = st;
             }
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<SoldTrip> trips = FileService.getAllSoldTrips();
+            String text = tbSearch.Text.ToLower().Trim();
+            if (text == "")
+            {
+               
+                
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = trips;
+                return;
+            }
+            var newVals = SearchService.getSoldTripsByKeyword(text, trips);
+            trips = newVals;
+            
+            TableDataGrid.ItemsSource = null;
+            TableDataGrid.ItemsSource = trips;
+
+
+        }
+
+        private void tbDate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            List<SoldTrip> trips = FileService.getAllSoldTrips();
+            String text = tbDate.Text.ToLower().Trim();
+            
+            if (text == "")
+            {
+
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = trips;
+                return;
+            }
+            var newVals = SearchService.getSoldTripsBDate(text, trips);
+            trips = newVals;
+            
+            
+
+            TableDataGrid.ItemsSource = null;
+            TableDataGrid.ItemsSource = trips;
+
+
+        }
+
+
     }
 }

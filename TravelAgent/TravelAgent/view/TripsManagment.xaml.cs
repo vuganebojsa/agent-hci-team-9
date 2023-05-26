@@ -85,7 +85,22 @@ namespace TravelAgent.view
             }
             else
             {
-                //TO DO
+                Trip trip = FileService.getTripById(selectedItem.Id);
+                AddTripPopup ap = new AddTripPopup(trip);
+                ap.Left = left + width / 2 - 130;
+                ap.Top = top + height / 2 - 250;
+
+                if (ap.ShowDialog() == true)
+                {
+                    tbSearch.Text = "";
+                    this.trips = FileService.getAllTrips();
+                    filterTrips();
+                    TableDataGrid.ItemsSource = null;
+                    TableDataGrid.ItemsSource = this.tripsWithFlag;
+                    /* TableDataGrid.Items.Refresh();
+
+                     CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
+                }
             }
 
         }
@@ -147,7 +162,46 @@ namespace TravelAgent.view
         }
         private void Dodajte_ButtonClicked(object sender, EventArgs e)
         {
-            return;
+            double width = Window.GetWindow(this).Width;
+            double height = Window.GetWindow(this).Height;
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+
+            AddTripPopup ap = new AddTripPopup();
+            ap.Left = left + width / 2 - 130;
+            ap.Top = top + height / 2 - 250;
+
+            if (ap.ShowDialog() == true)
+            {
+                tbSearch.Text = "";
+                this.trips = FileService.getAllTrips();
+                filterTrips();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.tripsWithFlag;
+                /* TableDataGrid.Items.Refresh();
+
+                 CollectionViewSource.GetDefaultView(TableDataGrid.ItemsSource).Refresh();*/
+            }
+        }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String text = tbSearch.Text.ToLower().Trim();
+            if (text == "")
+            {
+                this.trips = FileService.getAllTrips();
+                filterTrips();
+                TableDataGrid.ItemsSource = null;
+                TableDataGrid.ItemsSource = this.trips;
+                return;
+            }
+            var newVals = SearchService.getTripsByKeyword(text, this.trips);
+            this.trips = newVals;
+            filterTrips();
+            TableDataGrid.ItemsSource = null;
+            TableDataGrid.ItemsSource = this.tripsWithFlag;
+
+
         }
     }
 }
