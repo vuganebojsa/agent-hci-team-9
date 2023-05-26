@@ -73,13 +73,42 @@ namespace TravelAgent.services
         public static List<SoldTrip> getSoldTripsBDate(String keyword, List<SoldTrip> trips)
         {
             List<SoldTrip> trp = new List<SoldTrip>();
+            Dictionary<string, string> months = new Dictionary<string, string>();
+            months.Add("januar", "1");
+            months.Add("februar", "2");
+            months.Add("mart", "3");
+            months.Add("april", "4");
+            months.Add("maj", "5");
+            months.Add("jun", "6");
+            months.Add("jul", "7");
+            months.Add("avgust", "8");
+            months.Add("septembar", "9");
+            months.Add("oktobar", "10");
+            months.Add("novembar", "11");
+            months.Add("decembar", "12");
 
+            string blatruc = "";
+            string xmlfile;
+            bool checkOther = true;
+            if (!months.TryGetValue(keyword.ToLower(), out xmlfile))
+            {
+                checkOther = false;
+            }
             foreach (SoldTrip trip in trips)
             {
-                if (trip.Trip.DatumPocetka.ToString().Split("/")[0].Contains(keyword)) 
+                if (trip.Trip.DatumPocetka.ToString().Split("/")[0].Contains(keyword)
+                    ) 
                 {
                     trp.Add(trip);
 
+                }
+                if (checkOther)
+                {
+                    if(months[keyword.ToLower()] == trip.Trip.DatumPocetka.ToString().Split("/")[0])
+                    {
+                        trp.Add(trip);
+
+                    }
                 }
             }
             return trp;

@@ -301,7 +301,7 @@ namespace TravelAgent.view
                 double height = Window.GetWindow(this).Height;
                 double left = Window.GetWindow(this).Left;
                 double top = Window.GetWindow(this).Top;
-                OkPopup ok = new OkPopup($"Uspesno ste dodali objekat {tr.Naziv}.");
+                OkPopup ok = new OkPopup($"Uspesno ste dodali putovanje {tr.Naziv}.");
                 ok.Left = left + width / 2 - 100;
                 ok.Top = top + height / 2 - 100;
                 if (ok.ShowDialog() == true)

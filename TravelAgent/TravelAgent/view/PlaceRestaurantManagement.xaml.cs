@@ -90,6 +90,7 @@ namespace TravelAgent.view
                 return;
                 
             }
+
             YesNoPopup yn = new YesNoPopup($"Da li ste sigurni da zelite da obrisete {selectedItem.Naziv} objekat?");
            
             yn.Left = left + width/2 - 100;

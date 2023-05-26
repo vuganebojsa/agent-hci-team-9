@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TravelAgent.Model;
+using TravelAgent.services;
 
 namespace TravelAgent.view
 {
@@ -49,6 +50,7 @@ namespace TravelAgent.view
 
         private void CheckFlags()
         {
+
             if (!IsLogedIn)
             {
                 btnPocetna.Visibility = Visibility.Visible;
@@ -61,6 +63,11 @@ namespace TravelAgent.view
             else
             {
                 btnRezervisi.Visibility = Visibility.Hidden;
+            }
+            if (IsReservation)
+            {
+                btnRezervisi.Visibility = Visibility.Hidden;
+
             }
         }
 
@@ -130,7 +137,34 @@ namespace TravelAgent.view
 
         private void btnRezervisi_ButtonClicked(object sender, EventArgs e)
         {
+
+            double width = Window.GetWindow(this).Width;
+            double height = Window.GetWindow(this).Height;
+            double left = Window.GetWindow(this).Left;
+            double top = Window.GetWindow(this).Top;
+            YesNoPopup yn = new YesNoPopup($"Da li ste sigurni da zelite da rezervisete {trip.Naziv} putovanje?");
+
+            yn.Left = left + width / 2 - 100;
+            yn.Top = top + height / 2 - 250;
+            if (yn.ShowDialog() == true)
+            {
+
+                long userId = CurrentlyloggedInUser.user.Id;
+                long tripId = trip.Id;
+                FileService.writeReservation(userId, tripId);
+                OkPopup ok = new OkPopup($"Uspesno ste rezervisali {trip.Naziv} putovanje.");
+                ok.Left = left + width / 2 - 100;
+                ok.Top = top + height / 2 - 100;
+                if (ok.ShowDialog() == true)
+                {
+                    return;
+                }
+
+            }
+
+           
             
+
         }
 
         private void btnPrikaziDetalje_ButtonClicked(object sender, EventArgs e)

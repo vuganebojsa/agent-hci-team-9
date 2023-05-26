@@ -804,6 +804,41 @@ namespace TravelAgent.services
 
 
         }
+
+        public static long GetLastIdFromReservations()
+        {
+            String id = "#";
+            using (StreamReader sr = new StreamReader(filePathBookedTrips))
+            {
+                string line;
+                // 
+                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    String[] info = line.Split(";");
+                    long lid = long.Parse(info[0]);
+                    lid = lid + 1;
+                    id = lid.ToString();
+                }
+            }
+            if (id == "#") return 1;
+            return long.Parse(id);
+        }
+
+        public static bool writeReservation(long userId, long tripId)
+        {
+
+
+            using (StreamWriter sw = File.AppendText(filePathBookedTrips))
+            {
+                
+                  sw.WriteLine($"{tripId};{userId}");
+     
+            }
+
+
+            return true;
+        }
     }
 
 

@@ -17,8 +17,8 @@
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 
@@ -33,7 +33,7 @@
 
                 </WrapPanel>
                 <WrapPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <TextBlock Text="Izaberite mesec:" VerticalAlignment="Center"
+                    <TextBlock Text="Pretrazite putovanja po mesecu:" VerticalAlignment="Center"
                            Foreground="#073E66" FontSize="16"/>
 
                     <TextBox x:Name="tbDate" Margin="10" MinWidth="150"

@@ -12,3 +12,5 @@ id;naziv;longitude;latitude
 11;Ulica Vuka Karadžića BB Kuzmin, Serbia;19.404908405688612;45.02080530252159
 12;Tchirozérine;5.625;19.317778868743616
 13;Ulica Petefi Šandora 85, 21235 Temerin, Serbia;19.875785576293566;45.40926591122498
+14;Ulica Tvrđava 11, 21132 Petrovaradin, Serbia;19.865285796309983;45.25088516099008
+15;Ulica Štrosmajerova 9, 21132 Petrovaradin, Serbia;19.862193491053763;45.25426144377632

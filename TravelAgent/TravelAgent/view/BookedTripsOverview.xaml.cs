@@ -85,7 +85,13 @@ namespace TravelAgent.view
             }
             else
             {
-                //TO DO
+                SelectedTrip st = new SelectedTrip(selectedItem, true, true, true);
+                
+                UserPage parentWindow = (UserPage)Application.Current.MainWindow;
+                parentWindow.MainContent.Content = null;
+                // Set the newly created user control as the content of the container
+                parentWindow.MainContent.Content = st;
+                
             }
 
         }

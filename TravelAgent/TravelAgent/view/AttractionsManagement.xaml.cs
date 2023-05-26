@@ -26,7 +26,7 @@ namespace TravelAgent.view
         public List<TouristAttraction> attractionsWithFlag { get; set; }
         public AttractionsManagement()
         {
-            attractions = FileService.getAttractions();
+            attractions = FileService.getAtractions();
             filterAttractions();
 
             InitializeComponent();
@@ -125,7 +125,7 @@ namespace TravelAgent.view
             if (ap.ShowDialog() == true)
             {
                 tbSearch.Text = "";
-                this.attractions = FileService.getAttractions();
+                this.attractions = FileService.getAtractions();
                 filterAttractions();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.attractionsWithFlag;
@@ -163,7 +163,7 @@ namespace TravelAgent.view
             {
 
                 tbSearch.Text = "";
-                this.attractions = FileService.getAttractions();
+                this.attractions = FileService.getAtractions();
                 filterAttractions();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.attractionsWithFlag;
@@ -177,7 +177,7 @@ namespace TravelAgent.view
             String text = tbSearch.Text.ToLower().Trim();
             if (text == "")
             {
-                this.attractions = FileService.getAttractions();
+                this.attractions = FileService.getAtractions();
                 filterAttractions();
                 TableDataGrid.ItemsSource = null;
                 TableDataGrid.ItemsSource = this.attractionsWithFlag;

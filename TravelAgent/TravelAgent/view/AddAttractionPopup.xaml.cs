@@ -130,7 +130,7 @@ namespace TravelAgent.view
             {
                 // ovo je edit
 
-                List<TouristAttraction> attractions = FileService.getAttractions();
+                List<TouristAttraction> attractions = FileService.getAtractions();
                 foreach (TouristAttraction attr in attractions)
                 {
                     if (attr.Id == this.Attraction.Id)
