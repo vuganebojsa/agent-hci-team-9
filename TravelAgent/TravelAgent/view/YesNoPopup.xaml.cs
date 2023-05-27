@@ -81,6 +81,11 @@ namespace TravelAgent.view
                 // Manually trigger the button click event
                 btnYes_ButtonClicked(sender, e);
             }
+            if (e.Key == Key.Escape)
+            {
+                // Manually trigger the button click event
+                btnNo_ButtonClicked(sender, e);
+            }
         }
     }
 }

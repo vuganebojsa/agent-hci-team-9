@@ -70,7 +70,7 @@ namespace TravelAgent.view
             placesRestaurantsWithFlag = newPlaces;
         }
 
-        private void btnDelete_ButtonClicked(object sender, EventArgs e)
+        public void btnDelete_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
@@ -119,7 +119,7 @@ namespace TravelAgent.view
             
         }
 
-        private void btnAdd_ButtonClicked(object sender, EventArgs e)
+        public void btnAdd_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
@@ -143,7 +143,7 @@ namespace TravelAgent.view
             }
         }
 
-        private void btnEdit_ButtonClicked(object sender, EventArgs e)
+        public void btnEdit_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
@@ -180,7 +180,7 @@ namespace TravelAgent.view
             }
         }
 
-        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        public void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             String text = tbSearch.Text.ToLower().Trim();
             if (text == "")

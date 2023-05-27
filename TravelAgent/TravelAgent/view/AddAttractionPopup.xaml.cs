@@ -30,6 +30,7 @@ namespace TravelAgent.view
         {
             InitializeComponent();
             Loaded += Ok_Loaded;
+            Loaded += Esc_Loaded;
         }
 
         public AddAttractionPopup(TouristAttraction attraction)
@@ -76,6 +77,22 @@ namespace TravelAgent.view
             {
                 // Manually trigger the button click event
                 btnSave_ButtonClicked(sender, e);
+            }
+        }
+
+        private void Esc_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Esc_KeyDown;
+        }
+
+        private void Esc_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Escape)
+            {
+                // Manually trigger the button click event
+                btnCancel_ButtonClicked(sender, e);
             }
         }
 

@@ -118,7 +118,7 @@ namespace TravelAgent.view
             // proveri flegove i stavi visible invisible na polja
         }
 
-        private void btnNazad_ButtonClicked(object sender, EventArgs e)
+        public void btnNazad_ButtonClicked(object sender, EventArgs e)
         {
             UnregisteredTrips sw = new UnregisteredTrips();
 

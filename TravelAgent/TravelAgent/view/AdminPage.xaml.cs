@@ -25,6 +25,8 @@ namespace TravelAgent.view
 
            
             InitializeComponent();
+            PreviewKeyDown += YourWindow_PreviewKeyDown;
+
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
@@ -40,6 +42,46 @@ namespace TravelAgent.view
             {
                 selectedText = value;
                 topNav.HeaderText = selectedText;
+            }
+        }
+
+        private void YourUserControl_ButtonAddClicked(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show("Button A clicked");
+        }
+        private void YourWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+            {
+                if (e.Key == Key.A)
+                {
+                    // Get the YourUserControl instance from the ContentControl
+                    AttractionsManagement yourUserControl = MainContent.Content as AttractionsManagement;
+                    yourUserControl?.btnAdd_ButtonClicked(sender, e);
+                    PlaceRestaurantManagement placeCntrl = MainContent.Content as PlaceRestaurantManagement;
+                    placeCntrl?.btnAdd_ButtonClicked(sender, e);
+                    TripsManagment tripCntrl = MainContent.Content as TripsManagment;
+                    tripCntrl?.Dodajte_ButtonClicked(sender, e);
+                }
+                else if(e.Key == Key.D)
+                {
+                    AttractionsManagement yourUserControl = MainContent.Content as AttractionsManagement;
+                    yourUserControl?.btnDelete_ButtonClicked(sender, e);
+                    PlaceRestaurantManagement placeCntrl = MainContent.Content as PlaceRestaurantManagement;
+                    placeCntrl?.btnDelete_ButtonClicked(sender, e);
+                    TripsManagment tripCntrl = MainContent.Content as TripsManagment;
+                    tripCntrl?.Obrisite_ButtonClicked(sender, e);
+                }
+                else if (e.Key == Key.E)
+                {
+                    AttractionsManagement yourUserControl = MainContent.Content as AttractionsManagement;
+                    yourUserControl?.btnEdit_ButtonClicked(sender, e);
+                    PlaceRestaurantManagement placeCntrl = MainContent.Content as PlaceRestaurantManagement;
+                    placeCntrl?.btnEdit_ButtonClicked(sender, e);
+                    TripsManagment tripCntrl = MainContent.Content as TripsManagment;
+                    tripCntrl?.Izmenite_ButtonClicked(sender, e);
+                }
             }
         }
 
@@ -66,6 +108,7 @@ namespace TravelAgent.view
             }
            
         }
+        
 
         private void SideNavigationAgent_ButtonPregledProdatihPutovanja(object sender, EventArgs e)
         {
@@ -121,5 +164,7 @@ namespace TravelAgent.view
             // Set the newly created user control as the content of the container
             MainContent.Content = control;
         }
+
+        
     }
 }

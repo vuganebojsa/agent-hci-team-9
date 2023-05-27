@@ -78,6 +78,12 @@ namespace TravelAgent.view
                 // Manually trigger the button click event
                 Prihvati_ButtonClicked(sender, e);
             }
+
+            if (e.Key == Key.Escape)
+            {
+                // Manually trigger the button click event
+                Pocetna_ButtonClicked(sender, e);
+            }
         }
 
         private void Prihvati_ButtonClicked(object sender, EventArgs e)

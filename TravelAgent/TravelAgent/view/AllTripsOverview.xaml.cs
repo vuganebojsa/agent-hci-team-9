@@ -28,6 +28,7 @@ namespace TravelAgent.view
             trips = FileService.getAllActiveTrips();
 
             InitializeComponent();
+            Loaded += Esc_Loaded;
             if (CurrentlyloggedInUser.user != null) btnBack.Visibility = Visibility.Hidden;
             TableDataGrid.AutoGenerateColumns = false;
             TableDataGrid.ItemsSource = trips;
@@ -143,7 +144,23 @@ namespace TravelAgent.view
 
         }
 
-        private void btnBack_ButtonClicked(object sender, EventArgs e)
+        private void Esc_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Esc_KeyDown;
+        }
+
+        private void Esc_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Escape)
+            {
+                // Manually trigger the button click event
+                btnBack_ButtonClicked(sender, e);
+            }
+        }
+
+        public void btnBack_ButtonClicked(object sender, EventArgs e)
         {
             StartWindow sw = new StartWindow();
 

@@ -28,6 +28,7 @@ namespace TravelAgent.view
 
             InitializeComponent();
             Loaded += Login_Loaded;
+            
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
@@ -74,6 +75,11 @@ namespace TravelAgent.view
             {
                 // Manually trigger the button click event
                 BivujaButton_ButtonClicked(sender, e);
+            }
+            if (e.Key == Key.Escape)
+            {
+                // Manually trigger the button click event
+                Pocetna_ButtonClicked(sender, e);
             }
         }
 

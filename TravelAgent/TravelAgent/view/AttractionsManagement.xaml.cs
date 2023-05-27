@@ -24,12 +24,16 @@ namespace TravelAgent.view
     {
         public List<TouristAttraction> attractions { get; set; }
         public List<TouristAttraction> attractionsWithFlag { get; set; }
+        
         public AttractionsManagement()
         {
             attractions = FileService.getAtractions();
             filterAttractions();
 
             InitializeComponent();
+            
+
+
 
             TableDataGrid.AutoGenerateColumns = false;
             TableDataGrid.ItemsSource = attractionsWithFlag;
@@ -54,6 +58,8 @@ namespace TravelAgent.view
 
         }
 
+        
+
         private void filterAttractions()
         {
             var newAttractions = new List<TouristAttraction>();
@@ -64,13 +70,19 @@ namespace TravelAgent.view
             attractionsWithFlag = newAttractions;
         }
 
-        private void btnDelete_ButtonClicked(object sender, EventArgs e)
+        
+
+        
+
+        public void btnDelete_ButtonClicked(object sender, EventArgs e)
         {
+            
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
             double left = Window.GetWindow(this).Left;
             double top = Window.GetWindow(this).Top;
             var selectedItem = (TouristAttraction)TableDataGrid.SelectedItem;
+            
             if (selectedItem == null)
             {
                 OkPopup ok = new OkPopup("Molimo Vas prvo izaberite red iz tabele kako biste izvrsili promene.");
@@ -111,13 +123,13 @@ namespace TravelAgent.view
 
         }
 
-        private void btnAdd_ButtonClicked(object sender, EventArgs e)
+        public void btnAdd_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
             double left = Window.GetWindow(this).Left;
             double top = Window.GetWindow(this).Top;
-
+            
             AddAttractionPopup ap = new AddAttractionPopup(); //TODO: promeniti ovde isto da bude window AddAttractionPopup
             ap.Left = left + width / 2 - 130;
             ap.Top = top + height / 2 - 250;
@@ -135,7 +147,7 @@ namespace TravelAgent.view
             }
         }
 
-        private void btnEdit_ButtonClicked(object sender, EventArgs e)
+        public void btnEdit_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;

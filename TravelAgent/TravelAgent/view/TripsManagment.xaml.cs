@@ -63,7 +63,7 @@ namespace TravelAgent.view
             TableDataGrid.Columns.Add(startDateColumn);
             TableDataGrid.Columns.Add(endDateColumn);
         }
-        private void Izmenite_ButtonClicked(object sender, EventArgs e)
+        public void Izmenite_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
@@ -105,7 +105,7 @@ namespace TravelAgent.view
 
         }
 
-        private void Obrisite_ButtonClicked(object sender, EventArgs e)
+        public void Obrisite_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
@@ -160,7 +160,7 @@ namespace TravelAgent.view
             }
             tripsWithFlag = newTrips;
         }
-        private void Dodajte_ButtonClicked(object sender, EventArgs e)
+        public void Dodajte_ButtonClicked(object sender, EventArgs e)
         {
             double width = Window.GetWindow(this).Width;
             double height = Window.GetWindow(this).Height;
