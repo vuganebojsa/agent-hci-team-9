@@ -23,6 +23,7 @@ namespace TravelAgent.view
         public OkPopup()
         {
             InitializeComponent();
+            Loaded += Ok_Loaded;
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
@@ -30,6 +31,7 @@ namespace TravelAgent.view
         public OkPopup(String text)
         {
             InitializeComponent();
+            Loaded += Ok_Loaded;
             OkText = text;
 
         }
@@ -42,6 +44,22 @@ namespace TravelAgent.view
             {
                 okText = value;
                 poruka.Text = okText;
+            }
+        }
+
+        private void Ok_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Ok_KeyDown;
+        }
+
+        private void Ok_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Enter)
+            {
+                // Manually trigger the button click event
+                BivujaButton_ButtonClicked(sender, e);
             }
         }
 

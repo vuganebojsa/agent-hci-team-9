@@ -23,6 +23,7 @@ namespace TravelAgent.view
         public YesNoPopup()
         {
             InitializeComponent();
+            Loaded += YN_Loaded;
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
@@ -32,6 +33,7 @@ namespace TravelAgent.view
         {
 
             InitializeComponent();
+            Loaded += YN_Loaded;
             OkText = text;
 
         }
@@ -63,6 +65,22 @@ namespace TravelAgent.view
             this.DialogResult = true;
             ButtonYesClicked?.Invoke(this, EventArgs.Empty);
 
+        }
+
+        private void YN_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += YN_KeyDown;
+        }
+
+        private void YN_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Enter)
+            {
+                // Manually trigger the button click event
+                btnYes_ButtonClicked(sender, e);
+            }
         }
     }
 }

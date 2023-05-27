@@ -29,6 +29,7 @@ namespace TravelAgent.view
         public AddPlaceRestaurantPopup()
         {
             InitializeComponent();
+            Loaded += Ok_Loaded;
         }
 
         public AddPlaceRestaurantPopup(PlaceRestaurant placeRestaurant)
@@ -36,6 +37,7 @@ namespace TravelAgent.view
             this.PlaceRestaurant = placeRestaurant;
             isMapClicked = false;
             InitializeComponent();
+            Loaded += Ok_Loaded;
             if (this.PlaceRestaurant != null)
             {
                 SelectedLocation = PlaceRestaurant.Adresa;
@@ -62,7 +64,23 @@ namespace TravelAgent.view
             bingMap.ZoomLevel = zoomLevel;
         }
 
- 
+        private void Ok_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Ok_KeyDown;
+        }
+
+        private void Ok_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Enter)
+            {
+                // Manually trigger the button click event
+                btnSave_ButtonClicked(sender, e);
+            }
+        }
+
+
 
         private void btnCancel_ButtonClicked(object sender, EventArgs e)
         {

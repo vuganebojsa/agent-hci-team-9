@@ -7,7 +7,7 @@
              xmlns:travel="clr-namespace:TravelAgent"
              mc:Ignorable="d" 
             Background="White" Width="800" Height="550"  MinWidth="500" MinHeight="550">
-    <Grid>
+    <Grid x:Name="mainGrid1">
         <DockPanel>
             <Grid DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
@@ -71,7 +71,7 @@
                 <Grid Grid.Row="2">
                     <WrapPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                         <Grid>
-                            <travel:BivujaButton ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati"/>
+                            <travel:BivujaButton ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati" />
 
                             
                         </Grid>

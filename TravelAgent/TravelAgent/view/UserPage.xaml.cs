@@ -23,6 +23,7 @@ namespace TravelAgent.view
         {
 
             InitializeComponent();
+            
             SelectedText = "Pregled svih putovanja";
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);

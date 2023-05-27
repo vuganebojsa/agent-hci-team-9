@@ -24,7 +24,9 @@ namespace TravelAgent.view
     {
         public Registration()
         {
+
             InitializeComponent();
+            Loaded += Registration_Loaded;
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
@@ -61,6 +63,23 @@ namespace TravelAgent.view
             
             
         }
+
+        private void Registration_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Registration_KeyDown;
+        }
+
+        private void Registration_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.Enter)
+            {
+                // Manually trigger the button click event
+                Prihvati_ButtonClicked(sender, e);
+            }
+        }
+
         private void Prihvati_ButtonClicked(object sender, EventArgs e)
         {
             String name = ime.Text;
