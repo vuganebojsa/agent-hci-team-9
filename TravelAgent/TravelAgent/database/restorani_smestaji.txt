@@ -8,3 +8,5 @@ id;naziv;mesto;tip;fleg
 12;fasfas;12;Smestaj;1
 13;Kamelot;13;Restoran;0
 14;Petrovaradin Palata;15;Smestaj;0
+15;safsa;16;Restoran;0
+16;asfsafa;17;Smestaj;0

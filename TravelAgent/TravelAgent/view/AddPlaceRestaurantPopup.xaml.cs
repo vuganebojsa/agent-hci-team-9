@@ -29,6 +29,7 @@ namespace TravelAgent.view
         public AddPlaceRestaurantPopup()
         {
             InitializeComponent();
+            isMapClicked = false;
             Loaded += Ok_Loaded;
             Loaded += Esc_Loaded;
         }
@@ -118,6 +119,8 @@ namespace TravelAgent.view
 
         private void btnSave_ButtonClicked(object sender, EventArgs e)
         {
+
+            
             if(cbType.Text.Trim() == "")
             {
                 errorControl.Visibility = Visibility.Visible;
@@ -129,6 +132,28 @@ namespace TravelAgent.view
             String name = tbNaziv.Text.Trim();
             String mesto = tbMesto.Text.Trim();
 
+            if(name == "")
+            {
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbMesto.BorderThickness = new Thickness(0);
+                tbNaziv.BorderBrush = Brushes.Red;
+                tbNaziv.BorderThickness = new Thickness(1);
+            }
+            else if(mesto == "")
+            {
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbMesto.BorderThickness = new Thickness(0);
+                tbMesto.BorderBrush = Brushes.Red;
+                tbMesto.BorderThickness = new Thickness(1);
+            
+            }
+            else
+            {
+
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbMesto.BorderThickness = new Thickness(0);
+            }
+
             if(name == "" || mesto == "")
             {
 
@@ -136,7 +161,7 @@ namespace TravelAgent.view
                 errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
                 return;
             }
-            SelectedLocation.Naziv = mesto;
+
             errorControl.Visibility = Visibility.Hidden;
 
             PlaceRestaurant pr = new PlaceRestaurant();
@@ -149,10 +174,13 @@ namespace TravelAgent.view
             {
                 if (!isMapClicked)
                 {
+
                     errorControl.Visibility = Visibility.Visible;
                     errorControl.ErrorHandler.Text = "Molimo Vas selektujte lokaciju na mapi.";
                     return;
                 }
+                SelectedLocation.Naziv = mesto;
+
                 FileService.addPlaceRestaurant(pr);
 
                 // da bi mogli znati da li je sacuvano da se refreshuje tabela
@@ -174,6 +202,7 @@ namespace TravelAgent.view
             else
             {
                 // ovo je edit
+                SelectedLocation.Naziv = mesto;
 
                 List<PlaceRestaurant> placeRestaurants = FileService.getPlacesAndRestaurants();
                 foreach(PlaceRestaurant p in placeRestaurants)
