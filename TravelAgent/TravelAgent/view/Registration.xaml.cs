@@ -93,7 +93,49 @@ namespace TravelAgent.view
             String email = tbEmail.Text;
             String password = lozinka.Text;
             string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
-            
+            if (name.Trim() == "")
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+                ime.BorderBrush = Brushes.Red;
+                ime.BorderThickness = new Thickness(1);
+            }else if(surname.Trim() == "")
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+                prezime.BorderBrush = Brushes.Red;
+                prezime.BorderThickness = new Thickness(1);
+            }
+            else if (email.Trim() == "")
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+                tbEmail.BorderBrush = Brushes.Red;
+                tbEmail.BorderThickness = new Thickness(1);
+            }else if(password.Trim() == "")
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+                lozinka.BorderBrush = Brushes.Red;
+                lozinka.BorderThickness = new Thickness(1);
+            }
+            else
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+
+            }
+
 
             if (name.Trim() == "" || surname.Trim() == "" || email.Trim() == "" || password.Trim() == "")
             {

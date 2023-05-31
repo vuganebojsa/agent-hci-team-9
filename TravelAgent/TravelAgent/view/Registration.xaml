@@ -24,8 +24,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"></RowDefinition>
-                    <RowDefinition Height="4*"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0">
@@ -36,52 +36,44 @@
                 <Grid x:Name="mainGrid" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="7*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Row="0" Grid.Column="0">
+                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 0 10">
                         <Label Name="nameLabel" FontSize="14px" Content="Unesite Vase ime" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera" x:Name="ime"/>
-
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera" x:Name="ime" Width="350"  HorizontalAlignment="Left"/>
+                        <Label Name="lastNameLabel" FontSize="14px" Content="Unesite Vase prezime" Margin="20 0 20 5"  Foreground="#FF105A87" FontWeight="DemiBold"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric" x:Name="prezime" Width="350"   HorizontalAlignment="Left"/>
                         <Label Name="emailLabel" FontSize="14px" Content="Unesite Vasu email adresu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" x:Name="tbEmail"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="primer@gmail.com" Width="350" x:Name="tbEmail"  HorizontalAlignment="Left"/>
 
-                    </StackPanel>
-                    <StackPanel Grid.Row="0" Grid.Column="1">
-                        <Label Name="lastNameLabel" FontSize="14px" Content="Unesite Vase prezime" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Peric" x:Name="prezime"/>
-
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="1">
                         <Label  Name="passwordLabel" FontSize="14px"  Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold">
                             <TextBlock TextWrapping="Wrap" Text="Unesite zeljenu lozinku (minimalno 6 karaktera)">
-                                
+
                             </TextBlock>
                         </Label>
-                        <local:ClearablePasswordBox Margin="20 0 20 0 " x:Name="lozinka"/>
-
+                        <local:ClearablePasswordBox Margin="20 0 20 0 " x:Name="lozinka" Width="350"  HorizontalAlignment="Left"/>
 
                     </StackPanel>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <WrapPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                    
+                    <Grid Grid.Row="1" Grid.Column="1">
                         <Grid>
-                            <travel:BivujaButton ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati" />
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="7*"></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <travel:BivujaButton Grid.Row="0" ButtonClicked="Pocetna_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Pocetna" VerticalAlignment="Top"/>
 
-                            
+                            <travel:BivujaButton Grid.Row="1" ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati" VerticalAlignment="Center"/>
+
                         </Grid>
-                        <Grid>
-                            <travel:BivujaButton ButtonClicked="Pocetna_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Pocetna"/>
+
                         </Grid>
-                        
-                        
-                    </WrapPanel>
+
                 </Grid>
+               
             </Grid>
             
         </DockPanel>
