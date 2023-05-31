@@ -110,8 +110,8 @@ namespace TravelAgent.view
         private void FillFields()
         {
             tbCena.Text = trip.Cena.ToString() + " RSD";
-            tbDatumKraja.Text = trip.DatumKraja.ToString();
-            tbDatumPocetka.Text = trip.DatumPocetka.ToString();
+            tbDatumKraja.Text = trip.DatumKraja.ToString("dd/MM/yyyy");
+            tbDatumPocetka.Text = trip.DatumPocetka.ToString("dd/MM/yyyy");
             tbNaziv.Text = trip.Naziv.ToString();
             
 

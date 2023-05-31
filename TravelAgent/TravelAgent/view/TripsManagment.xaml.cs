@@ -50,11 +50,11 @@ namespace TravelAgent.view
 
             DataGridTextColumn startDateColumn = new DataGridTextColumn();
             startDateColumn.Header = "Datum pocetka";
-            startDateColumn.Binding = new Binding("DatumPocetka") { StringFormat = "MM/dd/yyyy" };
+            startDateColumn.Binding = new Binding("DatumPocetka") { StringFormat = "dd/MM/yyyy" };
 
             DataGridTextColumn endDateColumn = new DataGridTextColumn();
             endDateColumn.Header = "Datum kraja";
-            endDateColumn.Binding = new Binding("DatumKraja") { StringFormat = "MM/dd/yyyy" };
+            endDateColumn.Binding = new Binding("DatumKraja") { StringFormat = "dd/MM/yyyy" };
 
             // Add the columns to the DataGrid
             TableDataGrid.Columns.Add(nameColumn);
