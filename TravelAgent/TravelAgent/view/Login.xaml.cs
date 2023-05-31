@@ -81,6 +81,10 @@ namespace TravelAgent.view
                 // Manually trigger the button click event
                 Pocetna_ButtonClicked(sender, e);
             }
+            if(e.Key == Key.F1)
+            {
+                btnHelp_ButtonClicked(sender, e);
+            }
         }
 
         private void BivujaButton_ButtonClicked(object sender, EventArgs e)

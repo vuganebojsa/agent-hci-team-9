@@ -22,12 +22,29 @@ namespace TravelAgent.view
         public StartWindow()
         {
             InitializeComponent();
+            Loaded += Ok_Loaded;
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             this.Title = "BIVUJA";
         }
 
-        private void Login_ButtonClicked(object sender, EventArgs e)
+        private void Ok_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Help_KeyDown;
+        }
+
+        private void Help_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.F1)
+            {
+                // Manually trigger the button click event
+                btnHelp_ButtonClicked(sender, e);
+            }
+        }
+
+            private void Login_ButtonClicked(object sender, EventArgs e)
         {
             Login login = new Login();
 

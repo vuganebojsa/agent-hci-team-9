@@ -23,7 +23,7 @@ namespace TravelAgent.view
         {
 
             InitializeComponent();
-            
+            Loaded += Ok_Loaded;
             SelectedText = "Pregled svih putovanja";
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
@@ -40,6 +40,21 @@ namespace TravelAgent.view
             {
                 selectedText = value;
                 topNav.HeaderText = selectedText;
+            }
+        }
+        private void Ok_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Help_KeyDown;
+        }
+
+        private void Help_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.F1)
+            {
+                // Manually trigger the button click event
+                SideNavigation_ButtonHelpClicked(sender, e);
             }
         }
 

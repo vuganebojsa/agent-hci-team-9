@@ -26,6 +26,7 @@ namespace TravelAgent.view
            
             InitializeComponent();
             PreviewKeyDown += YourWindow_PreviewKeyDown;
+            Loaded += Ok_Loaded;
 
             Uri iconUri = new Uri("../../../icons/bivuja.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
@@ -82,6 +83,22 @@ namespace TravelAgent.view
                     TripsManagment tripCntrl = MainContent.Content as TripsManagment;
                     tripCntrl?.Izmenite_ButtonClicked(sender, e);
                 }
+                
+            }
+        }
+        private void Ok_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Register KeyDown event for the window
+            KeyDown += Help_KeyDown;
+        }
+
+        private void Help_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the Enter key was pressed
+            if (e.Key == Key.F1)
+            {
+                // Manually trigger the button click event
+                SideNavigationAgent_ButtonHelp(sender, e);
             }
         }
 
