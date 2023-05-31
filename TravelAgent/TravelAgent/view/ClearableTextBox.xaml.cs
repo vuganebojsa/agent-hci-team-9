@@ -51,6 +51,11 @@ namespace TravelAgent.view
         private void txtInput_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+            if (txtInput.Text.Contains(';'))
+            {
+                Text = Text.Replace(";","");
+
+            }
             if (string.IsNullOrEmpty(txtInput.Text))
             {
                 tbPlaceholder.Visibility = Visibility.Visible;

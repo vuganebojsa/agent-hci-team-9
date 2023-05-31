@@ -55,6 +55,11 @@ namespace TravelAgent.view
 
         private void txtInput_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            if (txtInput.Password.Contains(';'))
+            {
+                Text = Text.Replace(";", "");
+
+            }
             if (string.IsNullOrEmpty(txtInput.Password))
             {
                 tbPlaceholder.Visibility = Visibility.Visible;
