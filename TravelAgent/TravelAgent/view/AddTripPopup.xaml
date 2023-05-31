@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="0">
                     <Label Name="nazivLabel" FontSize="14px" Content="Unesite naziv" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Pera" x:Name="tbNaziv"/>
+                    <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="Krstarenje dunavom" x:Name="tbNaziv"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="0">
                     <Label Name="datumPocetkaLabel" FontSize="14px" Content="Unesite datum pocetka" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
