@@ -57,6 +57,13 @@ namespace TravelAgent.view
             ButtonPregledProdatihPutovanja?.Invoke(this, EventArgs.Empty);
         }
 
+        public event EventHandler ButtonHelp;
+
+        private void btnHelpClicked(object sender, EventArgs e)
+        {
+            ButtonHelp?.Invoke(this, EventArgs.Empty);
+        }
+
 
 
     }

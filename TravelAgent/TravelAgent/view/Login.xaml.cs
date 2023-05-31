@@ -164,7 +164,8 @@ namespace TravelAgent.view
 
         private void btnHelp_ButtonClicked(object sender, EventArgs e)
         {
-
+            displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\LoginWindow.htm");
+            display.ShowDialog();
         }
     }
 }

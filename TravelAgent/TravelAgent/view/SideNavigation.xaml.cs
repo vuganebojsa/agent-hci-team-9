@@ -42,5 +42,12 @@ namespace TravelAgent.view
             ButtonPregledClicked?.Invoke(this, EventArgs.Empty);
 
         }
+
+        public event EventHandler ButtonHelpClicked;
+        private void HelpButton_ButtonClicked(object sender, EventArgs e)
+        {
+            ButtonHelpClicked?.Invoke(this, EventArgs.Empty);
+
+        }
     }
 }

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:TravelAgent.view"
         xmlns:travel="clr-namespace:TravelAgent"
         mc:Ignorable="d"
-        Background="White" Width="800" Height="550"  MinWidth="500" MinHeight="550"
-        Closing="Window_Closing">
+        Background="White" Width="800" Height="550"  MinWidth="500" MinHeight="550">
     <Grid>
         <DockPanel>
+            
             <Grid DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
 
@@ -34,14 +34,15 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0">
-                    <travel:BivujaButton ButtonClicked="Login_ButtonClicked" Width="350" Height="50" Margin="10 60 10 20" ButtonContent="Ulogujte se"/>
+                    
+                    <travel:BivujaButton ButtonClicked="Login_ButtonClicked" Width="350" Height="50" Margin="10 40 10 20" ButtonContent="Ulogujte se"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1">
-                    <travel:BivujaButton ButtonClicked="Register_ButtonClicked" Width="350" Height="50" Margin="10 45 10 0" ButtonContent="Registrujte se"/>
+                    <travel:BivujaButton ButtonClicked="Register_ButtonClicked" Width="350" Height="50" Margin="10 25 10 0" ButtonContent="Registrujte se"/>
                     
                 </StackPanel>
                 <StackPanel Grid.Row="2">
-                    <travel:BivujaButton ButtonClicked="Putovanja_ButtonClicked" Width="350" Height="50" Margin="10 30 10 0" ButtonContent="Ponuda putovanja"/>
+                    <travel:BivujaButton ButtonClicked="Putovanja_ButtonClicked" Width="350" Height="50" Margin="10 10 10 0" ButtonContent="Ponuda putovanja"/>
                 </StackPanel>
                 <StackPanel Grid.Row="3">
                     <travel:BivujaButton x:Name="btnHelp" ButtonClicked="btnHelp_ButtonClicked" Width="350" Height="50" Margin="10 30 10 0" ButtonContent="?"/>

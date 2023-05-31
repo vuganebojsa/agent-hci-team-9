@@ -16,7 +16,10 @@
                                        ButtonPregledProdatihPutovanja="SideNavigationAgent_ButtonPregledProdatihPutovanja" 
                                        ButtonUpravljanjePutovanjimaClicked="SideNavigationAgent_ButtonUpravljanjePutovanjimaClicked"
                                        ButtonUpravljanjeSmestajemIRestoranima="SideNavigationAgent_ButtonUpravljanjeSmestajemIRestoranima"
-                                       ButtonUpravljanjeTuristickimAtrakcijama="SideNavigationAgent_ButtonUpravljanjeTuristickimAtrakcijama"/>
+                                       ButtonHelp="SideNavigationAgent_ButtonHelp"
+                                       ButtonUpravljanjeTuristickimAtrakcijama="SideNavigationAgent_ButtonUpravljanjeTuristickimAtrakcijama" Loaded="SideNavigationAgent_Loaded"/>
+                                       
+            
             <DockPanel Grid.Column="1">
                 <local:TopNavigation x:Name="topNav" DockPanel.Dock="Top" MaxHeight="200" ButtonClicked="topNav_ButtonClicked" HeaderText="Pregled svih putovanja"/>
                 <ContentControl x:Name="MainContent"/>

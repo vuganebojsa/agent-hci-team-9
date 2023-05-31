@@ -165,6 +165,37 @@ namespace TravelAgent.view
             MainContent.Content = control;
         }
 
-        
+        private void SideNavigationAgent_ButtonHelp(object sender, EventArgs e)
+        {   if (topNav.HeaderText.ToLower()=="upravljanje atrakcijama")
+            {
+                displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\UpravljanjeAtrakcijamaWindow.htm");
+                display.ShowDialog();
+
+            }
+        else if(topNav.HeaderText.ToLower()=="upravljanje smestajem i restoranima")
+            {
+                displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\UpravljanjeSmestajemWindow.htm");
+                display.ShowDialog();
+
+            }
+        else if(topNav.HeaderText.ToLower()=="upravljanje putovanjima")
+            {
+                displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\UpravljanjePutovanjimaWindow.htm");
+                display.ShowDialog();
+
+            }
+        else if(topNav.HeaderText.ToLower()=="pregled prodatih putovanja")
+            {
+                displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\PregledProdatihPutovanjaWindow.htm");
+                display.ShowDialog();
+
+            }
+           
+        }
+
+        private void SideNavigationAgent_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

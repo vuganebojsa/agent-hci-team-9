@@ -12,7 +12,9 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <local:SideNavigation Grid.Column="0" ButtonPregledClicked="SideNavigation_ButtonPregledClicked" ButtonRezervisaniClicked="SideNavigation_ButtonRezervisaniClicked"/>
+            <local:SideNavigation Grid.Column="0" ButtonPregledClicked="SideNavigation_ButtonPregledClicked"
+                                  ButtonRezervisaniClicked="SideNavigation_ButtonRezervisaniClicked"
+                                  ButtonHelpClicked="SideNavigation_ButtonHelpClicked"/>
             <DockPanel Grid.Column="1">
                 <local:TopNavigation x:Name="topNav" DockPanel.Dock="Top" MaxHeight="200" ButtonClicked="topNav_ButtonClicked" HeaderText="Pregled svih putovanja"/>
                 <ContentControl x:Name="MainContent"/>
