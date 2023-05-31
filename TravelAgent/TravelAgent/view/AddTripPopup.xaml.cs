@@ -174,8 +174,8 @@ namespace TravelAgent.view
         {
             tbNaziv.Text = Trip.Naziv;
             tbCena.Text =  Trip.Cena.ToString();
-            tbDatumPocetka.Text = Trip.DatumPocetka.ToString().Split(" ")[0];
-            tbDatumKraja.Text = Trip.DatumKraja.ToString().Split(" ")[0];
+            tbDatumPocetka.Text = Trip.DatumPocetka.ToString("dd/MM/yyyy");
+            tbDatumKraja.Text = Trip.DatumKraja.ToString("dd/MM/yyyy");
             foreach (IBivuja ibj in Trip.Objekti)
             {
                 if (ibj.GetType() == typeof(PlaceRestaurant))
@@ -248,7 +248,7 @@ namespace TravelAgent.view
 
            
             
-            string format = "MM/dd/yyyy";
+            string format = "dd/MM/yyyy";
             DateTime dateTimePocetak;
             DateTime dateTimeKraj;
             if (tbNaziv.Text.Trim() == "")
@@ -286,7 +286,7 @@ namespace TravelAgent.view
                 tbDatumPocetka.BorderBrush = Brushes.Red;
                 tbDatumPocetka.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
-                errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:MM/dd/yyyy (MM-mesec, dd-dan, yyyy-godina)";
+                errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:dd/MM/yyyy (dd-dan,MM-mesec, yyyy-godina)";
                 return;
             }
 
@@ -303,7 +303,7 @@ namespace TravelAgent.view
                 tbDatumKraja.BorderBrush = Brushes.Red;
                 tbDatumKraja.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
-                errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:MM/dd/yyyy (MM-mesec, dd-dan, yyyy-godina)";
+                errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:dd/MM/yyyy (dd-dan,MM-mesec, yyyy-godina)";
                 return;
             }
             if (dateTimePocetak > dateTimeKraj)

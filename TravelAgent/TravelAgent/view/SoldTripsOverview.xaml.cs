@@ -47,7 +47,7 @@ namespace TravelAgent.view
 
             DataGridTextColumn startDateColumn = new DataGridTextColumn();
             startDateColumn.Header = "Datum";
-            startDateColumn.Binding = new Binding("Trip.DatumPocetka") { StringFormat = "MM/dd/yyyy" };
+            startDateColumn.Binding = new Binding("Trip.DatumPocetka") { StringFormat = "dd/MM/yyyy" };
 
             
 

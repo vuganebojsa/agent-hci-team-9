@@ -27,10 +27,10 @@
                        <Label Name="cenaLabel" FontSize="14px" Content="Unesite cenu" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
                         <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="2000" x:Name="tbCena"/>
                         <Label Name="datumPocetkaLabel" FontSize="14px" Content="Unesite datum pocetka" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="MM/dd/yyyy" x:Name="tbDatumPocetka" Loaded="tbDatumPocetka_Loaded"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="dd/MM/yyyy" x:Name="tbDatumPocetka" Loaded="tbDatumPocetka_Loaded"/>
 
                         <Label Name="datumKrajaLabel" FontSize="14px" Content="Unesite datum kraja" Margin="20 0 20 5" Foreground="#FF105A87" FontWeight="DemiBold"/>
-                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="MM/dd/yyyy" x:Name="tbDatumKraja"/>
+                        <local:ClearableTextBox Margin="20 0 20 0 " Placeholder="dd/MM/yyyy" x:Name="tbDatumKraja"/>
 
                     </StackPanel>
                 
