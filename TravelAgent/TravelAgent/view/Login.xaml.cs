@@ -90,6 +90,26 @@ namespace TravelAgent.view
             String password = lozinka.Text;
             // errorControl.ErrorText = "Uneti email ili lozinka nisu ispravni. Molimo Vas pokusajte ponovo.";
             User user = FileService.getUserByEmailAndPassword(email, password);
+            if(email.Trim() == "")
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                tbEmail.BorderBrush = Brushes.Red;
+                tbEmail.BorderThickness = new Thickness(1);
+
+            }
+            else if(password.Trim() == "")
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                lozinka.BorderBrush = Brushes.Red;
+                lozinka.BorderThickness = new Thickness(1);
+            }
+            else
+            {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+            }
             if (email.Trim() == "" || password.Trim() == "")
             {
                 errorControl.Visibility = Visibility.Visible;

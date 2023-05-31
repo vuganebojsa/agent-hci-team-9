@@ -64,6 +64,10 @@ namespace TravelAgent.view
             {
                 tbPlaceholder.Visibility = Visibility.Hidden;
             }
+            if (txtInput.Password.Length > 20)
+            {
+                Text = Text.Substring(0, 20);
+            }
         }
     }
 }

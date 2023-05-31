@@ -145,15 +145,31 @@ namespace TravelAgent.view
 
             else if (!Regex.IsMatch(email, pattern))
             {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+                tbEmail.BorderBrush = Brushes.Red;
+                tbEmail.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorText = "Molimo Vas unesite email adresu u ispravnom formatu. Primer: perica@gmail.com";
             }else if(password.Length < 6)
             {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
+                lozinka.BorderBrush = Brushes.Red;
+                lozinka.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorText = "Molimo Vas unesite lozinku od minimalno 6 karaktera. Primer: Perica123";
             }
             else
             {
+                lozinka.BorderThickness = new Thickness(0);
+                tbEmail.BorderThickness = new Thickness(0);
+                prezime.BorderThickness = new Thickness(0);
+                ime.BorderThickness = new Thickness(0);
                 FileService.registerUser(name, surname, email, password);
 
                 double left = Left;

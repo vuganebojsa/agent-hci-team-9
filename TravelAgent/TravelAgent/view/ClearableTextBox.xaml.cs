@@ -50,6 +50,7 @@ namespace TravelAgent.view
 
         private void txtInput_TextChanged(object sender, TextChangedEventArgs e)
         {
+
             if (string.IsNullOrEmpty(txtInput.Text))
             {
                 tbPlaceholder.Visibility = Visibility.Visible;
@@ -58,6 +59,10 @@ namespace TravelAgent.view
             else
             {
                 tbPlaceholder.Visibility = Visibility.Hidden;
+            }
+            if(txtInput.Text.Length > 30)
+            {
+                Text = Text.Substring(0, 30);
             }
         }
     }
