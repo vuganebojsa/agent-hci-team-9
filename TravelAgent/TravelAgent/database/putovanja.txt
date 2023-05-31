@@ -5,4 +5,4 @@ id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani;obrisan
 5;kokoro;1000;7/20/2022 12:00:00 AM;11/19/2022 12:00:00 AM;1-s/11-s/1-t;0
 6;Petrovaradin;10000;10/13/2023 12:00:00 AM;10/15/2023 12:00:00 AM;14-s/2-t;0
 7;Krstarenje;4999;10/10/2022 12:00:00 AM;10/10/2022 12:00:00 AM;3-s;0
-8;dsadasds;300;10/20/2022 12:00:00 AM;10/30/2022 12:00:00 AM;2-t;0
+8;dsadasds;300;10/20/2022 12:00:00 AM;10/30/2022 12:00:00 AM;2-t;1
