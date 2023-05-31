@@ -119,6 +119,20 @@ namespace TravelAgent.view
           
             String name = tbNaziv.Text.Trim();
             String mesto = tbMesto.Text.Trim();
+            if (name == "")
+            {
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbMesto.BorderThickness = new Thickness(0);
+                tbNaziv.BorderBrush = Brushes.Red;
+                tbNaziv.BorderThickness = new Thickness(1);
+            }
+            else if (mesto == "")
+            {
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbMesto.BorderThickness = new Thickness(0);
+                tbMesto.BorderBrush = Brushes.Red;
+                tbMesto.BorderThickness = new Thickness(1);
+            }
 
             if (name == "" || mesto == "")
             {

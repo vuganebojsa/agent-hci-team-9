@@ -194,6 +194,63 @@ namespace TravelAgent.view
 
         private void Sacuvajte_ButtonClicked(object sender, EventArgs e)
         {
+            
+
+            String name = tbNaziv.Text;
+            String cena = tbCena.Text;
+            String datumPocetka = tbDatumPocetka.Text.Trim();
+            String datumKraja = tbDatumKraja.Text.Trim();
+            if (name.Trim() == "")
+            {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbNaziv.BorderBrush = Brushes.Red;
+                tbNaziv.BorderThickness = new Thickness(1);
+            }
+            else if (cena.Trim() == "")
+            {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbCena.BorderBrush = Brushes.Red;
+                tbCena.BorderThickness = new Thickness(1);
+            }
+            else if (datumPocetka.Trim() == "")
+            {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbDatumPocetka.BorderBrush = Brushes.Red;
+                tbDatumPocetka.BorderThickness = new Thickness(1);
+            }
+            else if (datumKraja.Trim() == "")
+            {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderBrush = Brushes.Red;
+                tbDatumKraja.BorderThickness = new Thickness(1);
+            }
+            
+            else
+            {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+
+            }
+
+           
+            
+            string format = "MM/dd/yyyy";
+            DateTime dateTimePocetak;
+            DateTime dateTimeKraj;
             if (tbNaziv.Text.Trim() == "")
             {
                 errorControl.Visibility = Visibility.Visible;
@@ -209,13 +266,6 @@ namespace TravelAgent.view
                 return;
             }
 
-
-            String datumPocetka = tbDatumPocetka.Text.Trim();
-            String datumKraja = tbDatumKraja.Text.Trim();
-            string format = "MM/dd/yyyy";
-            DateTime dateTimePocetak;
-            DateTime dateTimeKraj;
-
             if (datumPocetka == "" || datumKraja == "")
             {
 
@@ -229,6 +279,12 @@ namespace TravelAgent.view
             }
             else
             {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbDatumPocetka.BorderBrush = Brushes.Red;
+                tbDatumPocetka.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:MM/dd/yyyy (MM-mesec, dd-dan, yyyy-godina)";
                 return;
@@ -240,12 +296,25 @@ namespace TravelAgent.view
             }
             else
             {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderBrush = Brushes.Red;
+                tbDatumKraja.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorHandler.Text = "Molimo Vas unesite datum formata:MM/dd/yyyy (MM-mesec, dd-dan, yyyy-godina)";
                 return;
             }
             if (dateTimePocetak > dateTimeKraj)
             {
+                errorControl.Visibility = Visibility.Visible;
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderBrush = Brushes.Red;
+                tbDatumKraja.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorHandler.Text = "Datum pocetka mora biti pre datuma kraja, molimo Vas unesite drugacije datume";
                 return;
@@ -263,6 +332,12 @@ namespace TravelAgent.view
             }
             else
             {
+                tbDatumPocetka.BorderThickness = new Thickness(0);
+                tbDatumKraja.BorderThickness = new Thickness(0);
+                tbCena.BorderThickness = new Thickness(0);
+                tbNaziv.BorderThickness = new Thickness(0);
+                tbCena.BorderBrush = Brushes.Red;
+                tbCena.BorderThickness = new Thickness(1);
                 errorControl.Visibility = Visibility.Visible;
                 errorControl.ErrorHandler.Text = "Molimo Vas unesite cenu u brojevima";
                 return;
