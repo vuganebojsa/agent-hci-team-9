@@ -162,6 +162,9 @@ namespace TravelAgent.view
 
         }
 
+        private void btnHelp_ButtonClicked(object sender, EventArgs e)
+        {
 
+        }
     }
 }

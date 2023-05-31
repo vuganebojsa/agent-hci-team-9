@@ -34,9 +34,14 @@
                 <StackPanel Grid.Row="0" Grid.Column="2">
                     <TextBlock Foreground="#FF105A87" TextWrapping="Wrap" Margin="30 30 50 10" FontSize="20" FontWeight="DemiBold">Ukoliko nemate profil, pritisnite dugme ispod za registraciju</TextBlock>
                     <Grid>
-                        <travel:BivujaButton ButtonClicked="Registracija_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Registracija"/>
+                        <StackPanel>
+                            <travel:BivujaButton ButtonClicked="Registracija_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Registracija"/>
+                            <travel:BivujaButton  x:Name="btnHelp"  ButtonClicked="btnHelp_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="?" VerticalAlignment="Top"/>
 
-                        
+                        </StackPanel>
+                      
+
+
                     </Grid>
                 </StackPanel>
                 <DockPanel Grid.Column="1">

@@ -30,6 +30,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0">
@@ -41,6 +42,9 @@
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <travel:BivujaButton ButtonClicked="Putovanja_ButtonClicked" Width="350" Height="50" Margin="10 30 10 0" ButtonContent="Ponuda putovanja"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3">
+                    <travel:BivujaButton x:Name="btnHelp" ButtonClicked="btnHelp_ButtonClicked" Width="350" Height="50" Margin="10 30 10 0" ButtonContent="?"/>
                 </StackPanel>
 
             </Grid>

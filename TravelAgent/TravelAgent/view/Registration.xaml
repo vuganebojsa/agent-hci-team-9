@@ -61,12 +61,16 @@
                     <Grid Grid.Row="1" Grid.Column="1">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="7*"></RowDefinition>
-                                <RowDefinition Height="5*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
                             </Grid.RowDefinitions>
+
                             <travel:BivujaButton Grid.Row="0" ButtonClicked="Pocetna_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Pocetna" VerticalAlignment="Top"/>
 
-                            <travel:BivujaButton Grid.Row="1" ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati" VerticalAlignment="Center"/>
+                            <travel:BivujaButton Grid.Row="1" ButtonClicked="Prihvati_ButtonClicked" Width="150" Height="50" Margin="10 16 10 0" ButtonContent="Prihvati"  VerticalAlignment="Top"/>
+                            <travel:BivujaButton Grid.Row="2" x:Name="btnHelp" ButtonClicked="btnHelp_ButtonClicked"  Width="150" Height="50" Margin="10 16 10 0" ButtonContent="?" VerticalAlignment="Top"/>
+
 
                         </Grid>
 
