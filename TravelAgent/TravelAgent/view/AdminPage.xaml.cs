@@ -197,7 +197,7 @@ namespace TravelAgent.view
             }
         else if(topNav.HeaderText.ToLower()=="upravljanje putovanjima")
             {
-                displayHtml display = new displayHtml("/html/RegisterWindow.htm");
+                displayHtml display = new displayHtml("/html/UpravljanjePutovanjimaWindow.htm");
                 display.ShowDialog();
 
             }
