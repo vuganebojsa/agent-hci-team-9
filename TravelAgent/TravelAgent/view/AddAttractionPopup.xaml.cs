@@ -141,7 +141,7 @@ namespace TravelAgent.view
                 errorControl.ErrorHandler.Text = "Molimo Vas popunite sva polja.";
                 return;
             }
-            SelectedLocation.Naziv = mesto;
+           
             errorControl.Visibility = Visibility.Hidden;
 
             TouristAttraction att = new TouristAttraction();
@@ -157,6 +157,7 @@ namespace TravelAgent.view
                     errorControl.ErrorHandler.Text = "Molimo Vas selektujte lokaciju na mapi.";
                     return;
                 }
+                SelectedLocation.Naziv = mesto;
                 FileService.addAttraction(att);
 
                 // da bi mogli znati da li je sacuvano da se refreshuje tabela
@@ -178,7 +179,7 @@ namespace TravelAgent.view
             else
             {
                 // ovo je edit
-
+                SelectedLocation.Naziv = mesto;
                 List<TouristAttraction> attractions = FileService.getAtractions();
                 foreach (TouristAttraction attr in attractions)
                 {

@@ -10,3 +10,5 @@ id;naziv;mesto;tip;fleg
 14;Petrovaradin Palata;15;Smestaj;0
 15;safsa;16;Restoran;0
 16;asfsafa;17;Smestaj;0
+17;fsafsa;18;Smestaj;0
+18;Markovicevo;19;Smestaj;0
