@@ -1,0 +1,23 @@
+.logo-text{
+    color: white;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.bg-bivuja{
+    background-color: #073E66;
+}
+
+.bivuja-text-color{
+    color: #073E66;
+}
+
+.bivuja-title{
+    font-size: 34px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.p-border{
+    border: 2px solid black;
+}

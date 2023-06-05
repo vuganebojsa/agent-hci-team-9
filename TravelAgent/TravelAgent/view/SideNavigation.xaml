@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="TravelAgent.view.SideNavigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgent.view"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="300">
+    <Grid Background="#105A87">
+        <StackPanel>
+            <TextBlock Text="BIVUJA AGENT ZA PUTOVANJE" TextWrapping="Wrap" FontWeight="DemiBold" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="10 4 30 20"/>
+
+            <local:NavigationButton x:Name="btnPregled" ButtonContent="Pregled svih putovanja" Margin="2 2 2 2" ButtonClicked="btnPregled_ButtonClicked"/>
+            <local:NavigationButton x:Name="btnRezervisani" ButtonContent="Pregled rezervisanih putovanja" Margin="2 2 2 2" ButtonClicked="NavigationButton_ButtonClicked"/>
+            
+        </StackPanel>
+        <local:NavigationButton x:Name="btnQuestion" ButtonContent="?" Margin="15 15 15 15" VerticalAlignment="Bottom" ButtonClicked="HelpButton_ButtonClicked"/>
+
+    </Grid>
+</UserControl>

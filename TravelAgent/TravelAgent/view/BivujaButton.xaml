@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="TravelAgent.BivujaButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgent" d:DataContext="{d:DesignInstance Type=local:BivujaButton}"
+             mc:Ignorable="d" 
+             Height="70" Width="100" Background="#105A87">
+
+    <Button Click="Button_Click" x:Name="btnBivuja" Foreground="White" Background="#105A87" FontSize="16" BorderBrush="White" BorderThickness="1"> 
+        <TextBlock x:Name="tbBivuja" Text="{Binding ButtonContent}"></TextBlock>
+
+    </Button>
+</UserControl>
