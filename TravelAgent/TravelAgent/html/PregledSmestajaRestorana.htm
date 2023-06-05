@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Bivuja</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+<script src=""></script>
+<body>
+    <div class="row py-5 bg-bivuja">
+        <div class="col-12 text-center">
+            <h1 class="logo-text">Bivuja Agent Za Putovanje</h1>
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col-12 text-center">
+            <h1 class="bivuja-text-color bivuja-title">Pregled svih restorana</h1>
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-12">
+            <p class="p-3 p-border">
+                Stranica <b>Upravljanje smestajem i restoranima</b> je stranica koja agentu prikazuje sve smestaje i restorane. Takodje preko ove stranice 
+                agent moze da vrsi funkcije dodavanja, brisanje i izmene smestaja i restorana.
+                <br>Stranica je prikazana na slici dole. 
+            </p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <img src="slike/smestaj_restoran_start_page.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-6 col-12">
+            <p class="p-3 p-border mt-5">
+               Mozete da pretrazite smestaje i restorane po svim kriterijumima. U tekst polje u gornjem desnom uglu unesete tekst
+               i on ce automatski izvrsiti pretragu i izlistati sve smestaje i restorane koja sadrze unesenu rec ili reci. Takodje moguce je sortirati putovanja klikom na
+               naziv polja po kojem zelite da sortirate smestaje i restorane.
+    
+            </p>
+        </div>
+        <div class="col-md-6 col-12 text-center">
+            <img src="slike/smestaj_restoran_search.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-6 col-12">
+            <p class="p-3 p-border mt-5">
+             Kada pritisnete dumge <b>Obrisi</b>, a prethodno ste selektovali red u tabeli iskoci vam sledeci popup koji vas dodatno pita da li zelite da obrisete odredjen smestaj/putovanje.
+                
+            </p>
+        </div>
+        <div class="col-md-6 col-12 text-center">
+            <img src="slike/smestaj_restorani_obrisi_selektovano.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-6 col-12">
+            <p class="p-3 p-border mt-5">
+             Kada pritisnete dumge <b>Obrisi</b>, a prethodno niste selektovali red u tabeli, iskocice vam ekran koji vam kaze da nije selektovan nijedan red..
+            <br>Ovo isto vazi i kod izmene, tj isti ekran ce iskociti ukoliko ste pritisnuli dugme <b>Izmeni</b>, a niste selektovali red u tabeli.
+            </p>
+        </div>
+        <div class="col-md-6 col-12 text-center">
+            <img src="slike/smestaj_restorani_obrisi_neselektovano.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-6 col-12">
+            <p class="p-3 p-border mt-5">
+                Kada pritisnete dugme <b>Izmeni</b>, a pritom je selektovan red u tabeli, otvori se novi ekran sa vec popunjenim poljima o izabranom Smestaju/Restoranu.
+                Ta polja se mogu promeniti, a i ne moraju. 
+            </p>
+        </div>
+        <div class="col-md-6 col-12 text-center">
+            <img src="slike/smestaj_restoran_izmena.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-12 col-12">
+            <p class="p-3 p-border mt-5">
+                Kada pritisnete dugme <b>Dodaj</b>, iskocice ista forma kao kod izmene, s tim da ce polja biti prazna, kako bi vi kreirali nov Smestaj/Putovanje. 
+                <br>Prvo polje kad se klikne dobijete prikaz kao na drugoj slici i klikom na Restoran ili smestaj birate vrstu objekta koju kreirate.
+            </p>
+        </div>
+
+    </div>
+    <div class="row m-4">
+        <div class="col-md-4 col-12 text-center mx-3">
+            <img src="slike/smestaj_restoran_dodavanje.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+        <div class="col-md-4 col-12 text-center mx-3">
+            <img src="slike/smestaj_restoran_dodavanje_1.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-12 col-12">
+            <p class="p-3 p-border mt-5">
+                Ukoliko niste popunili neko od polja forme, tj ostavili ste prazno, iskocice vam poruka ispod naslova koja govori sta nije popunjeno.
+                Takodje ce odredjeno polje biti obojeno crvenom bojom.
+                Ukoliko niste selektovali mesto na mapi isto cete dobiti poruku koja kaze da niste izvrsili odredjenu akciju.
+                <br>Mozete videti primere ovih stvari na slikama dole.
+            </p>
+        </div>
+
+    </div>
+    <div class="row m-4">
+        <div class="col-md-4 col-12 text-center mx-3">
+            <img src="slike/smestaj_restorani_dodavanje_prazna_polja.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+        <div class="col-md-4 col-12 text-center mx-3">
+            <img src="slike/smestaj_restorani_dodavanje_neselektovana_mapa.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+    <div class="row m-4">
+        <div class="col-md-6 col-12">
+            <p class="p-3 p-border mt-5">
+                Kada se pritisne dugme <b>Sacuvaj</b>, a pritom su sva polja popunjena i mapa selektovana, iskoci vam sledeci ekran koji potvrdjuje vasu akciju kreiranja Smestaja/Restorana.
+                <br>Klikom na dugme <b>Ok</b> prebacuje vas na stranicu sa tabelom.
+            </p>
+        </div>
+        <div class="col-md-6 col-12 text-center">
+            <img src="slike/smestaj_restoran_uspesno_dodavanje.png" alt="Pocetna Slika" width="500" height="400" style="border: 2px solid black;">
+    
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
