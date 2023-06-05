@@ -1,4 +1,3 @@
 id;naziv;mesto;fleg
 1;Lepo nesto;11;0
 2;Petrovaradinska Tvrdjava;14;0
-3;Mesto;20;1
