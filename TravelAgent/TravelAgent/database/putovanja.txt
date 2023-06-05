@@ -7,3 +7,4 @@ id;naziv;cena;datum pocetka;datum kraja;atrakcije;smestaj i restorani;obrisan
 7;Krstarenje;4999;10/10/2022 12:00:00 AM;10/10/2022 12:00:00 AM;3-s;0
 9;dsda;2222;10/15/2020 12:00:00 AM;10/15/2020 12:00:00 AM;1-t;0
 10;disuahdiasudhiu;2020;10/15/2020 12:00:00 AM;10/18/2020 12:00:00 AM;3-s/2-t;0
+11;lepo nesto;200;12/12/2025 12:00:00 AM;12/12/2025 12:00:00 AM;2-t;0
