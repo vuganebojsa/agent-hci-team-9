@@ -105,13 +105,13 @@ namespace TravelAgent.view
         {
             if (SelectedText.ToLower() == "pregled rezervisanih putovanja")
             {
-                displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\PregledRezervisanihPutovanjaWindow.htm");
+                displayHtml display = new displayHtml("/html/PregledRezervisanihPutovanjaWindow.htm");
                 display.ShowDialog();
 
             }
             else if (SelectedText.ToLower() == "pregled svih putovanja")
             {
-                displayHtml display = new displayHtml("C:\\Users\\Bogdan\\HCIprojekat\\agent-hci-team-9\\TravelAgent\\TravelAgent\\bin\\Debug\\net6.0-windows\\PregledSvihPutovanjaWindow.htm");
+                displayHtml display = new displayHtml("/html/PregledSvihPutovanjaWindow.htm");
                 display.ShowDialog();
 
             }
