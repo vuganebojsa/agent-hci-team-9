@@ -141,6 +141,9 @@ namespace TravelAgent.view
 
         }
 
+        private void BivujaButton_Loaded(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
