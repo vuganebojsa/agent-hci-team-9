@@ -185,7 +185,7 @@ namespace TravelAgent.view
         private void SideNavigationAgent_ButtonHelp(object sender, EventArgs e)
         {   if (topNav.HeaderText.ToLower()=="upravljanje atrakcijama")
             {
-                displayHtml display = new displayHtml("/html/RegisterWindow.htm");
+                displayHtml display = new displayHtml("/html/AtrakcijeWindow.htm");
                 display.ShowDialog();
 
             }
