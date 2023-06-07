@@ -6,9 +6,3 @@ id;naziv;mesto;tip;fleg
 10;xzvxzv;5;Smestaj;1
 11;Baka prase;11;Smestaj;0
 12;fasfas;12;Smestaj;1
-13;Kamelot;13;Restoran;0
-14;Petrovaradin Palata;15;Smestaj;0
-15;safsa;16;Restoran;0
-16;asfsafa;17;Smestaj;0
-17;fsafsa;18;Smestaj;0
-18;Markovicevo;19;Smestaj;0

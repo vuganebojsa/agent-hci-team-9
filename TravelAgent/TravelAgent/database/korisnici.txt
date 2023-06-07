@@ -17,3 +17,4 @@ id;ime;prezime;email;lozinka;uloga
 16;Marko;Markovic;marko@gmail.com;Marko123;USER
 17;Milosina;Milic;Miki@gmail.com;Miki123;USER
 18;Pera;Peric;pera@gmail.com;Perica123;USER
+19;Jovan;Salajic;jovan@gmail.com;Jovan123;USER
