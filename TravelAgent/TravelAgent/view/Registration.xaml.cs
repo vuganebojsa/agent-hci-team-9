@@ -205,7 +205,7 @@ namespace TravelAgent.view
         private void btnHelp_ButtonClicked(object sender, EventArgs e)
         {
             displayHtml display = 
-                new displayHtml("/html/RegisterWindow.htm");
+                new displayHtml("/../../../html/RegisterWindow.htm");
             display.ShowDialog();
         }
     }
