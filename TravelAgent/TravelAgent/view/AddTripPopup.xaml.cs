@@ -394,7 +394,7 @@ namespace TravelAgent.view
             }
             else
             {
-                List<Trip> trips = FileService.getAllActiveTrips();
+                List<Trip> trips = FileService.getAllTrips();
                 
                 foreach (Trip trip in trips)
                 {  
