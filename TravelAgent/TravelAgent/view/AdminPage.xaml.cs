@@ -185,25 +185,25 @@ namespace TravelAgent.view
         private void SideNavigationAgent_ButtonHelp(object sender, EventArgs e)
         {   if (topNav.HeaderText.ToLower()=="upravljanje atrakcijama")
             {
-                displayHtml display = new displayHtml("/html/AtrakcijeWindow.htm");
+                displayHtml display = new displayHtml("/../../../html/AtrakcijeWindow.htm");
                 display.ShowDialog();
 
             }
         else if(topNav.HeaderText.ToLower()=="upravljanje smestajem i restoranima")
             {
-                displayHtml display = new displayHtml("/html/PregledSmestajaRestorana.htm");
+                displayHtml display = new displayHtml("/../../../html/PregledSmestajaRestorana.htm");
                 display.ShowDialog();
 
             }
         else if(topNav.HeaderText.ToLower()=="upravljanje putovanjima")
             {
-                displayHtml display = new displayHtml("/html/UpravljanjePutovanjimaWindow.htm");
+                displayHtml display = new displayHtml("/../../../html/UpravljanjePutovanjimaWindow.htm");
                 display.ShowDialog();
 
             }
         else if(topNav.HeaderText.ToLower()=="pregled prodatih putovanja")
             {
-                displayHtml display = new displayHtml("/html/PregledProdatihPutovanja.htm");
+                displayHtml display = new displayHtml("/../../../html/PregledProdatihPutovanja.htm");
                 display.ShowDialog();
 
             }

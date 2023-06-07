@@ -90,7 +90,7 @@ namespace TravelAgent.view
 
         private void btnHelp_ButtonClicked(object sender, EventArgs e)
         {
-            displayHtml display = new displayHtml("/html/StartWindow.htm");
+            displayHtml display = new displayHtml("/../../../html/StartWindow.htm");
             display.ShowDialog();
         }
     }
