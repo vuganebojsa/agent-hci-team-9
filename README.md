@@ -3,9 +3,9 @@ HCI
 Project for a travel organisation about travel in Serbia
 
 Pokretanje projekta u ulozi agenta je uz pomocu:
-pera@gmail.com
-Perica123
+mirko@gmail.com
+Mirko123
 
 Pokretanje projekta u ulozi korisnika se vrši pomocu:
-bogdan@gmail.com 
-Bogdan123
+pera@gmail.com
+Perica123
